@@ -1,0 +1,308 @@
+.bsc.bsc__main{}
+.bsc.bsc__main .bsc__section{}
+.bsc.bsc__main .bsc__section.section__categories{}
+
+
+.bsc.bsc__main .bsc__section.section__categories  header{
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content:space-between
+}
+.bsc.bsc__main .bsc__section.section__categories  header hr{
+    flex-grow: 1;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+.bsc.bsc__main .bsc__section.section__categories header h1{
+    font-size: 23px;
+    font-weight: 400;
+    margin: 0;
+    padding: 9px 0 4px;
+    line-height: 1.3;
+    letter-spacing: 2px;
+}
+
+.bsc.bsc__main .bsc__section.section__categories  content{
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+.bsc.bsc__main .bsc__section.section__categories  form.bsc__form_btn{
+	width: 200px;
+    height: 200px;
+
+    background-color: white;
+    border: 1px solid #c3c4c7;
+    box-shadow: 0 1px 1px rgba(0,0,0,.04);
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;  transition: background-color 0.3s ease;
+
+    box-sizing: border-box;
+    padding: 1em;
+
+    text-align: center;
+
+    margin-right: 2em;
+}
+.bsc.bsc__main .bsc__section.section__categories .categories__reset form.bsc__form_btn:hover {
+  background-color: #e0e0e0;
+  cursor: pointer;
+}
+
+.bsc.bsc__main .bsc__section.section__categories .categories__reset img {
+   width: 20%;
+   padding: 1em;
+}
+.bsc.bsc__main .bsc__section.section__categories .categories__reset label {
+   
+  }
+
+
+
+
+
+
+
+
+
+
+  
+
+  .bsc.bsc__main .bsc__section.section__categories  header{
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content:space-between
+}
+.bsc.bsc__main .bsc__section.section__categories  header hr{
+    flex-grow: 1;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+.bsc.bsc__main .bsc__section.section__categories header h1{
+    font-size: 23px;
+    font-weight: 400;
+    margin: 0;
+    padding: 9px 0 4px;
+    line-height: 1.3;
+    letter-spacing: 2px;
+}
+
+.bsc.bsc__main .bsc__section.section__categories  content{
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+.bsc.bsc__main .bsc__section.section__categories  form.bsc__form_btn{
+	width: 200px;
+    height: 200px;
+
+    background-color: white;
+    border: 1px solid #c3c4c7;
+    box-shadow: 0 1px 1px rgba(0,0,0,.04);
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;  transition: background-color 0.3s ease;
+
+    box-sizing: border-box;
+    padding: 1em;
+
+    text-align: center;
+
+    margin-right: 2em;
+}
+.bsc.bsc__main .bsc__section.section__categories .products__reset form.bsc__form_btn:hover {
+  background-color: #e0e0e0;
+  cursor: pointer;
+}
+
+.bsc.bsc__main .bsc__section.section__categories .products__reset img {
+   width: 20%;
+   padding: 1em;
+}
+.bsc.bsc__main .bsc__section.section__categories .products__reset label {
+   
+  }
+
+
+
+
+
+
+
+
+
+
+.bsc__tabs{
+    width: 100%;
+}
+.bsc__tabs .tabs__headers{
+    display: block;
+    width: 100%;
+ 
+    display: flex;
+    justify-content: flex-start;   
+     align-items: center;
+}
+.bsc__tabs .tabs_header{
+    cursor: pointer;
+    padding: 0.25em 1em;
+    margin-right: 0.5em;
+    transition: background-color 0.3s ease;
+}
+.bsc__tabs .tabs__contents{}
+.bsc__tabs .tabs__content{
+    display: flex;
+    justify-content: flex-start;
+    align-items:flex-start;
+    flex-direction: row;
+    width: 1000px;
+}
+.bsc__tabs .content__column{
+    display: flex;
+    justify-content: flex-start;
+    align-items:flex-start;
+    flex-direction: column;
+    padding: 1em;
+    max-width: 300px;
+}
+
+.bsc__tabs .column_header{
+    width: 100%;
+    padding: 6px;
+    color: white;
+    border: 1px solid #979797;
+    background-color: #6d6d6d ;
+}
+.bsc__tabs .column_add{
+    width: calc(100% + 12px);
+    display: block;
+    padding: 0px;
+    border: 1px solid #c3c4c753;
+}
+.bsc__tabs .column_add input{
+    padding: 6px;
+    display: block;
+    background-color: rgba(0,0,0,0);
+    outline: none;
+    border: none;
+    width: 100%;
+    font-size: 12px;
+}
+
+.bsc__tabs .content__row{
+    width: 100%;
+    padding: 6px;
+    border: 1px solid #c3c4c7;
+    cursor: pointer;
+}
+
+
+.bsc__tabs .content__row.is_selected{
+    width: 100%;
+    padding: 6px;
+    border: 1px solid #c3c4c7;
+    background-color: #c3c4c7;
+    cursor: pointer;
+}
+
+.bsc__tabs .content__row:hover{
+    background-color: #e0e0e0;
+}
+
+.bsc__tabs  .tabs__contents{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+}
+.bsc__tabs .tabs__content__sidebar{
+    width: 350px;
+    height: 100%;
+    margin: 26px 36px;
+    margin-right: 0px;
+    border :1px solid #c3c4c7;
+    box-sizing: border-box;
+}
+
+.bsc__tabs .bsc__category_sidebar{
+    display: block;
+    width: 100%;
+    padding: 1em;
+    box-sizing: border-box;
+}
+.bsc__tabs .bsc__category_sidebar hr{
+    width: 100%;
+    display: block;
+}
+.bsc__tabs .bsc__category_sidebar h2{
+    margin: 0px;
+    padding: 0px;
+}
+
+.bsc__tabs .bsc__category_sidebar fieldset{
+    margin: 0px;
+    padding: 0px;
+    display: block;
+}
+.bsc__tabs .bsc__category_sidebar label{
+    margin: 0px;
+    padding: 0px;
+    display: block;
+    position: relative;
+    top: 12px;
+    left: 10px;
+    width: fit-content;
+    padding: 2px 6px;
+    background-color: #f0f0f1;
+}
+.bsc__tabs .bsc__category_sidebar input{
+    margin: 0px;
+    padding: 0px;
+    display: block;
+
+    padding: 6px;
+    padding-top: 12px;
+    background-color: rgba(0,0,0,0);
+    outline: none;
+    border: 1px solid #c3c4c7;
+    width: 100%;
+    font-size: 12px;
+}
+
+.bsc__tabs .bsc__buttons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.bsc__tabs .bsc__button{}
+.bsc__tabs .bsc__button.button--save{}
+.bsc__tabs .bsc__button.button--cancel{
+    color: #6d6d6d;
+    border-color: #979797;
+    background-color: var(--e-a-btn-bg-disabled);
+}
+.bsc__remove{
+    display: inline-block;
+    float: right;
+    padding-right: 5px;
+    cursor: pointer;
+}
+
+.bsc__remove:hover{
+    color: red;
+}
