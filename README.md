@@ -33,6 +33,11 @@ Features:
 
 ## Frequently Asked Questions
 
+How to Debug? Go to 
+
+http://bsc.local/product-category/group-skin-care/sk-rutina/sk-rutina-s1-limpiadores-aceitosos/
+
+
 = Incorrect number of products =
 
 Go to settings page. You will see a checkbox to clear transients.
@@ -58,6 +63,10 @@ Yes, you can. Go to settings page. You will see a text field to chage the overla
 
 ## Changelog
 
+= 2.0.5 =
+
+* Fixed bug - 'wcapf_get_term_objects' funtion was working incorrectly
+  
 = 2.0.3 =
 
 * Fixed bug - 'wcapf_get_term_objects' funtion was working incorrectly
