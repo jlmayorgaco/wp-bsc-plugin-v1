@@ -117,6 +117,12 @@ class BSC_WC_Shop_Product_Filters extends WP_Widget
     public function widget($args, $instance)
     {
 
+        echo "<h1>MIRA MI PHP</h1>";
+        var_dump($this->getCurrentGroups());
+        echo "<br>";
+        echo "<br>";
+        echo "<br>";
+
         // Get current categories group
         $current_group_and_page = $this->getCurrentGroups();
         if ($current_group_and_page) {
