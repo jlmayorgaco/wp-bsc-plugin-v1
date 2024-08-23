@@ -306,3 +306,16 @@
 .bsc__remove:hover{
     color: red;
 }
+
+
+
+
+
+
+
+.products.ul_products{
+    display: grid !important;
+    grid-template-columns: repeat(12, 1fr) !important;
+    grid-template-rows: 1fr auto !important;
+    gap: 10px !important;
+}
