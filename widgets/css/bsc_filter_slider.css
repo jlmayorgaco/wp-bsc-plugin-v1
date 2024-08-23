@@ -52,7 +52,7 @@
   }
   
   input[type="number"] {
-    color: #8a8383;
+    color: #333333;
     width: auto;
     height: 30px;
     font-size: 16px;
@@ -106,12 +106,14 @@
 }
 
 .label__currency {
+  color: #333333;
     margin-right: 1px; /* Adjust spacing between currency symbol and price */
 }
 
 .label__price {
     display: flex;
     align-items: center;
+    color: #333333;
 }
 
 .form_control_container__time__input {
