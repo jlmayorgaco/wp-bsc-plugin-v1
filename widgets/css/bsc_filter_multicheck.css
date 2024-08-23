@@ -24,7 +24,7 @@
 }
 .multicheck__summary{
 
-    font-size: 14px;;
+    font-size: 12px;
 
     border-style: solid;
     border-width: 0px 0px 1px 0px;
@@ -35,8 +35,10 @@
     text-transform: uppercase;
     letter-spacing: 2.6px;
 
-    padding: 16px;
+    padding: 12px;
     padding-left: 0px;
+
+    color: #333333;
 
 }
 .multicheck__details{
@@ -58,7 +60,7 @@ details > summary:after {
     content: "+";
     position: absolute;
     right: 12px;
-    top: 10px;
+    top: 3px;
     font-size: 24px;
     font-weight: 100;
     font-family: Helvetica, sans-serif;
@@ -131,7 +133,7 @@ details[open] > summary:after {
 /* Product title */
 .product h1 {
     font-size: 16px;
-    margin: 5px 0;
+    margin: 2px 0;
 }
 
 /* Product image */
@@ -164,4 +166,11 @@ details[open] > summary:after {
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: flex-start; 
-}
+
+    }
+
+
+
+
+
+
