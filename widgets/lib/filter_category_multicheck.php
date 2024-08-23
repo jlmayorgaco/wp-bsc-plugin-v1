@@ -54,9 +54,21 @@ function doRenderFilterMultiCheckbox($menuItem, $group, $page, $subpage)
                 $child_slug = $child->slug;
                 $child_name = $child->name;
                 $child_count = $child->count;
-            ?>
+                $child_type = 'checkbox';
+                if($label == 'Necesidad'){
+                    $child_type = 'radio'; 
+                }
+            ?>          
+                
                 <li class="multicheck__option">
-                    <input id="<?php echo $child_id; ?>" type="checkbox" value="false"
+                    <input id="<?php echo $child_id; ?>" type="<?php echo $child_type; ?>" value="false"
+                    <?php 
+                        if($child_type == 'radio'){
+                            ?>  
+                            name = "<?php echo $label; ?>"
+                            <?php
+                        }
+                    ?>
                     bsc-wcfp-parent-slug="<?php echo $slug; ?>"
                     bsc-wcfp-current-slug="<?php echo $child_slug; ?>"
                     bsc-wcfp-group-slug="<?php echo $group; ?>"
