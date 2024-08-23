@@ -1,4 +1,20 @@
 <?php
+
+function parseUrlForGroups($url) {
+    $parts = explode("/", $url);
+    $category_index = array_search('product-category', $parts);
+
+    if ($category_index !== false) {
+        return [
+            'group' => $parts[$category_index + 1] ?? null,
+            'page' => $parts[$category_index + 2] ?? null,
+            'subpage' => $parts[$category_index + 3] ?? null,
+        ];
+    }
+
+    return null;
+}
+
 function getQueryProducts($skuCategoryGroup, $skuCategoryPage){
     // Get products in both categories
     $args = array(
