@@ -37,7 +37,6 @@ const debounce = (callback, wait) => {
         stepHTML = '<h2 class="product__subtitle"> </div>';
     }*/
 
-    console.log({doc})
     return `<li class="bsc__product">
                 <a class="product__container" href="${permalink}">
                     <img class="product__thumb" src="${image}" alt="">
@@ -84,23 +83,11 @@ const debounce = (callback, wait) => {
                 // Handle successful response
                 if (response.success) {
 
-                    console.log(' ')
-                    console.log(' ajaxPayload')
-                    console.log(ajaxPayload)
-                    console.log(' ')
 
                     var ajaxData = response.data; // Retrieve data from response
-                    console.log(' ')
-                    console.log(' ajaxData')
-                    console.log(ajaxData)
-                    console.log(' ')
+     
 
                     const html =  ajaxData.map(doc => doRenderProductCardHTML(doc));
-
-                    console.log(' ')
-                    console.log(' html')
-                    console.log(html)
-                    console.log(' ')
 
 
                     document.querySelector('ul.products').innerHTML = html.join('');
@@ -168,6 +155,65 @@ class FiltersBSC {
     }
 
     doToogleFilterStatusById(id, payload){
+
+      
+
+        const checklistsCurrentSummaryQuery = `[bsc-wcfp-parent-slug="${payload.summary}"][bsc-wcfp-group-slug="${payload.group}"][bsc-wcfp-page-slug="${payload.page}"]`;
+        const checklistCurrentElems = document.querySelectorAll(checklistsCurrentSummaryQuery);
+
+        if(this.filtersCategory.size < payload.limit){
+            checklistCurrentElems.forEach(item => {
+                if(item.getAttribute('bsc-wcfp-current-slug') !== payload.current){
+                    item.disabled = true;
+                }
+
+            })
+        } else{
+            checklistCurrentElems.forEach(item => {
+    
+                item.disabled = false;
+
+            })
+        }
+
+
+
+        if(this.filtersCategory.size < payload.limit){
+            if(!this.filtersCategory.has(id)){
+                this.filtersCategory.set(id, payload);
+            } else{
+                this.filtersCategory.delete(id);
+            }
+        } else {
+            if(this.filtersCategory.has(id)){
+                this.filtersCategory.delete(id);
+            }
+        }
+
+        console.log(' ')
+        console.log(' this.filtersCategory')
+        console.log(this.filtersCategory)
+        console.log(' ')
+
+
+        if(this.filtersGroup){
+            this.doAjax();
+        }
+    }
+
+    doSetFilterStatusById(id, payload){
+
+        console.log(' ')
+        console.log(' doSetFilterStatusById ')
+        console.log(' ')
+        console.log({id, payload})
+        console.log(' ')
+        console.log(' this.filtersCategory ')
+        console.log(this.filtersCategory)
+        console.log(' ')
+
+        /*
+
         if(!this.filtersCategory.has(id)){
             this.filtersCategory.set(id, payload);
         } else{
@@ -177,6 +223,8 @@ class FiltersBSC {
         if(this.filtersGroup){
             this.doAjax();
         }
+
+        */
     }
 
 
@@ -196,25 +244,60 @@ filtersBSC.doInit();
 
 jQuery(document).ready(function() {
     const container = document.querySelector('ul.products');
-    const group = document.querySelector('[bsc-wcfp-group]').getAttribute('bsc-wcfp-group')
-    const page = document.querySelector('[bsc-wcfp-page]').getAttribute('bsc-wcfp-page')
-    const subpage = document.querySelector('[bsc-wcfp-subpage]').getAttribute('bsc-wcfp-subpage')
-    console.log({group, page})
-    if(group) filtersBSC.setGroup(group);
-    if(page) filtersBSC.setPage(page);
-    if(subpage){
-        filtersBSC.setSubPage(subpage);
-        document.querySelectorAll('[bsc-wcfp-subpage-slug="'+subpage+'"]').forEach(item => {
-            item.click();
-        })
-    }
+    if(container){
+        const group = document.querySelector('[bsc-wcfp-group]').getAttribute('bsc-wcfp-group')
+        const page = document.querySelector('[bsc-wcfp-page]').getAttribute('bsc-wcfp-page')
+        const subpage = document.querySelector('[bsc-wcfp-subpage]').getAttribute('bsc-wcfp-subpage')
+        console.log({group, page})
+        if(group) filtersBSC.setGroup(group);
+        if(page) filtersBSC.setPage(page);
+        if(subpage){
+            filtersBSC.setSubPage(subpage);
+            document.querySelectorAll('[bsc-wcfp-subpage-slug="'+subpage+'"]').forEach(item => {
+                item.click();
+            })
+        }
 
-    filtersBSC.doAjax();
-    
+        filtersBSC.doAjax();
+    } 
 
 });
 
-jQuery('.multicheck__option input').change(function($event) {
+jQuery('.multicheck__option input[type="checkbox"]').change(function($event) {
+
+    const parentSlug = $event.target.getAttribute('bsc-wcfp-parent-slug');
+    const groupSlug = $event.target.getAttribute('bsc-wcfp-group-slug');
+    const currentSlug = $event.target.getAttribute('bsc-wcfp-current-slug');
+    const pageSlug = $event.target.getAttribute('bsc-wcfp-page-slug');
+    const subPageSlug = $event.target.getAttribute('bsc-wcfp-subpage-slug');
+
+    const limit = $event.target.getAttribute('bsc-wcfp-limit-number');
+
+    const payload = {
+        summary: parentSlug,
+        current: currentSlug,
+        group: groupSlug,
+        page: pageSlug,
+        subpage: subPageSlug,
+    }
+
+    if(limit && Number(limit) > 0 ){
+        payload['limit'] = Number(limit);
+    }
+
+    console.log(' ')
+    console.log(' ')
+    console.log(' payload:: $event ')
+    console.log(payload)
+    console.log(' ')
+    console.log(' ')
+
+
+    filtersBSC.doToogleFilterStatusById($event.target.id, payload);
+});
+
+
+jQuery('.multicheck__option input[type="radio"]').change(function($event) {
 
     const parentSlug = $event.target.getAttribute('bsc-wcfp-parent-slug');
     const groupSlug = $event.target.getAttribute('bsc-wcfp-group-slug');
@@ -230,5 +313,13 @@ jQuery('.multicheck__option input').change(function($event) {
         subpage: subPageSlug,
     }
 
-    filtersBSC.doToogleFilterStatusById($event.target.id, payload);
-});
+    console.log(' ')
+    console.log(' ')
+    console.log(' Radio Button :: $event ')
+    console.log(payload)
+    console.log(' ')
+    console.log(' ')
+
+    filtersBSC.doSetFilterStatusById($event.target.id, payload);
+
+})
