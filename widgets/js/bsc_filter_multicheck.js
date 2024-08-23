@@ -9,8 +9,14 @@ const debounce = (callback, wait) => {
   }
 
   const doRenderProductCardHTML = (doc) => {
+
+
+    const marca = doc.categories_objects.find(obj => obj.slug.includes('marca'));
+
+
     const title = doc.title;
-    const price = `$${doc.price}`;
+    const priceStr = Number(doc.price).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    const price = `$ ${priceStr}`;
     const permalink = doc.permalink;
     const image = doc.image;
     const categories = doc.categories;
@@ -20,6 +26,10 @@ const debounce = (callback, wait) => {
     const categoryKoreanRutine = doc.categories_objects.find(item => item['bsc__rutine_steps']);
     const step = categoryKoreanRutine?.bsc__rutine_steps;
     let stepHTML = ` `;
+    let marcaHTML = `<h1 class="product__brand"> _ </h1>`;
+    if(marca && marca.name){
+        marcaHTML = `<h1 class="product__brand"> ${marca.name} </h1>`
+    }
     /*
     if(step){
         stepHTML = `<h2 class="product__subtitle"> ${step}</h2>`;
@@ -32,6 +42,7 @@ const debounce = (callback, wait) => {
                 <a class="product__container" href="${permalink}">
                     <img class="product__thumb" src="${image}" alt="">
                     <h1 class="product__title"> ${title} </h1>
+                    ${marcaHTML}
                     ${stepHTML}
                     <h3 class="product__price"> ${price}  </h3>
                     <div class="category-badges">${categoryBadges}</div>
@@ -93,7 +104,12 @@ const debounce = (callback, wait) => {
 
 
                     document.querySelector('ul.products').innerHTML = html.join('');
-                    document.querySelector('ul.products').style.cssText += ';display:flex !important;'
+                    document.querySelector('ul.products').style.cssText += `
+                    display: grid !important;
+                    grid-template-columns: repeat(3, 1fr) !important;
+                    grid-template-rows: 1fr auto !important;
+                    gap: 10px !important;
+                    `;
 
                 } else {
                     console.log('Error:', response.data); // Log error message if any
