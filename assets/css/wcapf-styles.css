@@ -138,16 +138,22 @@ ul.products{
 }
 
 .kitify-archive-description {
-	padding-top: 2em;
+	padding-top: 1em;
 	max-width: 1000px;
 	margin: 0 auto;
 	width: 100%;
+}
+.kitify-archive-description p{
+	font-size: 18px;
 }
 
 .kitify-archive-description strong{
 	display: block;
 }
-
+[data-widget_type="kitify-archive-description.default"]{
+	margin-bottom: 0px !important;
+	margin-block-end: 0px !important;
+}
 .elementor-4221 .elementor-element.elementor-element-659eff9 img {
    position: relative;
    top: 10px;
@@ -158,6 +164,9 @@ ul.products{
 	width: 100% !important;
 	max-width: 100% !important;
 }
+
+
+
 
 
 .bsc__product{
@@ -181,23 +190,36 @@ ul.products{
 	padding: 0px;
 	margin: 0px;
 }
-.product__title{
+
+.product__title, .product__brand{
 	display: block;
 	margin: 0px;
 	margin-top: 1em;
 	margin-bottom: 1em;
 	padding: 0px;
 	font-family: 'Helvetica';
-	font-size: 16px;
+	font-size: 14px;
 	font-weight: 300;
 	letter-spacing: 1px;
 	line-height: 100%;
-	color: rgb(97, 97, 97);
+	color: #333333;
 	text-align: center;
 	text-overflow: ellipsis;
 	overflow: hidden;
-    height: 42px;
+    height: 20px;
     white-space: wrap;
+
+	padding-left: 1px;
+    padding-right: 1px;
+
+	text-overflow: ellipsis; /* enables ellipsis */
+	white-space: nowrap; /* keeps the text in a single line */
+	overflow: hidden; /* keeps the element from overflowing its parent */
+
+}
+
+.product__brand{
+	font-weight: 900;
 }
 .product__subtitle{
 	display: block;
@@ -210,7 +232,7 @@ ul.products{
 	font-weight: 300;
 	letter-spacing: 1px;
 	line-height: 100%;
-	color: rgb(97, 97, 97);
+	color: #333333;
 	text-align: center;
 	text-overflow: ellipsis;
 	overflow: hidden;
@@ -224,15 +246,15 @@ ul.products{
 .product__price{
 	display: block;
 	margin: 0px;
-	margin-top: 0em;
+	margin-top: 10px;
 	margin-bottom: 0em;
 	padding: 0px;
 	font-family: 'Helvetica';
-	font-size: 18px;
+	font-size: 20px;
 	font-weight: 900;
 	letter-spacing: 1px;
 	line-height: 100%;
-	color: gray;
+	color: #333333;
 	text-align: center;
 }
 .bsc__product-detail-category{
