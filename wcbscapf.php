@@ -84,7 +84,7 @@ class WC_BSC_Plugin {
         add_action('wp_enqueue_scripts', ['WC_BSC_Scripts', 'enqueue_styles']);
 
         add_action('woocommerce_after_shop_loop_item', ['WC_BSC_Template', 'custom_content_after_product_item'], 999);
-        add_action('woocommerce_single_product_summary', ['WC_BSC_Template', 'display_product_meta'], 999);
+        //add_action('woocommerce_single_product_summary', ['WC_BSC_Template', 'display_product_meta'], 999);
         add_filter('woocommerce_locate_template', ['WC_BSC_Template', 'custom_woocommerce_template_path'], 10, 3);
         add_filter('woocommerce_rest_batch_items_limit', ['WC_BSC_Filters', 'wpse_rest_batch_items_limit']);
         add_filter('woocommerce_api_bulk_limit', ['WC_BSC_Filters', 'update_limit_for_products'], 10, 2);
@@ -98,6 +98,86 @@ $GLOBALS['wcbscapf'] = WC_BSC_Plugin::instance();
 
 
 
+
+
+function woocommerce_single_product_categories_meta_bsc()
+{
+	global $product;
+
+	echo '<br><br>';
+	echo '<h1> PRUEBAS DE PHP!!! </h1>';
+
+	echo '<div class="bsc__product-details-categories">';
+
+	// Get the product categories
+	$categories = get_the_terms($product->get_id(), 'product_cat');
+	$meta_data = get_post_meta($product->get_id());
+
+	// Check if categories exist
+	if ($categories && !is_wp_error($categories)) {
+		// Loop through each category and display its meta data
+
+		$skin_html = '';
+		foreach ($categories as $category) {
+
+			$category_id = $category->term_id;
+			$category_slug = $category->slug;
+			$category_label = $category->name;
+
+			// Get all meta data for the current category
+			$category_meta = get_term_meta($category_id);
+
+			$category__bsc__how_to_use = isset($category_meta['bsc__how_to_use'][0]) ? $category_meta['bsc__how_to_use'][0] : '';
+			$category__bsc__rutine_steps = isset($category_meta['bsc__rutine_steps'][0]) ? $category_meta['bsc__rutine_steps'][0] : '';
+
+			$category__bsc__skin_type_root = isset($category_meta['bsc__skin_type_root'][0]) ? $category_meta['bsc__skin_type_root'][0] : '';
+			$category__bsc__skin_type_desc = isset($category_meta['bsc__skin_type_desc'][0]) ? $category_meta['bsc__skin_type_desc'][0] : '';
+
+			if (isset($category_meta['bsc__skin_type_root'][0])) {
+				$skin_html = $skin_html . ' ' . $category__bsc__skin_type_root . ',';
+			}
+
+
+			// Output specific meta data
+			if (!empty($category__bsc__rutine_steps)) {
+				?>
+					<details class="bsc__product-detail-category">
+						<summary> Pasos de la Rutina Coreana </label> </summary>
+						<p><?php echo $category__bsc__rutine_steps; ?></p>
+					</details>
+				<?php
+			}
+
+
+			if (!empty($category__bsc__how_to_use)) {
+				?>
+					<details class="bsc__product-detail-category">
+						<summary> Como usar? </summary>
+						<p> <?php echo $category__bsc__how_to_use; ?></p>
+					</details>
+				<?php
+			}
+
+		}
+
+
+		if (!empty($skin_html) && isset($skin_html)) {
+			$skin_html = rtrim($skin_html, ',') . '.';
+			?>
+				<details class="bsc__product-detail-category">
+					<summary> Tipo de Piel </summary>
+					<p> Apto para <?php echo $skin_html; ?></p>
+				</details>
+			<?php
+		}
+
+		echo '<i class="icon-chevron-up"></i>';
+
+		echo '</div>';
+
+}
+}
+add_action('woocommerce_single_product_summary', 'woocommerce_single_product_categories_meta_bsc', 999);
 
 
 
