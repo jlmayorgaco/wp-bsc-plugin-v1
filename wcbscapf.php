@@ -104,9 +104,8 @@ function woocommerce_single_product_categories_meta_bsc()
 {
 	global $product;
 
-	echo '<br><br>';
-	echo '<h1> PRUEBAS DE PHP!!! </h1>';
-
+    echo '<br>';
+    echo '<br>';
 	echo '<div class="bsc__product-details-categories">';
 
 	// Get the product categories
@@ -118,6 +117,8 @@ function woocommerce_single_product_categories_meta_bsc()
 		// Loop through each category and display its meta data
 
 		$skin_html = '';
+
+
 		foreach ($categories as $category) {
 
 			$category_id = $category->term_id;
@@ -132,6 +133,8 @@ function woocommerce_single_product_categories_meta_bsc()
 
 			$category__bsc__skin_type_root = isset($category_meta['bsc__skin_type_root'][0]) ? $category_meta['bsc__skin_type_root'][0] : '';
 			$category__bsc__skin_type_desc = isset($category_meta['bsc__skin_type_desc'][0]) ? $category_meta['bsc__skin_type_desc'][0] : '';
+            
+
 
 			if (isset($category_meta['bsc__skin_type_root'][0])) {
 				$skin_html = $skin_html . ' ' . $category__bsc__skin_type_root . ',';
@@ -177,7 +180,7 @@ function woocommerce_single_product_categories_meta_bsc()
 
 }
 }
-add_action('woocommerce_single_product_summary', 'woocommerce_single_product_categories_meta_bsc', 999);
+add_action('woocommerce_after_add_to_cart_form', 'woocommerce_single_product_categories_meta_bsc', 999);
 
 
 
