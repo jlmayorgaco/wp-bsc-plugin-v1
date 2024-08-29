@@ -52,6 +52,8 @@ function my_ajax_function()
             // Get product object
             global $product;
 
+            $id = get_the_ID();
+
             // Get product categories
             $product_categories = wp_get_post_terms(get_the_ID(), 'product_cat', array('fields' => 'names'));
             $product_categories_all = wp_get_post_terms(get_the_ID(), 'product_cat', array('fields' => 'all'));
@@ -90,6 +92,7 @@ function my_ajax_function()
 
             // Collect product data
             $product_data = array(
+                'id' => $id,
                 'title' => get_the_title(),
                 'permalink' => get_permalink(),
                 'price' => $product->get_price(),
