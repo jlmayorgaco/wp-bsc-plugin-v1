@@ -10,10 +10,9 @@ const debounce = (callback, wait) => {
 
   const doRenderProductCardHTML = (doc) => {
 
-
     const marca = doc.categories_objects.find(obj => obj.slug.includes('marca'));
 
-
+    const id = doc.id;
     const title = doc.title;
     const priceStr = Number(doc.price).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     const price = `$ ${priceStr}`;
@@ -37,15 +36,52 @@ const debounce = (callback, wait) => {
         stepHTML = '<h2 class="product__subtitle"> </div>';
     }*/
 
-    return `<li class="bsc__product">
+    return `<li class="bsc__product product">
                 <a class="product__container" href="${permalink}">
-                    <img class="product__thumb" src="${image}" alt="">
+
+                     <div class="product__thumb">
+                        <div class="thumb__content">
+                            <img src="${image}" alt="">
+                        </div>
+                        <div class="thumb__hover">
+                                <div class="hover__row1 product-item__description--actions"> 
+                                  <a href="https://bubblesskincare.com/lista-de-deseos/" 
+                                    data-product-id="${id}" 
+                                    data-product-type="simple" 
+                                    data-wishlist-url="https://bubblesskincare.com/lista-de-deseos/" 
+                                    data-browse-wishlist-text="Ver tu lista de deseos" 
+                                    class="nova_product_wishlist_btn" rel="nofollow" 
+                                    style="opacity: 1; zoom: 1;">
+                                        <i class="inova ic-favorite"></i>
+                                </a>
+                                <a href="#" class="nova_product_quick_view_btn" data-product-id="${id}" rel="nofollow">
+                                        <i class="inova ic-zoom"></i>
+                                    </a>
+                                </div>
+                                <div class="hover__row2"> 
+                                
+                                    <div class="product-item__description--button">
+                                            <a href="?add-to-cart=${id}" data-quantity="1" data-product_id="${id}" data-product_sku=""
+                                            class="button product_type_simple add_to_cart_button ajax_add_to_cart" 
+                                            aria-label="Añadir al carrito: “${title}”" 
+                                            aria-describedby="" rel="nofollow"
+                                            >
+                                            ¡ Lo Quiero !
+                                            </a>
+                                    </div>
+
+                                </div>
+                        </div>
+                    </div>
+                        
                     <h1 class="product__title"> ${title} </h1>
                     ${marcaHTML}
                     ${stepHTML}
                     <h3 class="product__price"> ${price}  </h3>
                     <div class="category-badges">${categoryBadges}</div>
                 </a>
+
+            
             </li>`
   }
 
@@ -98,6 +134,9 @@ const debounce = (callback, wait) => {
                     gap: 10px !important;
                     `;
 
+                    document.querySelectorAll('.hover__row1 .product__container').forEach(element => {
+                        element.remove();
+                    });
                 } else {
                     console.log('Error:', response.data); // Log error message if any
                     document.querySelector('ul.products').innerHTML = '';
