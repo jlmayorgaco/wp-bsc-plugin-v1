@@ -105,7 +105,6 @@ function woocommerce_single_product_categories_meta_bsc()
 	global $product;
 
     echo '<br>';
-    echo '<br>';
 	echo '<div class="bsc__product-details-categories">';
 
 	// Get the product categories
