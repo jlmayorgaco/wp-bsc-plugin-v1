@@ -10,6 +10,7 @@ const debounce = (callback, wait) => {
 
   const doRenderProductCardHTML = (doc) => {
 
+ 
     const marca = doc.categories_objects.find(obj => obj.slug.includes('marca'));
 
     const id = doc.id;
@@ -54,7 +55,7 @@ const debounce = (callback, wait) => {
                                     style="opacity: 1; zoom: 1;">
                                         <i class="inova ic-favorite"></i>
                                 </a>
-                                <a href="#" class="nova_product_quick_view_btn" data-product-id="${id}" rel="nofollow">
+                                <a href="${permalink}" class="nova_product_quick_view_btn2" >
                                         <i class="inova ic-zoom"></i>
                                     </a>
                                 </div>
@@ -129,9 +130,6 @@ const debounce = (callback, wait) => {
                     document.querySelector('ul.products').innerHTML = html.join('');
                     document.querySelector('ul.products').style.cssText += `
                     display: grid !important;
-                    grid-template-columns: repeat(3, 1fr) !important;
-                    grid-template-rows: 1fr auto !important;
-                    gap: 10px !important;
                     `;
 
                     document.querySelectorAll('.hover__row1 .product__container').forEach(element => {
