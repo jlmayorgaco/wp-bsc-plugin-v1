@@ -480,6 +480,13 @@ details[open].bsc__product-detail-category > summary:after {
 }
 
 @media (max-width: 1450px) {
+	.multicheck__list{
+		display: block;
+		max-height: 300px;
+		overflow-y: scroll;
+	}
+}
+@media (max-width: 1450px) {
 	.products.ul_products{
 		display: grid !important;
 		grid-template-columns: repeat(2, 1fr) !important;
