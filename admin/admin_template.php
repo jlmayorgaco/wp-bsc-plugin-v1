@@ -4,7 +4,28 @@ include_once plugin_dir_path(__FILE__) . 'admin_ajax_do_reset_categories.php';
 include_once plugin_dir_path(__FILE__) . 'admin_ajax_do_seed_categories.php';
 include_once plugin_dir_path(__FILE__) . 'admin_ajax_do_reset_products.php';
 include_once plugin_dir_path(__FILE__) . 'admin_ajax_do_seed_products.php';
+
+// Classes
+include_once plugin_dir_path(__FILE__) . 'classes/ProductPhotosUploaderClass.php';
+
 //include_once plugin_dir_path(__FILE__) . 'admin_ajax_do_download_categories.php';
+
+
+// Function to delete all files and subfolders inside a directory
+function clear_folder($folder) {
+    $files = glob($folder . '/*'); // Get all files and folders inside the folder
+    
+    foreach ($files as $file) {
+        if (is_dir($file)) {
+            // Recursively delete subdirectories and their contents
+            clear_folder($file);
+            rmdir($file); // Remove the subdirectory itself
+        } else {
+            // Delete file
+            unlink($file);
+        }
+    }
+}
 
 
 function do_render_admin_template()
@@ -132,58 +153,18 @@ function do_render_admin_template()
                         <input type="file" id="upload_products_json" name='upload_products_json' style="width: 100%;"><br>
                         <input type="submit" name="upload_products" id="upload_products" value="Submit">
                     </form>
+                    <form id="uploadProductsPhotosForm" class="bsc__form_btn" action="" method="post" enctype="multipart/form-data">
+                        <img src="<?php echo plugins_url('../assets/images/photo_upload.png', __FILE__); ?>" alt="">
+                        <label >Upload Photos Productos</label>
+                        <input type="file" id="upload_photos_products_zip" name="upload_photos_products_zip" style="width: 100%;"><br>
+                        <input type="submit" name="upload_photos_products" id="upload_photos_products" value="Submit">
+                    </form>
                 </content>
             </article>
 
             <?php
 
-            /*
-            if (isset($_FILES['upload_categories_json'])) {
-                $json = file_get_contents($_FILES['upload_categories_json']['tmp_name']);
-                $categories_json = json_decode($json, true);
-
-                // Check if JSON decoding was successful
-                if ($categories_json !== null) {
-                    echo '<ul>';
-                    foreach ($categories_json as $category) {
-                        echo '<li>';
-                        echo 'SLUG: ' . $category['SLUG'] . '<br>';
-                        echo 'PARENT_SLUG: ' . $category['PARENT_SLUG'] . '<br>';
-                        echo 'LABEL: ' . $category['LABEL'] . '<br>';
-                        // Check if DESCRIPTION exists before echoing
-                        if (isset($category['DESCRIPTION'])) {
-                            echo 'DESCRIPTION: ' . $category['DESCRIPTION'] . '<br>';
-                        }
-                        // Check if PICTURE exists before echoing
-                        if (isset($category['PICTURE'])) {
-                            echo 'PICTURE: ' . $category['PICTURE'] . '<br>';
-                        }
-                        // Check if BSC__HOW_TO_USE exists before echoing
-                        if (isset($category['BSC__HOW_TO_USE'])) {
-                            echo 'BSC__HOW_TO_USE: ' . $category['BSC__HOW_TO_USE'] . '<br>';
-                        }
-                        // Check if BSC__RUTINE_STEPS exists before echoing
-                        if (isset($category['BSC__RUTINE_STEPS'])) {
-                            echo 'BSC__RUTINE_STEPS: ' . $category['BSC__RUTINE_STEPS'] . '<br>';
-                        }
-                        // Check if BSC__SKIN_TYPE exists before echoing
-                        if (isset($category['BSC__SKIN_TYPE'])) {
-                            echo 'BSC__SKIN_TYPE: ' . $category['BSC__SKIN_TYPE']['root'] . '<br>';
-                            echo 'BSC__SKIN_TYPE_DESC: ' . $category['BSC__SKIN_TYPE']['desc'] . '<br>';
-                        }
-                        echo '</li>';
-                    }
-
-
-                    foreach ($categories_json as $category) {
-                    }
-                    echo '</ul>';
-                } else {
-                    echo 'Error: Unable to decode JSON file.';
-                }
-            }*/
-
-
+    
             if (isset($_FILES['upload_categories_json'])) {
                 try {
                     $json = file_get_contents($_FILES['upload_categories_json']['tmp_name']);
@@ -213,6 +194,20 @@ function do_render_admin_template()
             } else {
                 echo "Seed Productos";
             }
+
+            if (isset($_FILES['upload_photos_products_zip']) && $_FILES['upload_photos_products_zip']['error'] == UPLOAD_ERR_OK) {
+                try {
+                    $zipFile = $_FILES['upload_photos_products_zip'];
+                    $photoUploader = new ProductPhotosUploaderClass($zipFile);
+                    $photoUploader->uploadAndProcessFile();
+                    
+                } catch (Exception $e) {
+                    echo 'Error: ' . $e->getMessage();
+                }
+            } else {
+                echo "No file uploaded or there was an error during upload.";
+            }
+            
             ?>
 
             <?php
@@ -240,6 +235,7 @@ function do_render_admin_template()
         document.getElementById('deleteProductsForm').addEventListener('click', function() {
             document.getElementById('delete_products').click();
         });
+       
         /*
         document.getElementById('uploadForm').addEventListener('click', function() {
             document.getElementById('upload_categories').click();
