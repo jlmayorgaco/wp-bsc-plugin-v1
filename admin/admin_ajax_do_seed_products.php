@@ -74,10 +74,6 @@ function upload_products_function2($json)
         }
         if (isset($node['BSC__CAT__HC_RUTINA'])) {
             $categories[] = $node['BSC__CAT__HC_RUTINA'];
-            echo '<h1> BSC__CAT__HC_RUTINA </h1>';
-            echo '<br>';
-            var_dump($categories);
-            echo '<br>';
         }
         if (isset($node['BSC__CAT__HC_MARCA'])) {
             $categories[] = $node['BSC__CAT__HC_MARCA'];
@@ -148,7 +144,12 @@ function upload_products_function2($json)
     }
 }
 
-
+/*
+function product_exists_by_sku($sku) {
+    $product_id = wc_get_product_id_by_sku($sku);
+    return $product_id ? $product_id : false;
+}
+*/
 
 function upload_products_function($json)
 {
@@ -166,11 +167,11 @@ function upload_products_function($json)
     foreach ($categories_keys as $key) {
         $nodes = $json[$key];
 
-        var_dump($nodes);
         
         foreach ($nodes as $node) {
             // Prepare product data
             $product_data = array(
+                'id' => $node['ID'],
                 'name' => $node['NAME'],
                 'type' => 'simple',
                 'regular_price' => (int) preg_replace('/[^0-9]/', '', $node['PRICE']),
@@ -218,6 +219,7 @@ function upload_products_function($json)
 
             // Check if product name already exists
             $product_id = product_exists_by_name($node['NAME']);
+            //$product_id = product_exists_by_sku($product_data['sku']);
 
             if (!$product_id) {
                 // Product doesn't exist, create a new product
@@ -229,12 +231,24 @@ function upload_products_function($json)
                 echo 'Product updated: ' . $product_data['name'] . '<br>';
             }
 
+
             // Set common product data
             $product->set_name($product_data['name']);
             $product->set_regular_price($regular_price_numeric); // in current shop currency
             $product->set_short_description($product_data['description']);
             $product->set_sku($product_data['sku']);
             $product->set_category_ids($category_ids);
+
+
+            if ($product_id) {
+                echo '<h4>UPDATE:</h4>';
+                echo $node['NAME'];
+                echo '<br>';
+                echo '<p>'; 
+                var_dump($product); 
+                echo '</p>';
+                echo '<br>';
+            }
 
             // Set/update meta data using $product_data
             foreach ($product_data['meta_data'] as $meta) {
