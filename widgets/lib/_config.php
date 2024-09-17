@@ -55,15 +55,23 @@ $MenuHairCare = [
         'label' => 'Necesidad',
         'type' => CATEGORY_MULTI_CHECKBOX,
         'options' => [
-            'category_sku' => 'hair-care-necesidad'
+            'category_sku' => 'hc-necesidades'
         ]
     ],
     [
         'id' => 1,
+        'label' => 'Rutina',
+        'type' => CATEGORY_MULTI_CHECKBOX,
+        'options' => [
+            'category_sku' => 'hc-rutina'
+        ]
+    ],
+    [
+        'id' => 2,
         'label' => 'Marca',
         'type' => CATEGORY_MULTI_CHECKBOX,
         'options' => [
-            'category_sku' => 'hair-care-marcas'
+            'category_sku' => 'hc-marca'
         ]
     ],
     [
@@ -77,10 +85,18 @@ $MenuHairCare = [
 $MenuMakeUp = [
     [
         'id' => 0,
+        'label' => 'Productos',
+        'type' => CATEGORY_MULTI_CHECKBOX,
+        'options' => [
+            'category_sku' => 'mk-productos'
+        ]
+    ],
+    [
+        'id' => 0,
         'label' => 'Marca',
         'type' => CATEGORY_MULTI_CHECKBOX,
         'options' => [
-            'category_sku' => 'make-up-marcas'
+            'category_sku' => 'mk-marcas'
         ]
     ],
     [
