@@ -61,6 +61,8 @@ class WC_BSC_Plugin {
         require_once WC_BSC_PLUGIN_PATH . 'includes/class-wc-bsc-filters.php';
         require_once WC_BSC_PLUGIN_PATH . 'includes/class-wc-bsc-template.php';
         require_once WC_BSC_PLUGIN_PATH . 'includes/class-wc-bsc-widgets.php';
+
+		
     }
 
 	private function init_admin(){
