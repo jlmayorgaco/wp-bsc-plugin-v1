@@ -274,8 +274,13 @@ class ProductPhotosUploaderClass
             }
         }
 
-        $product->set_image_id($attachmentIds[0]);
-        $product->set_gallery_image_ids($attachmentIds);
+        $photoId = $attachmentIds[0];
+        $photoIds = $attachmentIds;
+
+        array_shift($photoIds);
+
+        $product->set_image_id($photoId);
+        $product->set_gallery_image_ids($photoIds);
         $product->save();
     }
 
