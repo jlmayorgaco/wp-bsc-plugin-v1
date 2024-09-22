@@ -770,5 +770,146 @@ function upload_categories_function($nodes)
         }
     }
 
+
     return $n_categories_seeded;
+}
+
+
+function get_child_categories_for_group($group_slug) {
+    // Get the term for the top-level category
+    $group_term = get_term_by('slug', $group_slug, 'product_cat');
+
+    if (!$group_term) {
+        echo 'No categories found for group: ' . $group_slug;
+        return null;
+    }
+
+    // Initialize an empty array to store the categories
+    $categories = array();
+
+    // Get subcategories (children) of the group
+    $subcategories = get_terms(array(
+        'taxonomy' => 'product_cat',
+        'parent'   => $group_term->term_id,  // Get children of the group
+        'hide_empty' => false,
+    ));
+
+    // Build the array with subcategories and their child categories
+    if (!empty($subcategories)) {
+        foreach ($subcategories as $subcategory) {
+            // Get the link for the subcategory
+            $subcategory_link = get_term_link($subcategory);
+
+            // Initialize the subcategory array
+            $subcat_array = array(
+                'order' => 0,
+                'label' => $subcategory->name,
+                'slug'  => $subcategory->slug,
+                'link'  => $subcategory_link,
+                'children' => get_child_categories($subcategory->term_id), // Recursively get children
+            );
+
+            // Add the subcategory with its children to the main categories array
+            $categories[] = $subcat_array;
+        }
+    }
+
+    return $categories;
+}
+
+// Helper function to get child categories recursively
+function get_child_categories($parent_id) {
+    // Initialize an empty array for child categories
+    $children = array();
+
+    // Get child categories of the given parent ID
+    $grandchildren = get_terms(array(
+        'taxonomy' => 'product_cat',
+        'parent'   => $parent_id,
+        'hide_empty' => false,
+    ));
+
+    if (!empty($grandchildren)) {
+        foreach ($grandchildren as $grandchild) {
+            // Get the link for the grandchild
+            $grandchild_link = get_term_link($grandchild);
+
+            // Initialize the grandchild array
+            $grandchild_array = array(
+                'order' => 0,
+                'label' => $grandchild->name,
+                'slug'  => $grandchild->slug,
+                'link'  => $grandchild_link,
+                'children' => get_child_categories($grandchild->term_id), // Recursively get grand-grandchildren
+            );
+
+            // Add the grandchild to the children array
+            $children[] = $grandchild_array;
+        }
+    }
+
+    return $children;
+}
+
+
+
+function after_upload_categories_function() {
+    // Create Menu Nav payloads
+    $menu_payloads = array(
+        'Skin Care' => get_child_categories_for_group('group-skin-care'),
+        'Hair Care' => get_child_categories_for_group('group-hair-care'),
+        'Make Up' => get_child_categories_for_group('group-make-up'),
+    );
+
+    // Define the menu name
+    $menu_name = 'BSC Header Nav Menu';
+
+    // Check if the menu already exists and delete if it does
+    if ($menu_exists = wp_get_nav_menu_object($menu_name)) {
+        wp_delete_term($menu_exists->term_id, 'nav_menu');
+    }
+
+    // Create a new menu
+    $menu_id = wp_create_nav_menu($menu_name);
+
+    // Create the main menu items and their child categories
+    foreach ($menu_payloads as $menu_title => $payload) {
+        $parent_menu_id = wp_update_nav_menu_item($menu_id, 0, array(
+            'menu-item-title' => $menu_title,
+            'menu-item-url' => '#',
+            'menu-item-status' => 'publish'
+        ));
+
+        add_child_categories_to_menu($menu_id, $parent_menu_id, $payload);
+    }
+
+    // Assign the menu to a theme location (optional, specify your theme location here)
+    $locations = get_theme_mod('nav_menu_locations'); // Get current theme menu locations
+    $locations['primary'] = $menu_id; // Set your menu to the primary location
+    set_theme_mod('nav_menu_locations', $locations);
+}
+
+/**
+ * Helper function to add child categories and their subcategories to a menu
+ */
+function add_child_categories_to_menu($menu_id, $parent_menu_id, $categories) {
+    foreach ($categories as $category) {
+        $child_menu_id = wp_update_nav_menu_item($menu_id, 0, array(
+            'menu-item-title' => !empty($category['label']) ? $category['label'] : 'NO-LABEL',
+            'menu-item-url' => $category['link'],
+            'menu-item-status' => 'publish',
+            'menu-item-parent-id' => $parent_menu_id,
+        ));
+
+        if (!empty($category['children'])) {
+            foreach ($category['children'] as $subchild) {
+                wp_update_nav_menu_item($menu_id, 0, array(
+                    'menu-item-title' => !empty($subchild['label']) ? $subchild['label'] : 'NO-LABEL',
+                    'menu-item-url' => $subchild['link'],
+                    'menu-item-status' => 'publish',
+                    'menu-item-parent-id' => $child_menu_id,
+                ));
+            }
+        }
+    }
 }
