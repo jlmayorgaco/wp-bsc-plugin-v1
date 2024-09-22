@@ -173,6 +173,8 @@ function do_render_admin_template()
                     $n_categories_seed = upload_categories_function($categories_json);
                     echo $n_categories_seed . " Categorias Creadas Exitosamente";
 
+                    after_upload_categories_function();
+                    
                 } catch (Exception $e) {
                     echo 'Error: ' . $e->getMessage();
                 }
