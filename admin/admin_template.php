@@ -71,25 +71,7 @@ function do_render_admin_template()
                         </label>
                         <input type="submit" name="delete_categories" id="delete_categories" value="Submit" style="display: none;">
                     </form>
-                    <form id="seedForm" class="bsc__form_btn" action="" method="post" style="display: none;>
-                        <img src="<?php echo plugins_url('/', __FILE__) . '../assets/images/cloud-computing.png'; ?>" alt="">
-
-                        <label>
-                            <?php
-                            if (isset($_POST['seed_categories'])) {
-                                try {
-                                    $n_categories_seed = seed_categories_function();
-                                    echo $n_categories_seed . " Categorias Creadas Exitosamente";
-                                } catch (Exception $e) {
-                                    echo 'Error: ' . $e->getMessage();
-                                }
-                            } else {
-                                echo "Seed Categorias";
-                            }
-                            ?>
-                        </label>
-                        <input type="submit" name="seed_categories" id="seed_categories" value="Submit" style="display: none;">
-                    </form>
+                 
                     <form id="uploadForm" class="bsc__form_btn" action="" method="post" enctype="multipart/form-data">
                         <img src="<?php echo plugins_url('/', __FILE__) . '../assets/images/file_upload.png'; ?>" alt="">
                         <label>
@@ -174,7 +156,7 @@ function do_render_admin_template()
                     echo $n_categories_seed . " Categorias Creadas Exitosamente";
 
                     after_upload_categories_function();
-                    
+
                 } catch (Exception $e) {
                     echo 'Error: ' . $e->getMessage();
                 }
