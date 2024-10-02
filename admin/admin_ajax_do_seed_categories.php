@@ -1,915 +1,389 @@
 <?php
-global $SEED_CATEGORIES_NODES;
-$SEED_CATEGORIES_NODES = array(
-    array(
-        'name' => 'group-skin-care',
-        'slug' => 'group-skin-care',
-        'parent_slug' => ''
-    ),
-    array(
-        'name' => 'group-hair-care',
-        'slug' => 'group-hair-care',
-        'parent_slug' => ''
-    ),
-    array(
-        'name' => 'group-make-up',
-        'slug' => 'group-make-up',
-        'parent_slug' => ''
-    ),
-    array(
-        'name' => 'sk-rutina',
-        'slug' => 'sk-rutina',
-        'parent_slug' => 'group-skin-care'
-    ),
-    array(
-        'name' => 'sk-rutina-s1-limpiadores-aceitosos',
-        'slug' => 'sk-rutina-s1-limpiadores-aceitosos',
-        'parent_slug' => 'sk-rutina'
-    ),
-    array(
-        'name' => 'sk-rutina-s2-limpiadores-acuosos',
-        'slug' => 'sk-rutina-s2-limpiadores-acuosos',
-        'parent_slug' => 'sk-rutina'
-    ),
-    array(
-        'name' => 'sk-rutina-s3-exfoliantes',
-        'slug' => 'sk-rutina-s3-exfoliantes',
-        'parent_slug' => 'sk-rutina'
-    ),
-    array(
-        'name' => 'sk-rutina-s4-tonicos',
-        'slug' => 'sk-rutina-s4-tonicos',
-        'parent_slug' => 'sk-rutina'
-    ),
-    array(
-        'name' => 'sk-rutina-s5-mascarillas',
-        'slug' => 'sk-rutina-s5-mascarillas',
-        'parent_slug' => 'sk-rutina'
-    ),
-    array(
-        'name' => 'sk-rutina-s6-esencias',
-        'slug' => 'sk-rutina-s6-esencias',
-        'parent_slug' => 'sk-rutina'
-    ),
-    array(
-        'name' => 'sk-rutina-s7-serums',
-        'slug' => 'sk-rutina-s7-serums',
-        'parent_slug' => 'sk-rutina'
-    ),
-    array(
-        'name' => 'sk-rutina-s8-contorno-de-ojos',
-        'slug' => 'sk-rutina-s8-contorno-de-ojos',
-        'parent_slug' => 'sk-rutina'
-    ),
-    array(
-        'name' => 'sk-rutina-s9-hidratantes',
-        'slug' => 'sk-rutina-s9-hidratantes',
-        'parent_slug' => 'sk-rutina'
-    ),
-    array(
-        'name' => 'sk-rutina-s10-protectores-solares',
-        'slug' => 'sk-rutina-s10-protectores-solares',
-        'parent_slug' => 'sk-rutina'
-    ),
-    array(
-        'name' => 'sk-complementos',
-        'slug' => 'sk-complementos',
-        'parent_slug' => 'group-skin-care'
-    ),
-    array(
-        'name' => 'sk-complementos-c1-aceites-faciales',
-        'slug' => 'sk-complementos-c1-aceites-faciales',
-        'parent_slug' => 'sk-complementos'
-    ),
-    array(
-        'name' => 'sk-complementos-c2-spot-y-patches',
-        'slug' => 'sk-complementos-c2-spot-y-patches',
-        'parent_slug' => 'sk-complementos'
-    ),
-    array(
-        'name' => 'sk-complementos-c3-mist-y-brumas',
-        'slug' => 'sk-complementos-c3-mist-y-brumas',
-        'parent_slug' => 'sk-complementos'
-    ),
-    array(
-        'name' => 'sk-complementos-c4-sticks',
-        'slug' => 'sk-complementos-c4-sticks',
-        'parent_slug' => 'sk-complementos'
-    ),
-    array(
-        'name' => 'sk-complementos-c5-labios',
-        'slug' => 'sk-complementos-c5-labios',
-        'parent_slug' => 'sk-complementos'
-    ),
-    array(
-        'name' => 'sk-complementos-c6-inner-beauty',
-        'slug' => 'sk-complementos-c6-inner-beauty',
-        'parent_slug' => 'sk-complementos'
-    ),
-    array(
-        'name' => 'sk-complementos-c7-accesorios',
-        'slug' => 'sk-complementos-c7-accesorios',
-        'parent_slug' => 'sk-complementos'
-    ),
-    array(
-        'name' => 'sk-complementos-c8-minis',
-        'slug' => 'sk-complementos-c8-minis',
-        'parent_slug' => 'sk-complementos'
-    ),
-    array(
-        'name' => 'sk-tipo-piel',
-        'slug' => 'sk-tipo-piel',
-        'parent_slug' => 'group-skin-care'
-    ),
-    array(
-        'name' => 'sk-tipo-piel-seca',
-        'slug' => 'sk-tipo-piel-seca',
-        'parent_slug' => 'sk-tipo-piel'
-    ),
-    array(
-        'name' => 'sk-tipo-piel-grasa',
-        'slug' => 'sk-tipo-piel-grasa',
-        'parent_slug' => 'sk-tipo-piel'
-    ),
-    array(
-        'name' => 'sk-tipo-piel-mixta',
-        'slug' => 'sk-tipo-piel-mixta',
-        'parent_slug' => 'sk-tipo-piel'
-    ),
-    array(
-        'name' => 'sk-tipo-piel-normal',
-        'slug' => 'sk-tipo-piel-normal',
-        'parent_slug' => 'sk-tipo-piel'
-    ),
-    array(
-        'name' => 'sk-marcas',
-        'slug' => 'sk-marcas',
-        'parent_slug' => 'group-skin-care'
-    ),
-    array(
-        'name' => 'sk-marca-around-me',
-        'slug' => 'sk-marca-around-me',
-        'parent_slug' => 'sk-marcas'
-    ),
-    array(
-        'name' => 'sk-marca-im-from',
-        'slug' => 'sk-marca-im-from',
-        'parent_slug' => 'sk-marcas'
-    ),
-    array(
-        'name' => 'sk-marca-macqueen',
-        'slug' => 'sk-marca-macqueen',
-        'parent_slug' => 'sk-marcas'
-    ),
-    array(
-        'name' => 'sk-marca-make-p-rem',
-        'slug' => 'sk-marca-make-p-rem',
-        'parent_slug' => 'sk-marcas'
-    ),
-    array(
-        'name' => 'sk-marca-mary-and-may',
-        'slug' => 'sk-marca-mary-and-may',
-        'parent_slug' => 'sk-marcas'
-    ),
-    array(
-        'name' => 'sk-marca-masil',
-        'slug' => 'sk-marca-masil',
-        'parent_slug' => 'sk-marcas'
-    ),
-    array(
-        'name' => 'sk-marca-mediheal',
-        'slug' => 'sk-marca-mediheal',
-        'parent_slug' => 'sk-marcas'
-    ),
-    array(
-        'name' => 'sk-marca-medipeel',
-        'slug' => 'sk-marca-medipeel',
-        'parent_slug' => 'sk-marcas'
-    ),
-    array(
-        'name' => 'sk-marca-missha',
-        'slug' => 'sk-marca-missha',
-        'parent_slug' => 'sk-marcas'
-    ),
-    array(
-        'name' => 'sk-marca-nine-less',
-        'slug' => 'sk-marca-nine-less',
-        'parent_slug' => 'sk-marcas'
-    ),
-    array(
-        'name' => 'sk-marca-pyunkang-yul',
-        'slug' => 'sk-marca-pyunkang-yul',
-        'parent_slug' => 'sk-marcas'
-    ),
-    array(
-        'name' => 'sk-necesidades',
-        'slug' => 'sk-necesidades',
-        'parent_slug' => 'group-skin-care'
-    ),
-    array(
-        'name' => 'sk-necesidad-1',
-        'slug' => 'sk-necesidad-1',
-        'parent_slug' => 'sk-necesidades'
-    ),
-    array(
-        'name' => 'sk-necesidad-2',
-        'slug' => 'sk-necesidad-2',
-        'parent_slug' => 'sk-necesidades'
-    ),
-    array(
-        'name' => 'sk-necesidad-3',
-        'slug' => 'sk-necesidad-3',
-        'parent_slug' => 'sk-necesidades'
-    ),
-    array(
-        'name' => 'sk-necesidad-4',
-        'slug' => 'sk-necesidad-4',
-        'parent_slug' => 'sk-necesidades'
-    ),
-    array(
-        'name' => 'sk-necesidad-5',
-        'slug' => 'sk-necesidad-5',
-        'parent_slug' => 'sk-necesidades'
-    ),
-    array(
-        'name' => 'sk-ingredientes',
-        'slug' => 'sk-ingredientes',
-        'parent_slug' => 'group-skin-care'
-    ),
-    array(
-        'name' => 'sk-ingredient-acido-hialuronico',
-        'slug' => 'sk-ingredient-acido-hialuronico',
-        'parent_slug' => 'sk-ingredientes'
-    ),
-    array(
-        'name' => 'sk-ingredient-aha-bha-pha',
-        'slug' => 'sk-ingredient-aha-bha-pha',
-        'parent_slug' => 'sk-ingredientes'
-    ),
-    array(
-        'name' => 'sk-ingredient-arroz',
-        'slug' => 'sk-ingredient-arroz',
-        'parent_slug' => 'sk-ingredientes'
-    ),
-    array(
-        'name' => 'sk-ingredient-centella-asiatica',
-        'slug' => 'sk-ingredient-centella-asiatica',
-        'parent_slug' => 'sk-ingredientes'
-    ),
-    array(
-        'name' => 'sk-ingredient-ceramidas',
-        'slug' => 'sk-ingredient-ceramidas',
-        'parent_slug' => 'sk-ingredientes'
-    ),
-    array(
-        'name' => 'sk-ingredient-fermentos',
-        'slug' => 'sk-ingredient-fermentos',
-        'parent_slug' => 'sk-ingredientes'
-    ),
-    array(
-        'name' => 'sk-ingredient-miel-propoleo',
-        'slug' => 'sk-ingredient-miel-propoleo',
-        'parent_slug' => 'sk-ingredientes'
-    ),
-    array(
-        'name' => 'sk-ingredient-mucina-de-caracol',
-        'slug' => 'sk-ingredient-mucina-de-caracol',
-        'parent_slug' => 'sk-ingredientes'
-    ),
-    array(
-        'name' => 'sk-ingredient-niacinamida',
-        'slug' => 'sk-ingredient-niacinamida',
-        'parent_slug' => 'sk-ingredientes'
-    ),
-    array(
-        'name' => 'sk-ingredient-peptidos',
-        'slug' => 'sk-ingredient-peptidos',
-        'parent_slug' => 'sk-ingredientes'
-    ),
-    array(
-        'name' => 'sk-ingredient-retinol',
-        'slug' => 'sk-ingredient-retinol',
-        'parent_slug' => 'sk-ingredientes'
-    ),
-    array(
-        'name' => 'sk-ingredient-te-verde',
-        'slug' => 'sk-ingredient-te-verde',
-        'parent_slug' => 'sk-ingredientes'
-    ),
-    array(
-        'name' => 'sk-ingredient-vitamina-c',
-        'slug' => 'sk-ingredient-vitamina-c',
-        'parent_slug' => 'sk-ingredientes'
-    ),
 
-    array(
-        'name' => 'hc-rutina',
-        'slug' => 'hc-rutina',
-        'parent_slug' => 'group-hair-care'
-    ),
-    array(
-        'name' => 'hc-rutina-s1-shampoo',
-        'slug' => 'hc-rutina-s1-shampoo',
-        'parent_slug' => 'hc-rutina'
-    ),
-    array(
-        'name' => 'hc-rutina-s2-exfoliantes',
-        'slug' => 'hc-rutina-s2-exfoliantes',
-        'parent_slug' => 'hc-rutina'
-    ),
-    array(
-        'name' => 'hc-rutina-s3-mascarillas',
-        'slug' => 'hc-rutina-s3-mascarillas',
-        'parent_slug' => 'hc-rutina'
-    ),
-    array(
-        'name' => 'hc-rutina-s4-acondicionadores',
-        'slug' => 'hc-rutina-s4-acondicionadores',
-        'parent_slug' => 'hc-rutina'
-    ),
-    array(
-        'name' => 'hc-rutina-s5-tonicos',
-        'slug' => 'hc-rutina-s5-tonicos',
-        'parent_slug' => 'hc-rutina'
-    ),
-    array(
-        'name' => 'hc-rutina-s6-serums',
-        'slug' => 'hc-rutina-s6-serums',
-        'parent_slug' => 'hc-rutina'
-    ),
-    array(
-        'name' => 'hc-rutina-s7-esencias-leave-in',
-        'slug' => 'hc-rutina-s7-esencias-leave-in',
-        'parent_slug' => 'hc-rutina'
-    ),
-    array(
-        'name' => 'hc-rutina-s8-sprays',
-        'slug' => 'hc-rutina-s8-sprays',
-        'parent_slug' => 'hc-rutina'
-    ),
-    array(
-        'name' => 'hc-rutina-s9-aceites',
-        'slug' => 'hc-rutina-s9-aceites',
-        'parent_slug' => 'hc-rutina'
-    ),
-    array(
-        'name' => 'hc-rutina-s10-protectores',
-        'slug' => 'hc-rutina-s10-protectores',
-        'parent_slug' => 'hc-rutina'
-    ),
-    array(
-        'name' => 'hc-complementos',
-        'slug' => 'hc-complementos',
-        'parent_slug' => 'group-hair-care'
-    ),
-    array(
-        'name' => 'hc-complementos-c1-pestanas',
-        'slug' => 'hc-complementos-c1-pestanas',
-        'parent_slug' => 'hc-complementos'
-    ),
-    array(
-        'name' => 'hc-complementos-c2-cepillos',
-        'slug' => 'hc-complementos-c2-cepillos',
-        'parent_slug' => 'hc-complementos'
-    ),
-    array(
-        'name' => 'hc-complementos-c3-cushions',
-        'slug' => 'hc-complementos-c3-cushions',
-        'parent_slug' => 'hc-complementos'
-    ),
-    array(
-        'name' => 'hc-complementos-c4-minis',
-        'slug' => 'hc-complementos-c4-minis',
-        'parent_slug' => 'hc-complementos'
-    ),
-    array(
-        'name' => 'hc-complementos-c5-accesorios',
-        'slug' => 'hc-complementos-c5-accesorios',
-        'parent_slug' => 'hc-complementos'
-    ),
-    array(
-        'name' => 'hc-marca',
-        'slug' => 'hc-marca',
-        'parent_slug' => 'group-hair-care'
-    ),
-    array(
-        'name' => 'hc-marca-lunabelle',
-        'slug' => 'hc-marca-lunabelle',
-        'parent_slug' => 'hc-marca'
-    ),
-    array(
-        'name' => 'hc-marca-glowberry',
-        'slug' => 'hc-marca-glowberry',
-        'parent_slug' => 'hc-marca'
-    ),
-    array(
-        'name' => 'hc-marca-dewdrop',
-        'slug' => 'hc-marca-dewdrop',
-        'parent_slug' => 'hc-marca'
-    ),
-    array(
-        'name' => 'hc-marca-petalista',
-        'slug' => 'hc-marca-petalista',
-        'parent_slug' => 'hc-marca'
-    ),
-    array(
-        'name' => 'hc-marca-bloomberry',
-        'slug' => 'hc-marca-bloomberry',
-        'parent_slug' => 'hc-marca'
-    ),
-    array(
-        'name' => 'hc-marca-sunkissed',
-        'slug' => 'hc-marca-sunkissed',
-        'parent_slug' => 'hc-marca'
-    ),
-    array(
-        'name' => 'hc-necesidades',
-        'slug' => 'hc-necesidades',
-        'parent_slug' => 'group-hair-care'
-    ),
-    array(
-        'name' => 'hc-necesidad-1',
-        'slug' => 'hc-necesidad-1',
-        'parent_slug' => 'hc-necesidades'
-    ),
-    array(
-        'name' => 'hc-necesidad-2',
-        'slug' => 'hc-necesidad-2',
-        'parent_slug' => 'hc-necesidades'
-    ),
-    array(
-        'name' => 'hc-necesidad-3',
-        'slug' => 'hc-necesidad-3',
-        'parent_slug' => 'hc-necesidades'
-    ),
-    array(
-        'name' => 'hc-necesidad-4',
-        'slug' => 'hc-necesidad-4',
-        'parent_slug' => 'hc-necesidades'
-    ),
-    array(
-        'name' => 'hc-necesidad-5',
-        'slug' => 'hc-necesidad-5',
-        'parent_slug' => 'hc-necesidades'
-    ),
-    array(
-        'name' => 'mk-productos',
-        'slug' => 'mk-productos',
-        'parent_slug' => 'group-make-up'
-    ),
-    array(
-        'name' => 'mk-rutina-s1-bb-creams-y-bases',
-        'slug' => 'mk-rutina-s1-bb-creams-y-bases',
-        'parent_slug' => 'mk-productos'
-    ),
-    array(
-        'name' => 'mk-rutina-s2-cushions-y-refills',
-        'slug' => 'mk-rutina-s2-cushions-y-refills',
-        'parent_slug' => 'mk-productos'
-    ),
-    array(
-        'name' => 'mk-rutina-s3-sombras-y-paletas',
-        'slug' => 'mk-rutina-s3-sombras-y-paletas',
-        'parent_slug' => 'mk-productos'
-    ),
-    array(
-        'name' => 'mk-rutina-s4-delineadores',
-        'slug' => 'mk-rutina-s4-delineadores',
-        'parent_slug' => 'mk-productos'
-    ),
-    array(
-        'name' => 'mk-rutina-s5-pestaninas',
-        'slug' => 'mk-rutina-s5-pestaninas',
-        'parent_slug' => 'mk-productos'
-    ),
-    array(
-        'name' => 'mk-rutina-s6-rubores',
-        'slug' => 'mk-rutina-s6-rubores',
-        'parent_slug' => 'mk-productos'
-    ),
-    array(
-        'name' => 'mk-rutina-s7-iluminadores',
-        'slug' => 'mk-rutina-s7-iluminadores',
-        'parent_slug' => 'mk-productos'
-    ),
-    array(
-        'name' => 'mk-rutina-s8-correctores',
-        'slug' => 'mk-rutina-s8-correctores',
-        'parent_slug' => 'mk-productos'
-    ),
-    array(
-        'name' => 'mk-rutina-s9-tintas',
-        'slug' => 'mk-rutina-s9-tintas',
-        'parent_slug' => 'mk-productos'
-    ),
-    array(
-        'name' => 'mk-rutina-s10-labiales',
-        'slug' => 'mk-rutina-s10-labiales',
-        'parent_slug' => 'mk-productos'
-    ),
-    array(
-        'name' => 'mk-rutina-s11-polvos',
-        'slug' => 'mk-rutina-s11-polvos',
-        'parent_slug' => 'mk-productos'
-    ),
-    array(
-        'name' => 'mk-complementos',
-        'slug' => 'mk-complementos',
-        'parent_slug' => 'group-make-up'
-    ),
-    array(
-        'name' => 'mk-complementos-c1-cejas',
-        'slug' => 'mk-complementos-c1-cejas',
-        'parent_slug' => 'mk-complementos'
-    ),
-    array(
-        'name' => 'mk-complementos-c2-primers',
-        'slug' => 'mk-complementos-c2-primers',
-        'parent_slug' => 'mk-complementos'
-    ),
-    array(
-        'name' => 'mk-complementos-c3-fijadores',
-        'slug' => 'mk-complementos-c3-fijadores',
-        'parent_slug' => 'mk-complementos'
-    ),
-    array(
-        'name' => 'mk-complementos-c4-brochas',
-        'slug' => 'mk-complementos-c4-brochas',
-        'parent_slug' => 'mk-complementos'
-    ),
-    array(
-        'name' => 'mk-complementos-c5-pestanas',
-        'slug' => 'mk-complementos-c5-pestanas',
-        'parent_slug' => 'mk-complementos'
-    ),
-    array(
-        'name' => 'mk-marcas',
-        'slug' => 'mk-marcas',
-        'parent_slug' => 'group-make-up'
-    ),
-    array(
-        'name' => 'mk-marca-glow-glamour',
-        'slug' => 'mk-marca-glow-glamour',
-        'parent_slug' => 'mk-marcas'
-    ),
-    array(
-        'name' => 'mk-marca-luxe-lash',
-        'slug' => 'mk-marca-luxe-lash',
-        'parent_slug' => 'mk-marcas'
-    ),
-    array(
-        'name' => 'mk-marca-dream-dazzle',
-        'slug' => 'mk-marca-dream-dazzle',
-        'parent_slug' => 'mk-marcas'
-    ),
-    array(
-        'name' => 'mk-marca-sparkle-siren',
-        'slug' => 'mk-marca-sparkle-siren',
-        'parent_slug' => 'mk-marcas'
-    ),
-    array(
-        'name' => 'mk-marca-flawless-finish',
-        'slug' => 'mk-marca-flawless-finish',
-        'parent_slug' => 'mk-marcas'
-    ),
-    array(
-        'name' => 'mk-marca-velvet-vogue',
-        'slug' => 'mk-marca-velvet-vogue',
-        'parent_slug' => 'mk-marcas'
-    ),
-    array(
-        'name' => 'mk-marca-radiant-rose',
-        'slug' => 'mk-marca-radiant-rose',
-        'parent_slug' => 'mk-marcas'
-    ),
-    array(
-        'name' => 'mk-marca-chic-cheeks',
-        'slug' => 'mk-marca-chic-cheeks',
-        'parent_slug' => 'mk-marcas'
-    )
-);
-function seed_categories_function()
+
+
+class CategoryUploader
 {
+    private $categoriesSeeded = 0;
 
-    global $SEED_CATEGORIES_NODES;
-    $nodes = $SEED_CATEGORIES_NODES;
+    public function uploadCategories(array $nodes): int
+    {
+        $this->outputMessage('UPLOADING JSON FILE....');
+        $this->outputMessage('SIZE: ' . count($nodes));
 
-    $n_categories_seeded = 0;
-    foreach ($nodes as $node) {
+        foreach ($nodes as $node) {
 
-        // Check if the category already exists
-        $category_exists = term_exists($node['name'], 'product_cat');
-
-        // If category exist, skep it and go to next 
-        if ($category_exists) {
-            continue;
-        }
-
-        // If category doesn't exist, create it
-
-        $parent_id = 0; // Default to no parent
-        // If parent slug exists, find its ID
-        if (!empty($node['parent_slug'])) {
-            $parent = get_term_by('slug', $node['parent_slug'], 'product_cat');
-            if ($parent) {
-                $parent_id = $parent->term_id;
+            if ($this->categoryExists($node['SLUG'])) {
+                $prod =  term_exists($node['SLUG'], 'product_cat');
+                var_dump($prod);
+                $this->outputCategoryInfo($node);
+                continue;
             }
+
+            $parentId = $this->getParentCategoryId($node['PARENT_SLUG'] ?? '');
+            $this->createCategory($node, $parentId);
         }
 
-        // Insert the category
-        if ($parent_id) {
-            $inserted_category = wp_insert_term(
-                $node['name'], // Category name
-                'product_cat', // Taxonomy
-                array(
-                    'slug' => $node['slug'], // Category slug
-                    'parent' => $parent_id // Parent category ID
-                )
-            );
-        } else {
-            $inserted_category = wp_insert_term(
-                $node['name'], // Category name
-                'product_cat', // Taxonomy
-                array(
-                    'slug' => $node['slug'], // Category slug
-                )
-            );
+        return $this->categoriesSeeded;
+    }
+
+    private function categoryExists(string $slug): bool
+    {
+        return term_exists($slug, 'product_cat') !== NULL && term_exists($slug, 'product_cat') !== 0;
+    }
+
+    private function getParentCategoryId(string $parentSlug): int
+    {
+        if (empty($parentSlug)) {
+            return 0;
         }
 
-        if (!is_wp_error($inserted_category)) {
-            $n_categories_seeded++;
+        $parent = get_term_by('slug', $parentSlug, 'product_cat');
+        return $parent ? $parent->term_id : 0;
+    }
+
+    private function createCategory(array $node, int $parentId): void
+    {
+        $args = [
+            'slug' => $node['SLUG'],
+            'description' => $node['DESCRIPTION'] ?? '',
+        ];
+
+        if ($parentId) {
+            $args['parent'] = $parentId;
+        }
+
+        $result = wp_insert_term($node['LABEL'], 'product_cat', $args);
+
+        if (is_wp_error($result)) {
+            $this->handleCategoryError($result, $node);
         } else {
-            // Error inserting category
-            $error_message = $inserted_category->get_error_message();
-            echo 'Category "' . $node['name'] . '" createing......<br>';
-            echo 'Slug "' . $node['name'] . '" createing......<br>';
-            echo 'Parent "' . $node['name'] . '" createing......<br>';
-            echo "Error inserting category: $error_message";
+            $this->categoriesSeeded++;
+            $this->addCategoryMeta($result['term_id'], $node);
         }
     }
 
-    return $n_categories_seeded;
+    private function addCategoryMeta(int $categoryId, array $node): void
+    {
+        if (isset($node['BSC__HOW_TO_USE'])) {
+            add_term_meta($categoryId, 'bsc__how_to_use', $node['BSC__HOW_TO_USE']);
+        }
+        if (isset($node['BSC__RUTINE_STEPS'])) {
+            add_term_meta($categoryId, 'bsc__rutine_steps', $node['BSC__RUTINE_STEPS']);
+        }
+        if (isset($node['BSC__SKIN_TYPE'])) {
+            add_term_meta($categoryId, 'bsc__skin_type_root', $node['BSC__SKIN_TYPE']['root']);
+            add_term_meta($categoryId, 'bsc__skin_type_desc', $node['BSC__SKIN_TYPE']['desc']);
+        }
+    }
+
+    private function handleCategoryError($error, array $node): void
+    {
+        $errorMessage = $error->get_error_message();
+        $this->outputMessage("ERROR INSERTING CATEGORY: {$node['LABEL']} | Slug: {$node['SLUG']}");
+        $this->outputMessage("Error: $errorMessage");
+    }
+
+    private function outputMessage(string $message): void
+    {
+        echo "<h4>$message</h4><br>";
+    }
+
+    private function outputCategoryInfo(array $node): void
+    {
+        $this->outputMessage("Category exists: " . print_r($node, true));
+    }
 }
 
-/*
-
-    "SLUG": "sk-ingredient-te-verde",
-    "PARENT_SLUG": "sk-ingredientes",
-    "LABEL": "Té verde",
-    "DESCRIPTION": "",
-    "PICTURE": ""
-
-*/
-
-function upload_categories_function($nodes)
+class CategoryMenu
 {
+    private $menuName = 'BSC Header Nav Menu';
 
-    $n_categories_seeded = 0;
+    public function createMenu(): void
+    {
+        $menuPayloads = [
+            'Skin Care' => $this->getChildCategoriesForGroup('group-skin-care'),
+            'Hair Care' => $this->getChildCategoriesForGroup('group-hair-care'),
+            'Make Up' => $this->getChildCategoriesForGroup('group-make-up'),
+        ];
 
-    echo '<h3> UPLOADING JSON FILE ....</h3><br>';
-    echo '<h3> SIZE : ' . count($nodes) . '  </h3><br>';
+        $this->deleteExistingMenu();
+        $menuId = wp_create_nav_menu($this->menuName);
 
-    foreach ($nodes as $node) {
-
-        // Check if the category already exists
-        $category_exists = term_exists($node['SLUG'], 'product_cat');
-
-        // If category exist, skep it and go to next 
-        if ($category_exists) {
-            echo  '$category_exists';
-            print_r($category_exists);
-            echo  ' ' . ' <br>';
-            print_r($node);
-            echo  ' ------------------- ' . ' <br> <br>';
-            continue;
+        foreach ($menuPayloads as $title => $categories) {
+            $parentMenuId = $this->addMenuItem($menuId, $title, '#');
+            $this->addChildCategoriesToMenu($menuId, $parentMenuId, $categories);
         }
 
-        // If category doesn't exist, create it
-        $parent_id = 0; // Default to no parent
-        // If parent slug exists, find its ID
-        if (!empty($node['PARENT_SLUG'])) {
-            $parent = get_term_by('slug', $node['PARENT_SLUG'], 'product_cat');
-            if ($parent) {
-                $parent_id = $parent->term_id;
-            }
-        }
+        $this->setPrimaryMenuLocation($menuId);
+    }
 
-        // Insert the category
-        if ($parent_id) {
-            $inserted_category = wp_insert_term(
-                $node['LABEL'], // Category name
-                'product_cat', // Taxonomy
-                array(
-                    'slug' => $node['SLUG'], // Category slug
-                    'parent' => $parent_id, // Parent category ID
-                    'description' => isset($node['DESCRIPTION']) ? $node['DESCRIPTION'] : '', // Check if DESCRIPTION exists
-                )
-            );
-
-            if (!is_wp_error($inserted_category)) {
-                // If category insertion is successful, retrieve the term ID
-                $category_id = $inserted_category['term_id'];
-
-                // Insert term meta (custom fields)
-                if (isset($node['BSC__HOW_TO_USE'])) {
-                    add_term_meta($category_id, 'bsc__how_to_use', $node['BSC__HOW_TO_USE']);
-                }
-
-                if (isset($node['BSC__RUTINE_STEPS'])) {
-                    add_term_meta($category_id, 'bsc__rutine_steps', $node['BSC__RUTINE_STEPS']);
-                }
-
-                if (isset($node['BSC__SKIN_TYPE'])) {
-                    add_term_meta($category_id, 'bsc__skin_type_root', $node['BSC__SKIN_TYPE']['root']);
-                    add_term_meta($category_id, 'bsc__skin_type_desc', $node['BSC__SKIN_TYPE']['desc']);
-                }
-            }
-        } else {
-            $inserted_category = wp_insert_term(
-                $node['LABEL'], // Category name
-                'product_cat', // Taxonomy
-                array(
-                    'slug' => $node['SLUG'], // Category slug
-                    'description' => isset($node['DESCRIPTION']) ? $node['DESCRIPTION'] : '', // Check if DESCRIPTION exists
-                )
-            );
-
-            if (!is_wp_error($inserted_category)) {
-                // If category insertion is successful, retrieve the term ID
-                $category_id = $inserted_category['term_id'];
-
-                // Insert term meta (custom fields)
-                if (isset($node['BSC__HOW_TO_USE'])) {
-                    add_term_meta($category_id, 'bsc__how_to_use', $node['BSC__HOW_TO_USE']);
-                }
-
-                if (isset($node['BSC__RUTINE_STEPS'])) {
-                    add_term_meta($category_id, 'bsc__rutine_steps', $node['BSC__RUTINE_STEPS']);
-                }
-
-                if (isset($node['BSC__SKIN_TYPE'])) {
-                    add_term_meta($category_id, 'bsc__skin_type_root', $node['BSC__SKIN_TYPE']['root']);
-                    add_term_meta($category_id, 'bsc__skin_type_desc', $node['BSC__SKIN_TYPE']['desc']);
-                }
-            }
-        }
-
-        if (!is_wp_error($inserted_category)) {
-            $n_categories_seeded++;
-        } else {
-            // Error inserting category
-            $error_message = $inserted_category->get_error_message();
-            echo '<br>';
-            echo '<h4> !!! ERROR INSERTING CATEGORY </h4>';
-            echo '<br>';
-            echo 'Category "' . $node['LABEL'] . '" creating ...... <br>';
-            echo 'Slug "' . $node['SLUG'] . '" createing......<br>';
-            echo 'Parent "' . $node['PARENT_SLUG'] . '" creating......<br><br>';
-            echo "Error inserting category: $error_message";
-            echo '<br>';
+    private function deleteExistingMenu(): void
+    {
+        if ($menu = wp_get_nav_menu_object($this->menuName)) {
+            wp_delete_term($menu->term_id, 'nav_menu');
         }
     }
 
+    private function setPrimaryMenuLocation(int $menuId): void
+    {
+        $locations = get_theme_mod('nav_menu_locations');
+        $locations['primary'] = $menuId;
+        set_theme_mod('nav_menu_locations', $locations);
+    }
 
-    return $n_categories_seeded;
+    private function addMenuItem(int $menuId, string $title, string $url): int
+    {
+        return wp_update_nav_menu_item($menuId, 0, [
+            'menu-item-title' => $title,
+            'menu-item-url' => $url,
+            'menu-item-status' => 'publish'
+        ]);
+    }
+
+    private function addChildCategoriesToMenu(int $menuId, int $parentId, array $categories): void
+    {
+        foreach ($categories as $category) {
+            $childId = $this->addMenuItem($menuId, $category['label'], $category['link']);
+
+            if (!empty($category['children'])) {
+                $this->addChildCategoriesToMenu($menuId, $childId, $category['children']);
+            }
+        }
+    }
+
+    private function getChildCategoriesForGroup(string $groupSlug): array
+    {
+        $group = get_term_by('slug', $groupSlug, 'product_cat');
+        if (!$group) {
+            return [];
+        }
+
+        return $this->getChildCategories($group->term_id);
+    }
+
+    private function getChildCategories(int $parentId): array
+    {
+        $categories = [];
+        $terms = get_terms(['taxonomy' => 'product_cat', 'parent' => $parentId, 'hide_empty' => false]);
+
+        foreach ($terms as $term) {
+            $categories[] = [
+                'label' => $term->name,
+                'slug' => $term->slug,
+                'link' => get_term_link($term),
+                'children' => $this->getChildCategories($term->term_id),
+            ];
+        }
+
+        return $categories;
+    }
 }
 
 
-function get_child_categories_for_group($group_slug) {
-    // Get the term for the top-level category
-    $group_term = get_term_by('slug', $group_slug, 'product_cat');
 
-    if (!$group_term) {
-        echo 'No categories found for group: ' . $group_slug;
-        return null;
+
+// Function to get child categories by parent slug
+function get_categories_by_parent_slug($parent_slug) {
+
+    // Get the parent category
+    $parent_category = get_term_by( 'slug', $parent_slug, 'product_cat' );
+    $parent_id = $parent_category->term_id; 
+
+    // If parent category exists, fetch child categories
+    if ($parent_category) {
+        $args = [
+            'taxonomy'   => 'product_cat',
+            'child_of'   => $parent_category->term_id,
+            'hide_empty' => false,
+        ];
+
+
+        return get_terms($args);
     }
-
-    // Initialize an empty array to store the categories
-    $categories = array();
-
-    // Get subcategories (children) of the group
-    $subcategories = get_terms(array(
-        'taxonomy' => 'product_cat',
-        'parent'   => $group_term->term_id,  // Get children of the group
-        'hide_empty' => false,
-    ));
-
-    // Build the array with subcategories and their child categories
-    if (!empty($subcategories)) {
-        foreach ($subcategories as $subcategory) {
-            // Get the link for the subcategory
-            $subcategory_link = get_term_link($subcategory);
-
-            // Initialize the subcategory array
-            $subcat_array = array(
-                'order' => 0,
-                'label' => $subcategory->name,
-                'slug'  => $subcategory->slug,
-                'link'  => $subcategory_link,
-                'children' => get_child_categories($subcategory->term_id), // Recursively get children
-            );
-
-            // Add the subcategory with its children to the main categories array
-            $categories[] = $subcat_array;
-        }
-    }
-
-    return $categories;
-}
-
-// Helper function to get child categories recursively
-function get_child_categories($parent_id) {
-    // Initialize an empty array for child categories
-    $children = array();
-
-    // Get child categories of the given parent ID
-    $grandchildren = get_terms(array(
-        'taxonomy' => 'product_cat',
-        'parent'   => $parent_id,
-        'hide_empty' => false,
-    ));
-
-    if (!empty($grandchildren)) {
-        foreach ($grandchildren as $grandchild) {
-            // Get the link for the grandchild
-            $grandchild_link = get_term_link($grandchild);
-
-            // Initialize the grandchild array
-            $grandchild_array = array(
-                'order' => 0,
-                'label' => $grandchild->name,
-                'slug'  => $grandchild->slug,
-                'link'  => $grandchild_link,
-                'children' => get_child_categories($grandchild->term_id), // Recursively get grand-grandchildren
-            );
-
-            // Add the grandchild to the children array
-            $children[] = $grandchild_array;
-        }
-    }
-
-    return $children;
+    // Return an empty array if no parent category is found
+    return [];
 }
 
 
+// Function to filter out categories that include "complemento"
+function filter_non_complementos($categories) {
+    $filtered_categories = array_filter($categories, function($category) {
+        return strpos($category->slug, 'complemento') === false;
+    });
+
+    // Sort categories based on the numeric ID extracted from the slug
+    usort($filtered_categories, function($a, $b) {
+        // Use regular expression to extract the numeric ID after 'sk-rutina-s'
+        preg_match('/sk-rutina-s(\d+)-/', $a->slug, $matches_a);
+        preg_match('/sk-rutina-s(\d+)-/', $b->slug, $matches_b);
+
+        // Convert matched IDs to integers
+        $id_a = isset($matches_a[1]) ? (int) $matches_a[1] : 0;
+        $id_b = isset($matches_b[1]) ? (int) $matches_b[1] : 0;
+
+        // Sort by the extracted ID
+        return $id_a - $id_b;
+    });
+
+    return $filtered_categories;
+}
+
+// Function to filter out categories that no include "complemento"
+function filter_complementos($categories) {
+    $filtered_categories = array_filter($categories, function($category) {
+        return !(strpos($category->slug, 'complemento') === false);
+    });  
+
+    // Sort categories based on the numeric ID extracted from the slug
+    usort($filtered_categories, function($a, $b) {
+        // Use regular expression to extract the numeric ID after 'sk-rutina-s'
+        preg_match('/sk-rutina-s(\d+)-/', $a->slug, $matches_a);
+        preg_match('/sk-rutina-s(\d+)-/', $b->slug, $matches_b);
+
+        // Convert matched IDs to integers
+        $id_a = isset($matches_a[1]) ? (int) $matches_a[1] : 0;
+        $id_b = isset($matches_b[1]) ? (int) $matches_b[1] : 0;
+
+        // Sort by the extracted ID
+        return $id_a - $id_b;
+    });
+
+    return $filtered_categories;
+
+}
+
+function create_custom_menus($menus) {
+ 
+    // Loop through the menus and create them
+    foreach ($menus as $menu_name => $menu_data) {
+        $menu_slug = strtoupper('BSC_MENU_' . str_replace(' ', '_', $menu_name));
+        
+        // Check if menu exists, if not, create it
+          if ($existing_menu) {
+            wp_delete_nav_menu($existing_menu->term_id);
+        }
+            
+        $menu_id = wp_create_nav_menu($menu_slug);
+
+        // Loop through children and add them as menu items
+        foreach ($menu_data['children'] as $child) {
+            wp_update_nav_menu_item($menu_id, 0, array(
+                'menu-item-title' => $child['name'],
+                'menu-item-url' => home_url($child['url']),
+                'menu-item-status' => 'publish'
+            ));
+        }
+        
+    }
+}
+
+
+ 
+function upload_categories_function(array $nodes){
+    $uploader = new CategoryUploader();
+    $uploader->uploadCategories($nodes);
+}
 
 function after_upload_categories_function() {
-    // Create Menu Nav payloads
-    $menu_payloads = array(
-        'Skin Care' => get_child_categories_for_group('group-skin-care'),
-        'Hair Care' => get_child_categories_for_group('group-hair-care'),
-        'Make Up' => get_child_categories_for_group('group-make-up'),
-    );
 
-    // Define the menu name
-    $menu_name = 'BSC Header Nav Menu';
+    // Create Full Menu
+    $menu = new CategoryMenu();
+    $menu->createMenu();
 
-    // Check if the menu already exists and delete if it does
-    if ($menu_exists = wp_get_nav_menu_object($menu_name)) {
-        wp_delete_term($menu_exists->term_id, 'nav_menu');
-    }
+    // Load product categories dynamically
+    $sk_rutina_categories = get_categories_by_parent_slug('sk-rutina');
 
-    // Create a new menu
-    $menu_id = wp_create_nav_menu($menu_name);
+    // Filter categories that do not have 'complementos' in the slug
+    $filtered_sk_rutina_non_complementos_categories = filter_non_complementos($sk_rutina_categories);
 
-    // Create the main menu items and their child categories
-    foreach ($menu_payloads as $menu_title => $payload) {
-        $parent_menu_id = wp_update_nav_menu_item($menu_id, 0, array(
-            'menu-item-title' => $menu_title,
-            'menu-item-url' => '#',
-            'menu-item-status' => 'publish'
-        ));
+    // Filter categories that have 'complementos' in the slug
+    $filtered_sk_rutina_complementos_categories = filter_complementos($sk_rutina_categories);
 
-        add_child_categories_to_menu($menu_id, $parent_menu_id, $payload);
-    }
+    // Load 'Tipo de Piel' categories
+    $sk_tipo_piel_categories = get_categories_by_parent_slug('sk-tipo-piel');
 
-    // Assign the menu to a theme location (optional, specify your theme location here)
-    $locations = get_theme_mod('nav_menu_locations'); // Get current theme menu locations
-    $locations['primary'] = $menu_id; // Set your menu to the primary location
-    set_theme_mod('nav_menu_locations', $locations);
-}
+    // Fill the menus dynamically based on the categories retrieved
+    $menu->menus = [
+        'Rutina Coreana' => [
+            'slug' => 'bsc-menu-rutina-coreana-1',
+            'children' => array_map(function($category) {
+                return [
+                    'name' => $category->name,
+                    'url' => '/product-category/group-skin-care/sk-rutina/'.$category->slug
+                ];
+            }, $filtered_sk_rutina_non_complementos_categories),
+        ],
+        'Complementos' => [
+            'slug' => 'bsc-menu-rutina-coreana-2',
+            'children' => array_map(function($category) {
+                return [
+                    'name' => $category->name,
+                    'url' => '/product-category/group-skin-care/sk-rutina/'.$category->slug
+                ];
+            }, $filtered_sk_rutina_complementos_categories),
+        ],
+        'Tipo de Piel' => [
+            'slug' => 'bsc-menu-tipo-piel',
+            'children' => array_map(function($category) {
+                return [
+                    'name' => $category->name,
+                    'url' => '/product-category/group-skin-care/sk-tipo-piel/'.$category->slug
+                ];
+            }, $sk_tipo_piel_categories),
+        ],
+        // Non-dynamically generated sections with name and slug structure
+        'Rutina Básica' => [
+            'slug' => 'bsc-menu-rutina-basica',
+            'children' => [
+                ['name' => 'Limpiador Acuoso', 'url' => '/product-category/group-skin-care/sk-rutina/sk-rutina-s2-limpiadores-acuosos'],
+                ['name' => 'Tónico', 'url' => '/product-category/group-skin-care/sk-rutina/sk-rutina-s4-tonicos'],
+                ['name' => 'Hidratante', 'url' => '/product-category/group-skin-care/sk-rutina/sk-rutina-s9-hidratantes'],
+                ['name' => 'Protector Solar', 'url' => '/product-category/group-skin-care/sk-rutina/sk-rutina-s10-protectores-solares-crema'],
+            ],
+        ],
+        'Rutina Intermedia' => [
+            'slug' => 'bsc-menu-rutina-intermedia',
+            'children' => [
+                ['name' => 'Limpiador Aceitoso', 'url' => '/product-category/group-skin-care/sk-rutina/sk-rutina-s1-limpiadores-aceitosos'],
+                ['name' => 'Limpiador Acuoso', 'url' => '/product-category/group-skin-care/sk-rutina/sk-rutina-s2-limpiadores-acuosos'],
+                ['name' => 'Tónico', 'url' => '/product-category/group-skin-care/sk-rutina/sk-rutina-s4-tonicos'],
+                ['name' => 'Serum', 'url' => '/product-category/group-skin-care/sk-rutina/sk-rutina-s7-serums'],
+                ['name' => 'Hidratante', 'url' => '/product-category/group-skin-care/sk-rutina/sk-rutina-s9-hidratantes'],
+                ['name' => 'Protector Solar', 'url' => '/product-category/group-skin-care/sk-rutina/sk-rutina-s10-protectores-solares-crema'],
+            ],
+        ],
+        'Rutina Experta' => [
+            'slug' => 'bsc-menu-rutina-experta',
+            'children' => [
+                ['name' => 'Limpiador Aceitoso', 'url' => '/product-category/group-skin-care/sk-rutina/sk-rutina-s1-limpiadores-aceitosos'],
+                ['name' => 'Limpiador Acuoso', 'url' => '/product-category/group-skin-care/sk-rutina/sk-rutina-s2-limpiadores-acuosos'],
+                ['name' => 'Exfoliante', 'url' => '/product-category/group-skin-care/sk-rutina/sk-rutina-s3-exfoliantes'],
+                ['name' => 'Tónico', 'url' => '/product-category/group-skin-care/sk-rutina/sk-rutina-s4-tonicos'],
+                ['name' => 'Mascarilla', 'url' => '/product-category/group-skin-care/sk-rutina/sk-rutina-s5-mascarillas'],
+                ['name' => 'Esencias', 'url' => '/product-category/group-skin-care/sk-rutina/sk-rutina-s6-esencias'],
+                ['name' => 'Serum', 'url' => '/product-category/group-skin-care/sk-rutina/sk-rutina-s7-serums'],
+                ['name' => 'Contorno de Ojos', 'url' => '/product-category/group-skin-care/sk-rutina/sk-rutina-s7-serums'],
+                ['name' => 'Hidratante', 'url' => '/product-category/group-skin-care/sk-rutina/sk-rutina-s9-hidratantes'],
+                ['name' => 'Protector Solar', 'url' => '/product-category/group-skin-care/sk-rutina/sk-rutina-s10-protectores-solares-crema'],
+            ],
+        ],
+        'BLOG' => [
+            'slug' => 'bsc-menu-blog',
+            'children' => [
+                ['name' => 'Entrevistas', 'url' => '/pages/interviews'],
+                ['name' => 'Reseñas', 'url' => '/pages/reviews'],
+                ['name' => 'Tendencias', 'url' => '/pages/trends'],
+                ['name' => 'Skin Care', 'url' => '/product-category/group-skin-care'],
+                ['name' => 'Hair Care', 'url' => '/product-category/group-hair-care'],
+                ['name' => 'Maquillaje', 'url' => '/product-category/group-make-up'],
+            ],
+        ],
+    ];
 
-/**
- * Helper function to add child categories and their subcategories to a menu
- */
-function add_child_categories_to_menu($menu_id, $parent_menu_id, $categories) {
-    foreach ($categories as $category) {
-        $child_menu_id = wp_update_nav_menu_item($menu_id, 0, array(
-            'menu-item-title' => !empty($category['label']) ? $category['label'] : 'NO-LABEL',
-            'menu-item-url' => $category['link'],
-            'menu-item-status' => 'publish',
-            'menu-item-parent-id' => $parent_menu_id,
-        ));
+    // Optional: Print or log the menu object to verify structure
+    print("<pre>".print_r($menu->menus,true)."</pre>");
 
-        if (!empty($category['children'])) {
-            foreach ($category['children'] as $subchild) {
-                wp_update_nav_menu_item($menu_id, 0, array(
-                    'menu-item-title' => !empty($subchild['label']) ? $subchild['label'] : 'NO-LABEL',
-                    'menu-item-url' => $subchild['link'],
-                    'menu-item-status' => 'publish',
-                    'menu-item-parent-id' => $child_menu_id,
-                ));
-            }
-        }
-    }
+
+    create_custom_menus($menu->menus);
 }
