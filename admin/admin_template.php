@@ -49,7 +49,7 @@ function do_render_admin_template()
         <section class="bsc__section section__categories">
             <article class="categories__reset">
                 <header>
-                    <h1> CATEGORIAS v.1.0.5 Final deplot.sh CI CD Testing </h1>
+                    <h1> CATEGORIAS v.1.0.6 Final deplot.sh CI CD Testing </h1>
                     <hr>
                 </header>
                 <content>
