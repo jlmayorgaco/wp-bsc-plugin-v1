@@ -4,7 +4,7 @@
  * Plugin Name: WC BSC PLUGIN
  * Description: A plugin to filter WooCommerce BSC Product Filter - adds advanced products filtering to your shop.
  * Plugin URI: https://bubblesskincare.com//
- * Version: 9.0
+ * Version: 1.0.1
  * Author: Wallamejorge
  * Text Domain: bubblesskincare
  * Domain Path: /
