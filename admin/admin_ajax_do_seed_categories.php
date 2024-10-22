@@ -252,12 +252,25 @@ function filter_complementos($categories) {
     return $filtered_categories;
 
 }
+function generate_menu_slug($menu_name) {
+    // Remove accents and diacritics using iconv
+    $normalized_name = iconv('UTF-8', 'ASCII//TRANSLIT', $menu_name);
+
+    // Remove any non-alphanumeric characters (except spaces)
+    $normalized_name = preg_replace('/[^a-zA-Z0-9\s]/', '', $normalized_name);
+
+    // Replace spaces with underscores
+    $slug = str_replace(' ', '_', $normalized_name);
+
+    // Convert the final string to uppercase and prefix with BSC_MENU_
+    return strtoupper('BSC_MENU_' . $slug);
+}
 
 function create_custom_menus($menus) {
  
     // Loop through the menus and create them
     foreach ($menus as $menu_name => $menu_data) {
-        $menu_slug = strtoupper('BSC_MENU_' . str_replace(' ', '_', $menu_name));
+        $menu_slug = generate_menu_slug($menu_name);
         
         // Check if menu exists, if not, create it
           if ($existing_menu) {
@@ -283,6 +296,12 @@ function create_custom_menus($menus) {
 function upload_categories_function(array $nodes){
     $uploader = new CategoryUploader();
     $uploader->uploadCategories($nodes);
+
+    echo '<br><br><hr>';
+    echo '<h1> $nodes </h1> <br>';
+    echo '<br><br><hr>';
+    var_dump($nodes);
+
 }
 
 function after_upload_categories_function() {
@@ -302,6 +321,10 @@ function after_upload_categories_function() {
 
     // Load 'Tipo de Piel' categories
     $sk_tipo_piel_categories = get_categories_by_parent_slug('sk-tipo-piel');
+
+
+
+
 
     // Fill the menus dynamically based on the categories retrieved
     $menu->menus = [
