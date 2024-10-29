@@ -84,7 +84,8 @@ class WC_BSC_Shortcode {
                 ['title' => '7. Serums', 'slug' => '#'],
                 ['title' => '8. Contorno de Ojos', 'slug' => '#'],
                 ['title' => '9. Hidratantes', 'slug' => '#'],
-                ['title' => '10. Protectores Solares', 'slug' => '#'],,
+                ['title' => '10. Protectores Solares', 'slug' => '#']
+            ),
                 'list2' => array(
                     ['title' => '11. Aceites Faciales', 'slug' => '#'],
                     ['title' => '12. Spot y Patches', 'slug' => '#'],
@@ -94,6 +95,12 @@ class WC_BSC_Shortcode {
                     ['title' => '16. Inner Beauty', 'slug' => '#'],
                     ['title' => '17. Accesorios', 'slug' => '#'],
                     ['title' => '18. Minis', 'slug' => '#'],
+                ),
+                'list3' => array(
+                    ['title' => 'Piel Seca', 'slug' => '#'],
+                    ['title' => 'Piel Normal', 'slug' => '#'],
+                    ['title' => 'Piel Mixta', 'slug' => '#'],
+                    ['title' => 'Piel Grasa', 'slug' => '#'],
                 )
         );
 
