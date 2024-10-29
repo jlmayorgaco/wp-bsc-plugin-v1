@@ -1,0 +1,38 @@
+.bsc__custom-menu {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    font-family: Arial, sans-serif;
+}
+
+.bsc__custom-menu li {
+    margin-bottom: 10px;
+    font-size: 18px;
+    position: relative;
+    padding-right: 20px;
+}
+
+.bsc__custom-menu li::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 1px;
+    background-color: #333;
+    opacity: 0.2;
+}
+
+.bsc__custom-menu li:last-child::after {
+    display: none;
+}
+
+.bsc__custom-menu a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.bsc__custom-menu a:hover {
+    color: #ff4081;
+}
