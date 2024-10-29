@@ -210,13 +210,19 @@ function do_render_admin_template()
         document.getElementById('deleteForm').addEventListener('click', function() {
             document.getElementById('delete_categories').click();
         });
+        /*
         document.getElementById('seedForm').addEventListener('click', function() {
             document.getElementById('seed_categories').click();
         });
+        */
         document.getElementById('downloadForm').addEventListener('click', function() {
             document.getElementById('download_categories').click();
         });
         document.getElementById('deleteProductsForm').addEventListener('click', function() {
+            console.log(' ')
+            console.log(' deleteProductsForm ')
+            console.log(' ')
+            console.log(' ')
             document.getElementById('delete_products').click();
         });
        
