@@ -39,6 +39,7 @@ class WC_BSC_Plugin {
         $this->init_admin();
         $this->init_widgets();
         $this->init_utilities();
+		$this->register_shortcodes();
 		
     }
 
@@ -61,8 +62,6 @@ class WC_BSC_Plugin {
         require_once WC_BSC_PLUGIN_PATH . 'includes/class-wc-bsc-filters.php';
         require_once WC_BSC_PLUGIN_PATH . 'includes/class-wc-bsc-template.php';
         require_once WC_BSC_PLUGIN_PATH . 'includes/class-wc-bsc-widgets.php';
-
-		
     }
 
 	private function init_admin(){
@@ -91,6 +90,13 @@ class WC_BSC_Plugin {
         add_filter('woocommerce_rest_batch_items_limit', ['WC_BSC_Filters', 'wpse_rest_batch_items_limit']);
         add_filter('woocommerce_api_bulk_limit', ['WC_BSC_Filters', 'update_limit_for_products'], 10, 2);
     }
+
+
+    private function register_shortcodes() {
+		require_once WC_BSC_PLUGIN_PATH . 'shortcuts/class-wc-bsc-shortcode.php';
+    	$header_menu_shortcode = new WC_BSC_Shortcode();
+    }
+
 }
 
 // Initialize the plugin.
