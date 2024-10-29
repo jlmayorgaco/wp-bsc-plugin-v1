@@ -74,7 +74,7 @@ class WC_BSC_Shortcode {
 
         // Define hardcoded lists for demonstration
         $lists = array(
-            'list1' => array(
+            'sk-rutina-corena' => array(
                 ['title' => '1. Limpiadores Aceitosos', 'slug' => 'sk-rutina-s1-limpiadores-aceitosos'],
                 ['title' => '2. Limpiadores Acuosos', 'slug' => '#'],
                 ['title' => '3. Exfoliantes', 'slug' => '#'],
@@ -86,7 +86,7 @@ class WC_BSC_Shortcode {
                 ['title' => '9. Hidratantes', 'slug' => '#'],
                 ['title' => '10. Protectores Solares', 'slug' => '#']
             ),
-                'list2' => array(
+            'sk-complementos' => array(
                     ['title' => '11. Aceites Faciales', 'slug' => '#'],
                     ['title' => '12. Spot y Patches', 'slug' => '#'],
                     ['title' => '13. Mist y Brumas', 'slug' => '#'],
@@ -96,12 +96,36 @@ class WC_BSC_Shortcode {
                     ['title' => '17. Accesorios', 'slug' => '#'],
                     ['title' => '18. Minis', 'slug' => '#'],
                 ),
-                'list3' => array(
-                    ['title' => 'Piel Seca', 'slug' => '#'],
-                    ['title' => 'Piel Normal', 'slug' => '#'],
-                    ['title' => 'Piel Mixta', 'slug' => '#'],
-                    ['title' => 'Piel Grasa', 'slug' => '#'],
-                )
+            'sk-tipos-piel' => array(
+                ['title' => 'Piel Seca', 'slug' => '#'],
+                ['title' => 'Piel Normal', 'slug' => '#'],
+                ['title' => 'Piel Mixta', 'slug' => '#'],
+                ['title' => 'Piel Grasa', 'slug' => '#'],
+            ),
+            'hc-rutina-coreana' => array(
+                ['title' => 'Piel Seca', 'slug' => '#']
+            ),
+            'hc-rutina-complementos' => array(
+                ['title' => 'Piel Seca', 'slug' => '#']
+            ),
+            'mk-maquillaje' => array(
+                ['title' => 'Piel Seca', 'slug' => '#']
+            ),
+            'mk-complementos' => array(
+                ['title' => 'Piel Seca', 'slug' => '#']
+            ),
+            'rutina-basica' => array(
+                ['title' => 'Piel Seca', 'slug' => '#']
+            ),
+            'rutina-intermedia' => array(
+                ['title' => 'Piel Seca', 'slug' => '#']
+            ),
+            'rutina-avanzada' => array(
+                ['title' => 'Piel Seca', 'slug' => '#']
+            ),
+            'blog' => array(
+                ['title' => 'Piel Seca', 'slug' => '#']
+            ),
         );
 
 
