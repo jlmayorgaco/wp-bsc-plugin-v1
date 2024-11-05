@@ -7,9 +7,11 @@
 
 .bsc__custom-menu li {
     margin-bottom: 10px;
-    font-size: 18px;
+    font-size: 16px;
+    letter-spacing: 2px;
     position: relative;
     padding-right: 20px;
+    font-weight: 300;
 }
 
 .bsc__custom-menu li::after {
@@ -20,7 +22,7 @@
     height: 100%;
     width: 1px;
     background-color: #333;
-    opacity: 0.2;
+    opacity: 0;
 }
 
 .bsc__custom-menu li:last-child::after {
