@@ -74,7 +74,7 @@ class WC_BSC_Shortcode {
 
         // Define hardcoded lists for demonstration
         $lists = array(
-            'sk-rutina-coreana' => array( // [bsc_menu name="sk-rutina-coreana"]
+            'sk-rutina-coreana' => array( // [bsc_menu name="sk-rutina-coreana"] 
                 ['title' => '1. Limpiadores Aceitosos', 'slug' => 'sk-rutina-s1-limpiadores-aceitosos'],
                 ['title' => '2. Limpiadores Acuosos', 'slug' => 'sk-rutina-s2-limpiadores-acuosos'],
                 ['title' => '3. Exfoliantes', 'slug' => 'sk-rutina-s3-exfoliantes'],
@@ -88,7 +88,7 @@ class WC_BSC_Shortcode {
                 ['title' => '10. Protectores Solares', 'slug' => 'sk-rutina-s10-protectores-solares-crema'],
                 ['title' => '10. Protectores Solares', 'slug' => 'sk-rutina-s10-protectores-solares-barrita']
             ),
-            'sk-complementos' => array(
+            'sk-complementos' => array(  // [bsc_menu name="sk-rutina-coreana"]
                 ['title' => '11. Aceites Faciales', 'slug' => 'sk-rutina-s11-complemento-c1-aceites-faciales'],
                 ['title' => '12. Spot', 'slug' => 'sk-rutina-s12-complemento-c2-spot'],
                 ['title' => '12. Patches', 'slug' => 'sk-rutina-s12-complemento-c3-patches'],
@@ -99,13 +99,13 @@ class WC_BSC_Shortcode {
                 ['title' => '17. Accesorios', 'slug' => 'sk-rutina-s17-complemento-c8-accesorios'],
                 ['title' => '18. Minis', 'slug' => 'sk-rutina-s18-complemento-c9-minis']
             ),
-            'sk-tipos-piel' => array(
+            'sk-tipos-piel' => array(  // [bsc_menu name="sk-tipos-piel"]
                 ['title' => 'Piel Seca', 'slug' => 'sk-tipo-piel-seca'],
                 ['title' => 'Piel Normal', 'slug' => 'sk-tipo-piel-normal'],
                 ['title' => 'Piel Mixta', 'slug' => 'sk-tipo-piel-mixta'],
                 ['title' => 'Piel Grasa', 'slug' => 'sk-tipo-piel-grasa']
             ),
-            'hc-rutina-coreana' => array(
+            'hc-rutina-coreana' => array( // [bsc_menu name="hc-rutina-coreana"]
                 ['title' => 'Shampoo', 'slug' => 'hc-rutina-s1-shampoo'],
                 ['title' => 'Exfoliantes', 'slug' => 'hc-rutina-s2-exfoliantes'],
                 ['title' => 'Mascarillas', 'slug' => 'hc-rutina-s3-mascarillas'],
@@ -116,7 +116,14 @@ class WC_BSC_Shortcode {
                 ['title' => 'Sprays', 'slug' => 'hc-rutina-s8-sprays'],
                 ['title' => 'Aceites', 'slug' => 'hc-rutina-s9-aceites']
             ),
-            'mk-maquillaje' => array(
+            'hc-rutina-complementos' => array( // [bsc_menu name="hc-rutina-corean-complementos"]
+                ['title' => 'Pestañas', 'slug' => 'hc-rutina-s11-complementos-c1-pestanas'],
+                ['title' => 'Cepillos', 'slug' => 'hc-rutina-s12-complementos-c2-cepillos'],
+                ['title' => 'Cushions', 'slug' => 'hc-rutina-s13-complementos-c3-cushions'],
+                ['title' => 'Minis', 'slug' => 'hc-rutina-s14-complementos-c4-minis'],
+                ['title' => 'Accesorios', 'slug' => 'hc-rutina-s15-complementos-c5-accesorios']
+            ),
+            'mk-maquillaje' => array( // [bsc_menu name="mk-maquillaje"]
                 ['title' => 'BB Creams y Bases', 'slug' => 'mk-rutina-p1-bb-creams-y-bases'],
                 ['title' => 'Cushions y Refills', 'slug' => 'mk-rutina-p2-cushions-y-refills'],
                 ['title' => 'Sombras y Paletas', 'slug' => 'mk-rutina-p3-sombras-y-paletas'],
@@ -129,7 +136,7 @@ class WC_BSC_Shortcode {
                 ['title' => 'Labiales', 'slug' => 'mk-rutina-p10-labiales'],
                 ['title' => 'Polvos', 'slug' => 'mk-rutina-p11-polvos']
             ),
-            'mk-complementos' => array(
+            'mk-complementos' => array( // [bsc_menu name="mk-complementos"] 
                 ['title' => 'Cejas', 'slug' => 'mk-rutina-p12-complementos-c1-cejas'],
                 ['title' => 'Primers', 'slug' => 'mk-rutina-p13-complementos-c2-primers'],
                 ['title' => 'Fijadores', 'slug' => 'mk-rutina-p14-complementos-c3-fijadores'],
