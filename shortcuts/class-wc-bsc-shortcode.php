@@ -74,7 +74,7 @@ class WC_BSC_Shortcode {
 
         // Define hardcoded lists for demonstration
         $lists = array(
-            'sk-rutina-coreana' => array(
+            'sk-rutina-coreana' => array( // [bsc_menu name="sk-rutina-coreana"]
                 ['title' => '1. Limpiadores Aceitosos', 'slug' => 'sk-rutina-s1-limpiadores-aceitosos'],
                 ['title' => '2. Limpiadores Acuosos', 'slug' => 'sk-rutina-s2-limpiadores-acuosos'],
                 ['title' => '3. Exfoliantes', 'slug' => 'sk-rutina-s3-exfoliantes'],
