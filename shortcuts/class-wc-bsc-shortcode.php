@@ -143,7 +143,33 @@ class WC_BSC_Shortcode {
                 ['title' => 'Fijadores', 'slug' => 'mk-rutina-p14-complementos-c3-fijadores'],
                 ['title' => 'Brochas', 'slug' => 'mk-rutina-p15-complementos-c4-brochas'],
                 ['title' => 'Pestañas', 'slug' => 'mk-rutina-p16-complementos-c5-pestanas']
-            )
+            ),
+            'bsc-rutina-basica' => array(
+                ['title' => 'Limpiador Acuoso', 'slug' => 'sk-rutina-s2-limpiadores-acuosos'],
+                ['title' => 'Tónico', 'slug' => 'sk-rutina-s4-tonicos'],
+                ['title' => 'Hidratante', 'slug' => 'sk-rutina-s9-hidratantes'],
+                ['title' => 'Protector Solar', 'slug' => 'sk-rutina-s10-protectores-solares-crema'],
+            ),
+            'bsc-rutina-intermedia' => array(
+                ['title' => 'Limpiador Aceitoso', 'slug' => 'sk-rutina-s1-limpiadores-aceitosos'],
+                ['title' => 'Limpiador Acuoso', 'slug' => 'sk-rutina-s2-limpiadores-acuosos'],
+                ['title' => 'Tónico', 'slug' => 'sk-rutina-s4-tonicos'],
+                ['title' => 'Serum', 'slug' => 'sk-rutina-s7-serums'],
+                ['title' => 'Hidratante', 'slug' => 'sk-rutina-s9-hidratantes'],
+                ['title' => 'Protector Solar', 'slug' => 'sk-rutina-s10-protectores-solares-barrita'],
+            ),
+            'bsc-rutina-avanzada' => array(
+                ['title' => 'Limpiador Aceitoso', 'slug' => 'sk-rutina-s1-limpiadores-aceitosos'],
+                ['title' => 'Limpiador Acuoso', 'slug' => 'sk-rutina-s2-limpiadores-acuosos'],
+                ['title' => 'Exfoliante', 'slug' => 'sk-rutina-s3-exfoliantes'],
+                ['title' => 'Tónico', 'slug' => 'sk-rutina-s4-tonicos'],
+                ['title' => 'Mascarilla', 'slug' => 'sk-rutina-s5-mascarillas-1'],
+                ['title' => 'Esencias', 'slug' => 'sk-rutina-s6-esencias'],
+                ['title' => 'Serum', 'slug' => 'sk-rutina-s7-serums'],
+                ['title' => 'Contorno de Ojos', 'slug' => 'sk-rutina-s8-contorno-de-ojos'],
+                ['title' => 'Hidratante', 'slug' => 'sk-rutina-s9-hidratantes'],
+                ['title' => 'Protector Solar', 'slug' => 'sk-rutina-s10-protectores-solares-crema'],
+            ),
         );
 
         // Select the requested list or default to 'list1'
