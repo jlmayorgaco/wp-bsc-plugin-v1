@@ -49,17 +49,17 @@ class WC_BSC_Shortcode {
         add_action('wp_enqueue_scripts', [$this, 'enqueue_shortcode_styles']);
     }
 
+
     public function enqueue_shortcode_styles() {
-        // Only enqueue the stylesheet if the shortcode is present on the page
-        if (is_singular() && has_shortcode(get_post()->post_content, 'bsc_menu')) {
+
             wp_enqueue_style(
                 'wc-bsc-shortcode-styles',
-                plugin_dir_url(__FILE__) . '../shortcuts/style-wc-bsc-shortcode.css',
+                plugin_dir_url(__FILE__) . 'style-wc-bsc-shortcode.css',
                 array(),
                 '1.0',
                 'all'
             );
-        }
+
     }
 
     public function render_custom_menu_shortcode($atts) {
@@ -73,7 +73,6 @@ class WC_BSC_Shortcode {
         );
 
         // Define hardcoded lists for demonstration
-
         $lists = array(
             'sk-rutina-coreana' => array(
                 ['title' => '1. Limpiadores Aceitosos', 'slug' => 'sk-rutina-s1-limpiadores-aceitosos'],
