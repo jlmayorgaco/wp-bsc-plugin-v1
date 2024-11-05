@@ -106,22 +106,23 @@ class WC_BSC_Shortcode {
                 ['title' => 'Piel Grasa', 'slug' => 'sk-tipo-piel-grasa']
             ),
             'hc-rutina-coreana' => array( // [bsc_menu name="hc-rutina-coreana"]
-                ['title' => 'Shampoo', 'slug' => 'hc-rutina-s1-shampoo'],
-                ['title' => 'Exfoliantes', 'slug' => 'hc-rutina-s2-exfoliantes'],
-                ['title' => 'Mascarillas', 'slug' => 'hc-rutina-s3-mascarillas'],
-                ['title' => 'Acondicionadores', 'slug' => 'hc-rutina-s4-acondicionadores'],
-                ['title' => 'Tónicos', 'slug' => 'hc-rutina-s5-tonicos'],
-                ['title' => 'Serums', 'slug' => 'hc-rutina-s6-serums'],
-                ['title' => 'Esencias Leave-in', 'slug' => 'hc-rutina-s7-esencias-leave-in'],
-                ['title' => 'Sprays', 'slug' => 'hc-rutina-s8-sprays'],
-                ['title' => 'Aceites', 'slug' => 'hc-rutina-s9-aceites']
+                ['title' => '1. Shampoo', 'slug' => 'hc-rutina-s1-shampoo'],
+                ['title' => '2. Exfoliantes', 'slug' => 'hc-rutina-s2-exfoliantes'],
+                ['title' => '3. Mascarillas', 'slug' => 'hc-rutina-s3-mascarillas'],
+                ['title' => '4. Acondicionadores', 'slug' => 'hc-rutina-s4-acondicionadores'],
+                ['title' => '5. Tónicos', 'slug' => 'hc-rutina-s5-tonicos'],
+                ['title' => '6. Serums', 'slug' => 'hc-rutina-s6-serums'],
+                ['title' => '7. Esencias Leave-in', 'slug' => 'hc-rutina-s7-esencias-leave-in'],
+                ['title' => '8. Sprays', 'slug' => 'hc-rutina-s8-sprays'],
+                ['title' => '9. Aceites', 'slug' => 'hc-rutina-s9-aceites'],
+                ['title' => '10. Protectores', 'slug' => 'hc-rutina-s10-protectores']
             ),
             'hc-rutina-complementos' => array( // [bsc_menu name="hc-rutina-corean-complementos"]
-                ['title' => 'Pestañas', 'slug' => 'hc-rutina-s11-complementos-c1-pestanas'],
-                ['title' => 'Cepillos', 'slug' => 'hc-rutina-s12-complementos-c2-cepillos'],
-                ['title' => 'Cushions', 'slug' => 'hc-rutina-s13-complementos-c3-cushions'],
-                ['title' => 'Minis', 'slug' => 'hc-rutina-s14-complementos-c4-minis'],
-                ['title' => 'Accesorios', 'slug' => 'hc-rutina-s15-complementos-c5-accesorios']
+                ['title' => '11. Pestañas', 'slug' => 'hc-rutina-s11-complementos-c1-pestanas'],
+                ['title' => '12. Cepillos', 'slug' => 'hc-rutina-s12-complementos-c2-cepillos'],
+                ['title' => '13. Cushions', 'slug' => 'hc-rutina-s13-complementos-c3-cushions'],
+                ['title' => '14. Minis', 'slug' => 'hc-rutina-s14-complementos-c4-minis'],
+                ['title' => '15. Accesorios', 'slug' => 'hc-rutina-s15-complementos-c5-accesorios']
             ),
             'mk-maquillaje' => array( // [bsc_menu name="mk-maquillaje"]
                 ['title' => 'BB Creams y Bases', 'slug' => 'mk-rutina-p1-bb-creams-y-bases'],
