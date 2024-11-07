@@ -125,24 +125,24 @@ class WC_BSC_Shortcode {
                 ['title' => '15. Accesorios', 'slug' => 'hc-rutina-s15-complementos-c5-accesorios']
             ),
             'mk-maquillaje' => array( // [bsc_menu name="mk-maquillaje"]
-                ['title' => 'BB Creams y Bases', 'slug' => 'mk-rutina-p1-bb-creams-y-bases'],
-                ['title' => 'Cushions y Refills', 'slug' => 'mk-rutina-p2-cushions-y-refills'],
-                ['title' => 'Sombras y Paletas', 'slug' => 'mk-rutina-p3-sombras-y-paletas'],
-                ['title' => 'Delineadores', 'slug' => 'mk-rutina-p4-delineadores'],
-                ['title' => 'Pestañinas', 'slug' => 'mk-rutina-p5-pestaninas'],
-                ['title' => 'Rubores', 'slug' => 'mk-rutina-p6-rubores'],
-                ['title' => 'Iluminadores', 'slug' => 'mk-rutina-p7-iluminadores'],
-                ['title' => 'Correctores', 'slug' => 'mk-rutina-p8-correctores'],
-                ['title' => 'Tintas', 'slug' => 'mk-rutina-p9-tintas'],
-                ['title' => 'Labiales', 'slug' => 'mk-rutina-p10-labiales'],
-                ['title' => 'Polvos', 'slug' => 'mk-rutina-p11-polvos']
+                ['title' => '1. BB Creams y Bases', 'slug' => 'mk-rutina-p1-bb-creams-y-bases'],
+                ['title' => '2. Cushions y Refills', 'slug' => 'mk-rutina-p2-cushions-y-refills'],
+                ['title' => '3. Sombras y Paletas', 'slug' => 'mk-rutina-p3-sombras-y-paletas'],
+                ['title' => '4. Delineadores', 'slug' => 'mk-rutina-p4-delineadores'],
+                ['title' => '5. Pestañinas', 'slug' => 'mk-rutina-p5-pestaninas'],
+                ['title' => '6. Rubores', 'slug' => 'mk-rutina-p6-rubores'],
+                ['title' => '7. Iluminadores', 'slug' => 'mk-rutina-p7-iluminadores'],
+                ['title' => '8. Correctores', 'slug' => 'mk-rutina-p8-correctores'],
+                ['title' => '9. Tintas', 'slug' => 'mk-rutina-p9-tintas'],
+                ['title' => '10. Labiales', 'slug' => 'mk-rutina-p10-labiales'],
+                ['title' => '11. Polvos', 'slug' => 'mk-rutina-p11-polvos']
             ),
             'mk-complementos' => array( // [bsc_menu name="mk-complementos"] 
-                ['title' => 'Cejas', 'slug' => 'mk-rutina-p12-complementos-c1-cejas'],
-                ['title' => 'Primers', 'slug' => 'mk-rutina-p13-complementos-c2-primers'],
-                ['title' => 'Fijadores', 'slug' => 'mk-rutina-p14-complementos-c3-fijadores'],
-                ['title' => 'Brochas', 'slug' => 'mk-rutina-p15-complementos-c4-brochas'],
-                ['title' => 'Pestañas', 'slug' => 'mk-rutina-p16-complementos-c5-pestanas']
+                ['title' => '12. Cejas', 'slug' => 'mk-rutina-p12-complementos-c1-cejas'],
+                ['title' => '13. Primers', 'slug' => 'mk-rutina-p13-complementos-c2-primers'],
+                ['title' => '14. Fijadores', 'slug' => 'mk-rutina-p14-complementos-c3-fijadores'],
+                ['title' => '15. Brochas', 'slug' => 'mk-rutina-p15-complementos-c4-brochas'],
+                ['title' => '16. Pestañas', 'slug' => 'mk-rutina-p16-complementos-c5-pestanas']
             ),
             'bsc-rutina-basica' => array(
                 ['title' => 'Limpiador Acuoso', 'slug' => 'sk-rutina-s2-limpiadores-acuosos'],
