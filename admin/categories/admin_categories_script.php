@@ -228,6 +228,7 @@
             }
 
             onStart = async () => {
+                /*
                 const LIST = (await doLoopCategoriesAPI())
                 const categoriesList = (await doLoopCategoriesAPI())
                     .map(item => ({
@@ -242,6 +243,7 @@
                     _DATA[key] = categoriesList.filter(item => item.parent_slug === key)
                 });
                 DATA.value = _DATA;
+                */
             }
 
             onMounted(async () => {
