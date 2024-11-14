@@ -48,15 +48,29 @@ function doRenderFilterSliderPrice($menuItem, $group, $page){
 
             $query->the_post();
             global $product;
+            
             // Get the product price
             $product_price_str = $product->get_price();
+
+            // Convert the price string to a number
             $product_price_number = (float) preg_replace('/[^0-9.]/', '', $product_price_str);
             $product_price_number = (int) $product_price_number;
+            
+            // Get the product name, slug, ID, and SKU
+            $product_name = $product->get_name();       // Product name
+            $product_slug = $product->get_slug();       // Product slug
+            $product_id = $product->get_id();           // Product ID
+            $product_sku = $product->get_sku();         // Product SKU
+            
             // Convert to "K" format if number is greater than 1000
-
+            $product_price_display = $product_price_number >= 1000 ? number_format($product_price_number / 1000, 1) . 'K' : $product_price_number;
+            
             // Update min and max prices if necessary
             $priceMin = min($priceMin, $product_price_number);
             $priceMax = max($priceMax, $product_price_number);
+            
+
+
 
             if($priceMax === $priceMin){
                 $priceMax = ceil(2 * $priceMax); // Rounds up
