@@ -151,6 +151,15 @@ class ProductPhotosUploaderClass
     private function processExtractedFolders($extractPath)
     {
         $fullPath = $extractPath . 'FOTOS_PAG_WEB_NOMENCLATURA';
+        echo '<br>';
+        echo 'is_dir($fullPath) : ';
+        echo is_dir($fullPath);
+        echo '<br>';
+        echo '<br>';
+        echo 'fullPath : ';
+        echo $fullPath;
+        echo '<br>';
+        
         if (is_dir($fullPath)) {
             $this->countFoldersByPrefix($fullPath);
             $this->processFoldersByPrefix($fullPath);
