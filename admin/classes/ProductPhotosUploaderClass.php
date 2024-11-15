@@ -131,7 +131,10 @@ class ProductPhotosUploaderClass
             $zip->extractTo($extractPath);
             $zip->close();
 
+            echo '<br>';
             echo "Zip file extracted to: " . $extractPath;
+            echo '<br>';
+
             $this->processExtractedFolders($extractPath);
         } else {
             $this->handleError("Failed to open the zip file.");
