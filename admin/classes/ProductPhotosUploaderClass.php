@@ -157,6 +157,8 @@ class ProductPhotosUploaderClass
         } else {
             $this->handleError("Extracted folder not found. Should have nave FOTOS_PAG_WEB_NOMENCLATURA");
             $this->handleError($fullPath);
+            echo '<br>';
+            $this->handleError($extractPath);
         }
     }
 
