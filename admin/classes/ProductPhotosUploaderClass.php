@@ -150,7 +150,7 @@ class ProductPhotosUploaderClass
     // Process the folders extracted from the zip file
     private function processExtractedFolders($extractPath)
     {
-        $fullPath = $extractPath . 'FOTOS_PAG_WEB_NOMENCLATURA';
+        $fullPath = $extractPath . (is_dir($extractPath . 'FOTOS PAG WEB NOMENCLATURA') ? 'FOTOS PAG WEB NOMENCLATURA' : 'FOTOS_PAG_WEB_NOMENCLATURA');
         if (is_dir($fullPath)) {
             $this->countFoldersByPrefix($fullPath);
             $this->processFoldersByPrefix($fullPath);
