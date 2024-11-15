@@ -20,8 +20,13 @@ class ProductPhotosUploaderClass
     public function uploadAndProcessFile()
     {
         if (!$this->isUploadValid()) {
+            var_dump($this->file);
             return $this->handleError("No file uploaded or there was an error during upload.");
         }
+
+        echo '<br>';
+        echo '<h1> is Upload Valid Ok </h1>'; 
+        echo '<br>';
 
         try {
             $this->ensureTargetDirectoryExists();
