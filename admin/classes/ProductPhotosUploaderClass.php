@@ -226,11 +226,14 @@ class ProductPhotosUploaderClass
 
         $subfolders = scandir($directory);
         $processedCount = 0;
-        $maxIterations = 100;
+        $maxIterations = 10;
 
         echo '<br> .... Starting processFoldersByPrefix<br>';
         echo '<br> .... <br>';
-    
+        echo 'max_execution_time: ' . ini_get('max_execution_time') . '<br>';
+        echo 'max_input_time: ' . ini_get('max_input_time') . '<br>';
+        echo 'memory_limit: ' . ini_get('memory_limit') . '<br>';
+            
         for ($i = 0; $i < count($subfolders); $i++) {
             $subfolder = $subfolders[$i];
     
