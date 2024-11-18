@@ -99,7 +99,7 @@ class ProductPhotosUploaderClass
     private function clearFolder($folderPath)
     {
         foreach (glob($folderPath . '*') as $file) {
-            is_dir($file) ? $this->deleteFolder($file) : unlink($file);
+            //is_dir($file) ? $this->deleteFolder($file) : unlink($file);
         }
     }
 
@@ -121,6 +121,10 @@ class ProductPhotosUploaderClass
     // Process the uploaded zip file
     private function processZipFile($zipFilePath)
     {
+        echo '<br>';
+        echo "... Opening Zip file: " . $zipFilePath;
+        echo '<br>';
+
         $zip = new ZipArchive;
         if ($zip->open($zipFilePath) === true) {
             $extractPath = $this->getExtractPath($zipFilePath);
@@ -128,7 +132,7 @@ class ProductPhotosUploaderClass
             $zip->close();
 
             echo '<br>';
-            echo "Zip file extracted to: " . $extractPath;
+            echo "... Zip file extracted to: " . $extractPath;
             echo '<br>';
 
             $this->processExtractedFolders($extractPath);
