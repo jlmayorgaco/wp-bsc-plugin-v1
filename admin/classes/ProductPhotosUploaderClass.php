@@ -6,39 +6,30 @@ class ProductPhotosUploaderClass
     private $targetDir;
     private $fileName;
     private $uploadedFile;
-
-    public function __construct($file)
+    public function __construct($file = null)
     {
-        $this->file = $file;
         $uploadDir = wp_upload_dir();
         $this->targetDir = $uploadDir['basedir'] . '/product_photos_zips/';
-        $this->uploadedFile = $file['tmp_name'];
-        $this->fileName = $file['name'];
+        $this->fileName = 'FOTOS_PAG_WEB_NOMENCLATURA.zip';
+        $this->uploadedFile = $this->targetDir . $this->fileName; // Path to the existing zip file
     }
 
     // Main method to initiate the process
     public function uploadAndProcessFile()
     {
-        if (!$this->isUploadValid()) {
-            var_dump($this->file);
-            return $this->handleError("No file uploaded or there was an error during upload.");
+        // Check if the existing zip file is available
+        if (!file_exists($this->uploadedFile)) {
+            return $this->handleError("Zip file not found: " . $this->uploadedFile);
         }
-
-        echo '<br>';
-        echo '<h1> is Upload Valid Ok </h1>'; 
-        echo '<br>';
 
         try {
             $this->ensureTargetDirectoryExists();
             $this->clearProductsImages();
             $this->clearFolder($this->targetDir);
 
-            $destination = $this->targetDir . basename($this->fileName);
-            if ($this->moveUploadedFile($destination)) {
-                $this->processZipFile($destination);
-            } else {
-                $this->handleError("Failed to upload the file.");
-            }
+            $destination = $this->uploadedFile;
+            $this->processZipFile($destination);
+
         } catch (Exception $e) {
             $this->handleError('Error: ' . $e->getMessage());
         }
