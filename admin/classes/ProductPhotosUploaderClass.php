@@ -162,10 +162,7 @@ class ProductPhotosUploaderClass
 
         if (is_dir($fullPath)) {
             $this->countFoldersByPrefix($fullPath);
-            echo '<br> .... <br>';
-            echo '<br> .... <br>';
-            echo '<br> .... STOPING AND DEBUGGING <br>';
-            //$this->processFoldersByPrefix($fullPath);
+            $this->processFoldersByPrefix($fullPath);
         } else {
             $this->handleError("Extracted folder not found. Should have nave FOTOS_PAG_WEB_NOMENCLATURA");
             $this->handleError($fullPath);
@@ -226,11 +223,30 @@ class ProductPhotosUploaderClass
     // Process each folder by prefix
     private function processFoldersByPrefix($directory)
     {
-        foreach (scandir($directory) as $subfolder) {
+
+        $subfolders = scandir($directory);
+        $processedCount = 0;
+        $maxIterations = 5;
+    
+        for ($i = 0; $i < count($subfolders); $i++) {
+            $subfolder = $subfolders[$i];
+    
             if ($this->isFolder($directory, $subfolder)) {
                 $this->processFolder($directory, $subfolder);
+                $processedCount++;
+    
+                // Stop after processing 5 folders
+                if ($processedCount >= $maxIterations) {
+                    break;
+                }
             }
         }
+    
+        echo '<br> .... <br>';
+        echo '<br> .... <br>';
+        echo '<br> .... STOPPING AND DEBUGGING <br>';
+
+
     }
 
     // Process a single folder
