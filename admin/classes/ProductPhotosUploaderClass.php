@@ -227,12 +227,18 @@ class ProductPhotosUploaderClass
         $subfolders = scandir($directory);
         $processedCount = 0;
         $maxIterations = 5;
+
+        echo '<br> .... Starting processFoldersByPrefix<br>';
+        echo '<br> .... <br>';
+        var_dump($subfolders);
     
         for ($i = 0; $i < count($subfolders); $i++) {
             $subfolder = $subfolders[$i];
     
             if ($this->isFolder($directory, $subfolder)) {
+                echo '<br> .... processFolder <br>';
                 $this->processFolder($directory, $subfolder);
+                echo '<br> .... <br>';
                 $processedCount++;
     
                 // Stop after processing 5 folders
@@ -241,6 +247,9 @@ class ProductPhotosUploaderClass
                 }
             }
         }
+
+        echo '<br> .... Stoping processFoldersByPrefix<br>';
+        echo '<br> .... <br>';
     
         echo '<br> .... <br>';
         echo '<br> .... <br>';
