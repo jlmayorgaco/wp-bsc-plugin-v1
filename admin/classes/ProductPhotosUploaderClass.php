@@ -230,7 +230,6 @@ class ProductPhotosUploaderClass
 
         echo '<br> .... Starting processFoldersByPrefix<br>';
         echo '<br> .... <br>';
-        var_dump($subfolders);
     
         for ($i = 0; $i < count($subfolders); $i++) {
             $subfolder = $subfolders[$i];
@@ -268,6 +267,14 @@ class ProductPhotosUploaderClass
         $photos = $this->processFiles($files, $folderPath, $group);
 
         $productId = wc_get_product_id_by_sku($group['sku']);
+
+ 
+        echo "Directory: $directory<br>";
+        echo "Subfolder: $subfolder<br>";
+        echo "Folder Path: $folderPath<br>";
+        echo "Group (SKU): " . (isset($group['sku']) ? $group['sku'] : 'N/A') . "<br>";
+        echo "Product ID: " . ($productId ? $productId : 'Product not found') . "<br>";
+
         if ($productId) {
             $this->attachPhotosToProduct($photos, wc_get_product($productId));
         } else {
