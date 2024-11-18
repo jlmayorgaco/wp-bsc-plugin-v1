@@ -260,7 +260,7 @@ class ProductPhotosUploaderClass
     // Process a single folder
     private function processFolder($directory, $subfolder)
     {
-        $folderPath = $directory . '/' . $subfolder;
+        $folderPath = $directory . '' . $subfolder;
         $files = scandir($folderPath);
 
         $group = $this->extractFolderGroup($subfolder);
@@ -325,22 +325,48 @@ class ProductPhotosUploaderClass
     {
         $attachmentIds = [];
         
-        foreach ($photos as $photo) {
+        echo '<br> .... Starting attachPhotosToProduct <br>';
+        echo 'Product Name: ' . $product->get_name() . '<br>';
+        echo 'Product ID: ' . $product->get_id() . '<br>';
+        echo 'Number of Photos: ' . count($photos) . '<br>';
+    
+        // Process each photo
+        foreach ($photos as $index => $photo) {
+            echo "Processing photo #$index<br>";
+            echo "Photo URL: " . $photo['url'] . '<br>';
+            echo "Photo Index: " . $photo['index'] . '<br>';
+    
             $attachmentId = $this->uploadPhoto($photo);
+            
             if ($attachmentId) {
+                echo "Attachment ID: $attachmentId successfully uploaded.<br>";
                 $attachmentIds[] = $attachmentId;
+            } else {
+                echo "Failed to upload photo: " . $photo['url'] . '<br>';
             }
         }
-
-        $photoId = $attachmentIds[0];
-        $photoIds = $attachmentIds;
-
-        array_shift($photoIds);
-
-        $product->set_image_id($photoId);
-        $product->set_gallery_image_ids($photoIds);
-        $product->save();
+    
+        if (!empty($attachmentIds)) {
+            $photoId = $attachmentIds[0];
+            $photoIds = $attachmentIds;
+            
+            echo "Primary Photo ID: $photoId<br>";
+            echo "Gallery Photo IDs: " . implode(', ', $photoIds) . '<br>';
+    
+            array_shift($photoIds);
+    
+            $product->set_image_id($photoId);
+            $product->set_gallery_image_ids($photoIds);
+            $product->save();
+            
+            echo "Photos attached to product: " . $product->get_name() . '<br>';
+        } else {
+            echo "No photos were attached because no valid attachments were uploaded.<br>";
+        }
+    
+        echo '<br> .... End of attachPhotosToProduct debug output<br>';
     }
+    
 
     // Check if the file is valid
     private function isValidFile($file)
