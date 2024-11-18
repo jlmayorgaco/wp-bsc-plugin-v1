@@ -180,7 +180,11 @@ class ProductPhotosUploaderClass
             'MK' => 0,
         ];
 
+        echo '<br>';
+        echo '... Counting Folder by Prefix';
+     
         foreach (scandir($directory) as $subfolder) {
+            var_dump($subfolder);
             if ($this->isFolder($directory, $subfolder)) {
                 $prefix = $this->getPrefix($subfolder);
                 if (array_key_exists($prefix, $counts)) {
@@ -188,6 +192,10 @@ class ProductPhotosUploaderClass
                 }
             }
         }
+
+        var_dump($counts);
+        echo '<br>';
+
 
         $this->printFolderCounts($counts);
     }
