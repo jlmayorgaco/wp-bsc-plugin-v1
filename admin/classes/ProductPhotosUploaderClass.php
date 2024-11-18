@@ -162,7 +162,10 @@ class ProductPhotosUploaderClass
 
         if (is_dir($fullPath)) {
             $this->countFoldersByPrefix($fullPath);
-            $this->processFoldersByPrefix($fullPath);
+            echo '<br> .... <br>';
+            echo '<br> .... <br>';
+            echo '<br> .... STOPING AND DEBUGGING <br>';
+            //$this->processFoldersByPrefix($fullPath);
         } else {
             $this->handleError("Extracted folder not found. Should have nave FOTOS_PAG_WEB_NOMENCLATURA");
             $this->handleError($fullPath);
