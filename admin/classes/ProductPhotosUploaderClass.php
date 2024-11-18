@@ -226,7 +226,7 @@ class ProductPhotosUploaderClass
 
         $subfolders = scandir($directory);
         $processedCount = 0;
-        $maxIterations = 120;
+        $maxIterations = 80;
 
         echo '<br> .... Starting processFoldersByPrefix<br>';
         echo '<br> .... <br>';
