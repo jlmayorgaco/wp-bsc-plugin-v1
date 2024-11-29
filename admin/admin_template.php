@@ -11,6 +11,7 @@ include_once plugin_dir_path(__FILE__) . 'admin_ajax_do_seed_products.php';
 include_once plugin_dir_path(__FILE__) . 'classes/BSC_PPU_Config.php';
 include_once plugin_dir_path(__FILE__) . 'classes/BSC_PPU_FileManager.php';
 include_once plugin_dir_path(__FILE__) . 'classes/BSC_PPU_MediaManager.php';
+include_once plugin_dir_path(__FILE__) . 'classes/BSC_PPU_MediaCleaner.php';
 include_once plugin_dir_path(__FILE__) . 'classes/BSC_PPU_ProductManager.php';
 include_once plugin_dir_path(__FILE__) . 'classes/BSC_PPU_Processor.php';
 
