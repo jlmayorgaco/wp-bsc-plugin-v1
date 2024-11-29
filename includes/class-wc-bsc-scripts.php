@@ -13,7 +13,7 @@ class WC_BSC_Scripts {
         echo '<br>';
         echo '<br>';
         echo '<br>';
-        echo ' ... wp_enqueue...';
+        echo ' ... wp_enqueue  x2 ...';
         echo  WC_BSC_PLUGIN_URL . 'assets/js/bsc_wc_shop_product_filters.js';
         echo '<br>';
         echo '<br>';
