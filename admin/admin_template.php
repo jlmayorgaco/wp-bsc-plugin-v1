@@ -170,7 +170,7 @@ function do_render_admin_template()
                                 $ppuPath = BSC_PPU_Config::getUploadDirectory();
                                 $ppuFileManager = new BSC_PPU_FileManager($ppuPath);
                                 $ppuFileManager->cleanAndExtractZip();
-                                
+
                                 $ppuMediaManager = new BSC_PPU_MediaManager();
                                 $ppuProductManager = new BSC_PPU_ProductManager();
 
@@ -182,7 +182,7 @@ function do_render_admin_template()
                                 );
 
                       
-                                $processor->process();
+                                //$processor->process();
                         
                                 echo '<p>Photos processed successfully.</p>';
                             } catch (Exception $e) {
