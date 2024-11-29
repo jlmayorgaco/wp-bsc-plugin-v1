@@ -26,54 +26,20 @@ class BSC_PPU_Processor
         $subfolders = $this->fileManager->getSubfolders();
         foreach ($subfolders as $folder) {
             $folderName = basename($folder);
-
-            echo '<br> ';
-            echo '<br> ** before $this->fileManager :: <br>';
-            echo var_dump($this->fileManager);
-            echo '<br> ';
-            echo '<br> ';
-            echo '<br> ';
-            echo '<br>  before $this->fileManager->isFolderValid($folderName) :: <br>';
-            echo var_dump($this->fileManager->isFolderValid($folderName));
-            echo '<br> ' ;
-            echo '<br> ';
-
             if (!$this->fileManager->isFolderValid($folderName)) {
                 echo "Invalid folder: $folderName<br>";
                 continue;
             }
-
-
-            echo '<br>';
-            echo '<br> $folderName :: <br>';
-            echo var_dump($folderName);
-            echo '<br>';
-            echo '<br>';
-
-       
             $groupData = $this->fileManager->extractGroupAndProductId($folderName);
-            echo '<br>';
-            echo '<br> $groupData :: <br>';
-            echo var_dump($groupData);
-            echo '<br>';
-            echo '<br>';
-
-
             $product = $this->productManager->getProductBySku($groupData['sku']);
-            echo '<br>';
-            echo '<br> $product :: <br>';
-            echo var_dump($product);
-            echo '<br>';
-            echo '<br>';
-
-            /*
+          
             if (!$product) {
                 echo "Product not found for SKU: {$groupData['sku']}<br>";
                 continue;
             }
 
             $this->processFolder($folder, $product);
-            */
+       
         }
     }
 
