@@ -22,14 +22,13 @@ class BSC_PPU_MediaCleaner
             SELECT ID, guid
             FROM {$wpdb->prefix}posts
             WHERE post_type = 'attachment'
+            AND (guid LIKE %s OR guid LIKE %s OR guid LIKE %s)
         ";
-
         $likePatterns = [
-            'SK_%', // Matches SK_...
-            'HC_%', // Matches HC_...
-            'MK_%', // Matches MK_...
+            '%SK_%', // Matches any part of the URL containing SK_
+            '%HC_%', // Matches any part of the URL containing HC_
+            '%MK_%', // Matches any part of the URL containing MK_
         ];
-
 
         echo '<br>';
         echo '<br>';
