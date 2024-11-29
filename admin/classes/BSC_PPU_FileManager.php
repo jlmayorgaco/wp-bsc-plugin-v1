@@ -8,13 +8,15 @@ class BSC_PPU_FileManager
     public function __construct($baseDir)
     {
         $this->baseDir = $baseDir;
+        $this->zipDir = $baseDir . '/product_photos_zips/FOTOS_PAG_WEB_NOMENCLATURA.zip';
+        $this->photosDir = $baseDir . '/product_photos_zips/FOTOS_PAG_WEB_NOMENCLATURA';
     }
 
     public function getSubfolders()
     {
-        echo 'getSubfolder: ';
-        var_dump($this->baseDir . '/product_photos_zips/FOTOS_PAG_WEB_NOMENCLATURA');
-        return array_filter(glob($this->baseDir . '/product_photos_zips/FOTOS_PAG_WEB_NOMENCLATURA' . '/*'), 'is_dir');
+        echo 'getSubfolder:  $this->photosDir  :: ';
+        var_dump($this->photosDir );
+        return array_filter(glob($this->photosDir  . '/*'), 'is_dir');
     }
 
     public function getFilesInFolder($folder)
