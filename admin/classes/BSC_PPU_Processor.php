@@ -27,6 +27,8 @@ class BSC_PPU_Processor
         $subfolders = $this->fileManager->getSubfolders();
         $limitedSubfolders = array_slice($subfolders, 0, $batchSize);
 
+        var_dump($limitedSubfolders);
+
         foreach ($limitedSubfolders as $folder) {
             $folderName = basename($folder);
             if (!$this->fileManager->isFolderValid($folderName)) {
