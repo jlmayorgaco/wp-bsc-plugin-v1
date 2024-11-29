@@ -1,4 +1,39 @@
+
 <?php
+
+function do_check_dir( $folderPath ){
+
+// Check if the folder exists
+if (file_exists($folderPath) && is_dir($folderPath)) {
+    echo "Folder exists: $folderPath\n";
+
+    // Get the contents of the folder
+    $contents = scandir($folderPath);
+
+    // Remove "." and ".." from the result
+    $contents = array_diff($contents, ['.', '..']);
+
+    // Print the contents
+    if (!empty($contents)) {
+        echo "Contents of the folder:\n";
+        foreach ($contents as $item) {
+            $itemPath = $folderPath . '/' . $item;
+
+            // Check if it's a file or a folder
+            if (is_file($itemPath)) {
+                echo "File: $item\n";
+            } elseif (is_dir($itemPath)) {
+                echo "Folder: $item\n";
+            }
+        }
+    } else {
+        echo "The folder is empty.\n";
+    }
+} else {
+    echo "Folder does not exist: $folderPath\n";
+}
+}
+
 
 class BSC_PPU_FileManager
 {
@@ -16,6 +51,7 @@ class BSC_PPU_FileManager
         echo '<br>'.$this->baseDir;
         echo '<br>';
         echo '<br>';
+        do_check_dir($this->baseDir);
         return array_filter(glob($this->baseDir . '/*'), 'is_dir');
     }
 
