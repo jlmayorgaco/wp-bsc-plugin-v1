@@ -29,23 +29,7 @@ class BSC_PPU_Processor
 
         var_dump($limitedSubfolders);
 
-        foreach ($limitedSubfolders as $folder) {
-            $folderName = basename($folder);
-            if (!$this->fileManager->isFolderValid($folderName)) {
-                echo "Invalid folder: $folderName<br>";
-                continue;
-            }
-            $groupData = $this->fileManager->extractGroupAndProductId($folderName);
-            $product = $this->productManager->getProductBySku($groupData['sku']);
-          
-            if (!$product) {
-                echo "Product not found for SKU: {$groupData['sku']}<br>";
-                continue;
-            }
-
-            $this->processFolder($folder, $product);
-       
-        }
+      
     }
 
     private function processFolder($folder, $product)
