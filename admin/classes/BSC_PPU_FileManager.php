@@ -88,6 +88,8 @@ class BSC_PPU_FileManager
     {
         $zip = new ZipArchive;
 
+        var_dump($zipFilePath);
+
         if ($zip->open($zipFilePath) === true) {
             $zip->extractTo($extractTo);
             $zip->close();
