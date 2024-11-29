@@ -1,40 +1,6 @@
 
 <?php
 
-function do_check_dir( $folderPath ){
-
-// Check if the folder exists
-if (file_exists($folderPath) && is_dir($folderPath)) {
-    echo "Folder exists: $folderPath\n";
-
-    // Get the contents of the folder
-    $contents = scandir($folderPath);
-
-    // Remove "." and ".." from the result
-    $contents = array_diff($contents, ['.', '..']);
-
-    // Print the contents
-    if (!empty($contents)) {
-        echo "Contents of the folder:\n";
-        foreach ($contents as $item) {
-            $itemPath = $folderPath . '/' . $item;
-
-            // Check if it's a file or a folder
-            if (is_file($itemPath)) {
-                echo "File: $item\n";
-            } elseif (is_dir($itemPath)) {
-                echo "Folder: $item\n";
-            }
-        }
-    } else {
-        echo "The folder is empty.\n";
-    }
-} else {
-    echo "Folder does not exist: $folderPath\n";
-}
-}
-
-
 class BSC_PPU_FileManager
 {
     private $baseDir;
@@ -72,6 +38,63 @@ class BSC_PPU_FileManager
             ];
         }
         return null;
+    }
+
+    public function getUploadDirectory(): string
+    {
+        return $this->baseDir . '/product_photos_zips/FOTOS_PAG_WEB_NOMENCLATURA';
+    }
+
+    public function cleanAndExtractZip(): void
+    {
+        $zipFilePath = $this->baseDir . '/product_photos_zips/FOTOS_PAG_WEB_NOMENCLATURA.zip';
+        $targetFolder = $this->getUploadDirectory();
+
+        // Step 1: Delete existing folder
+        if (file_exists($targetFolder) && is_dir($targetFolder)) {
+            $this->deleteFolder($targetFolder);
+            echo "Deleted existing folder: $targetFolder<br>";
+        }
+
+        // Step 2: Unzip the file
+        if (file_exists($zipFilePath)) {
+            $this->unzipFile($zipFilePath, $this->baseDir . '/product_photos_zips');
+            echo "Extracted ZIP file to: $targetFolder<br>";
+        } else {
+            echo "ZIP file not found: $zipFilePath<br>";
+        }
+    }
+
+    private function deleteFolder(string $folder): void
+    {
+        foreach (scandir($folder) as $item) {
+            if ($item === '.' || $item === '..') {
+                continue;
+            }
+
+            $itemPath = $folder . DIRECTORY_SEPARATOR . $item;
+
+            if (is_dir($itemPath)) {
+                $this->deleteFolder($itemPath);
+            } else {
+                unlink($itemPath);
+            }
+        }
+
+        rmdir($folder);
+    }
+
+    private function unzipFile(string $zipFilePath, string $extractTo): void
+    {
+        $zip = new ZipArchive;
+
+        if ($zip->open($zipFilePath) === true) {
+            $zip->extractTo($extractTo);
+            $zip->close();
+            echo "Successfully unzipped: $zipFilePath<br>";
+        } else {
+            throw new RuntimeException("Failed to open ZIP file: $zipFilePath");
+        }
     }
 }
 
