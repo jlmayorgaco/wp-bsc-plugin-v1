@@ -92,12 +92,21 @@ class BSC_PPU_FileManager
     {
         $zip = new ZipArchive;
 
-        var_dump($zipFilePath);
-
         if ($zip->open($zipFilePath) === true) {
             $zip->extractTo($extractTo);
             $zip->close();
             echo "Successfully unzipped: $zipFilePath<br>";
+    
+            // Step: Rename folder if it contains spaces
+            $originalFolder = $extractTo . '/FOTOS PAG WEB NOMENCLATURA';
+            $newFolder = $extractTo . '/FOTOS_PAG_WEB_NOMENCLATURA';
+    
+            if (file_exists($originalFolder) && is_dir($originalFolder)) {
+                rename($originalFolder, $newFolder);
+                echo "Renamed folder to: $newFolder<br>";
+            } else {
+                echo "Expected folder not found: $originalFolder<br>";
+            }
         } else {
             throw new RuntimeException("Failed to open ZIP file: $zipFilePath");
         }
