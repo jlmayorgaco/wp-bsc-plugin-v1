@@ -169,6 +169,7 @@ function do_render_admin_template()
                                 //$baseDir = BSC_PPU_Config::getUploadDirectory();
 
                                 $ppuPath = BSC_PPU_Config::getUploadDirectory();
+                                $ppuMediaCleaner = MediaCleaner::cleanMediaLibrary();
                                 $ppuFileManager = new BSC_PPU_FileManager($ppuPath);
                                 $ppuFileManager->cleanAndExtractZip();
 
@@ -184,6 +185,8 @@ function do_render_admin_template()
 
                       
                                 $processor->process();
+
+                                
                         
                                 echo '<p>Photos processed successfully.</p>';
                             } catch (Exception $e) {
