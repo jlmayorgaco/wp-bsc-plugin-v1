@@ -22,8 +22,15 @@ class BSC_PPU_MediaCleaner
             SELECT ID, guid
             FROM {$wpdb->prefix}posts
             WHERE post_type = 'attachment'
-              AND ($queryPlaceholders)
+              AND (guid LIKE %s OR guid LIKE %s OR guid LIKE %s)
         ";
+
+        $likePatterns = [
+            'SK_%', // Matches SK_...
+            'HC_%', // Matches HC_...
+            'MK_%', // Matches MK_...
+        ];
+
 
         echo '<br>';
         echo '<br>';
@@ -39,7 +46,7 @@ class BSC_PPU_MediaCleaner
 
        
         // Execute the query
-        $results = $wpdb->get_results($wpdb->prepare($sql, ...$likeClauses));
+        $results = $wpdb->get_results($wpdb->prepare($sql, ...$likePatterns));
 
         echo '<br>';
         echo '<br>';
