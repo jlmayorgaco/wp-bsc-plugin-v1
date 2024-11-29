@@ -58,7 +58,7 @@ class BSC_PPU_FileManager
 
     public function isFolderValid($folderName)
     {
-        $prefixes = Config::getSupportedPrefixes();
+        $prefixes = BSC_PPU_Config::getSupportedPrefixes();
         return preg_match('/^(' . implode('|', $prefixes) . ')_\d+$/', $folderName);
     }
 
