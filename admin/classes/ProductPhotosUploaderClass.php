@@ -6,7 +6,7 @@ class ProductPhotosUploaderClass
     private $targetDir;
     private $fileName;
     private $uploadedFile;
-    public function __construct($file = null)
+    public function __construct()
     {
         $uploadDir = wp_upload_dir();
         $this->targetDir = $uploadDir['basedir'] . '/product_photos_zips/';

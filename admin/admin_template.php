@@ -5,8 +5,17 @@ include_once plugin_dir_path(__FILE__) . 'admin_ajax_do_seed_categories.php';
 include_once plugin_dir_path(__FILE__) . 'admin_ajax_do_reset_products.php';
 include_once plugin_dir_path(__FILE__) . 'admin_ajax_do_seed_products.php';
 
+
 // Classes
-include_once plugin_dir_path(__FILE__) . 'classes/ProductPhotosUploaderClass.php';
+//include_once plugin_dir_path(__FILE__) . 'classes/ProductPhotosUploaderClass.php';
+include_once plugin_dir_path(__FILE__) . 'classes/BSC_PPU_Config.php';
+include_once plugin_dir_path(__FILE__) . 'classes/BSC_PPU_FileManager.php';
+include_once plugin_dir_path(__FILE__) . 'classes/BSC_PPU_MediaManager.php';
+include_once plugin_dir_path(__FILE__) . 'classes/BSC_PPU_ProductManager.php';
+include_once plugin_dir_path(__FILE__) . 'classes/BSC_PPU_Processor.php';
+
+
+
 
 //include_once plugin_dir_path(__FILE__) . 'admin_ajax_do_download_categories.php';
 
@@ -135,12 +144,40 @@ function do_render_admin_template()
                         <input type="file" id="upload_products_json" name='upload_products_json' style="width: 100%;"><br>
                         <input type="submit" name="upload_products" id="upload_products" value="Submit">
                     </form>
-                    <form id="uploadProductsPhotosForm" class="bsc__form_btn" action="" method="post" enctype="multipart/form-data">
-                        <img src="<?php echo plugins_url('../assets/images/photo_upload.png', __FILE__); ?>" alt="">
-                        <label >Upload Photos Productos</label>
-                        <input type="file" id="upload_photos_products_zip" name="upload_photos_products_zip" style="width: 100%;"><br>
-                        <input type="submit" name="upload_photos_products" id="upload_photos_products" value="Submit">
-                    </form>
+
+
+
+
+
+                    <!-- -------------------------------------- -->
+                    <!-- -- BSC PROCESS PHOTOS ---------------- -->
+                    <!-- -------------------------------------- -->
+                    <div class="bsc__process_products_photos">
+                        <form id="processProductsPhotosForm" class="bsc__form_btn" action="" method="post">
+                            <label>Process Uploaded Photos</label>
+                            <input type="submit" name="process_photos_products" id="process_photos_products" value="Start Processing">
+                        </form>
+                    </div>
+
+                    <!-- -------------------------------------- -->
+                    <!-- -- PHP PROCESS FILES ----------------- -->
+                    <!-- -------------------------------------- -->
+                    <?php
+                        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['process_photos_products'])) {
+                            try {
+                                $baseDir = BSC_PPU_Config::getUploadDirectory();
+                                $processor = new BSC_PPU_Processor($baseDir);
+                                $processor->process();
+                        
+                                echo '<p>Photos processed successfully.</p>';
+                            } catch (Exception $e) {
+                                echo '<p style="color:red;">Error: ' . $e->getMessage() . '</p>';
+                            }
+                        }
+                    ?>
+
+
+
                 </content>
             </article>
 
@@ -179,18 +216,7 @@ function do_render_admin_template()
                 echo "Seed Productos";
             }
 
-            if (isset($_FILES['upload_photos_products_zip']) && $_FILES['upload_photos_products_zip']['error'] == UPLOAD_ERR_OK) {
-                try {
-                    $zipFile = $_FILES['upload_photos_products_zip'];
-                    $photoUploader = new ProductPhotosUploaderClass($zipFile);
-                    $photoUploader->uploadAndProcessFile();
-                    
-                } catch (Exception $e) {
-                    echo 'Error: ' . $e->getMessage();
-                }
-            } else {
-                echo "No file uploaded or there was an error during upload.";
-            }
+       
             
             ?>
 
