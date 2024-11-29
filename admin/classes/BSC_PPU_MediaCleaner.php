@@ -25,6 +25,18 @@ class BSC_PPU_MediaCleaner
               AND ($queryPlaceholders)
         ";
 
+        echo '<br>';
+        echo '<br>';
+        echo '<br>';
+        echo '<h1>cleanMediaLibrary :: sql </h1>';
+        echo '<br>';
+        var_dump($sql);
+        echo '<br>';
+        echo '<br>';
+        echo '<br>';
+        echo '<br>';
+        echo '<br>';
+
         /*
         // Execute the query
         $results = $wpdb->get_results($wpdb->prepare($sql, ...$likeClauses));
