@@ -24,13 +24,6 @@ class BSC_PPU_Processor
     public function process()
     {
         $subfolders = $this->fileManager->getSubfolders();
-
-        echo '<br>';
-        echo '<br> $subfolders :: <br>';
-        echo var_dump($subfolders);
-        echo '<br>';
-        echo '<br>';
-
         foreach ($subfolders as $folder) {
             $folderName = basename($folder);
 
@@ -39,15 +32,37 @@ class BSC_PPU_Processor
                 continue;
             }
 
-            $groupData = $this->fileManager->extractGroupAndProductId($folderName);
-            $product = $this->productManager->getProductBySku($groupData['sku']);
 
+            echo '<br>';
+            echo '<br> $folderName :: <br>';
+            echo var_dump($folderName);
+            echo '<br>';
+            echo '<br>';
+
+       
+            $groupData = $this->fileManager->extractGroupAndProductId($folderName);
+            echo '<br>';
+            echo '<br> $groupData :: <br>';
+            echo var_dump($groupData);
+            echo '<br>';
+            echo '<br>';
+
+
+            $product = $this->productManager->getProductBySku($groupData['sku']);
+            echo '<br>';
+            echo '<br> $product :: <br>';
+            echo var_dump($product);
+            echo '<br>';
+            echo '<br>';
+
+            /*
             if (!$product) {
                 echo "Product not found for SKU: {$groupData['sku']}<br>";
                 continue;
             }
 
             $this->processFolder($folder, $product);
+            *
         }
     }
 
