@@ -41,9 +41,6 @@ class BSC_PPU_Processor
             }
             $groupData = $this->fileManager->extractGroupAndProductId($folderName);
             $product = $this->productManager->getProductBySku($groupData['sku']);
-
-            var_dump( $product);
-
             if (!$product) {
                 echo "Product not found for SKU: {$groupData['sku']}<br>";
                 continue;
