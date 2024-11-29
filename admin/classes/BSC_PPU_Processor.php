@@ -28,14 +28,6 @@ class BSC_PPU_Processor
         $limitedSubfolders = array_slice($subfolders, 0, $batchSize);
 
         echo '<br>';
-        echo '<br> $subfolders :: ';
-        var_dump($subfolders);
-        echo '<br>';
-        echo '<br>';
-        echo '<br>';
-        echo '<br>';
-
-        echo '<br>';
         echo '<br> $limitedSubfolders :: ';
         var_dump($limitedSubfolders);
         echo '<br>';
@@ -67,6 +59,9 @@ class BSC_PPU_Processor
         $files = $this->fileManager->getFilesInFolder($folder);
         $attachmentIds = [];
 
+        echo '<br>';
+        echo '<h5> $files </h5>';
+        echo '<br> ';
         var_dump($files);
 
         foreach ($files as $file) {
@@ -75,7 +70,7 @@ class BSC_PPU_Processor
             if ($attachmentId) {
                 $attachmentIds[] = $attachmentId;
             }
-                */
+            */
         }
 
         echo '<br>';
