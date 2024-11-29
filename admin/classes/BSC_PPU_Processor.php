@@ -10,9 +10,9 @@ class BSC_PPU_Processor
 
     public function __construct($baseDir)
     {
-        $this->fileManager = new FileManager($baseDir);
-        $this->productManager = new ProductManager();
-        $this->mediaManager = new MediaManager();
+        $this->fileManager = new BSC_PPU_FileManager($baseDir);
+        $this->productManager = new BSC_PPU_ProductManager();
+        $this->mediaManager = new BSC_PPU_MediaManager();
     }
 
     public function process()

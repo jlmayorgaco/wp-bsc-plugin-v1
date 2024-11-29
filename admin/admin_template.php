@@ -58,7 +58,7 @@ function do_render_admin_template()
         <section class="bsc__section section__categories">
             <article class="categories__reset">
                 <header>
-                    <h1> CATEGORIAS v.2.0.11 CI CD WebHook </h1>
+                    <h1> CATEGORIAS v.1.0.0 CI CD WebHook </h1>
                     <hr>
                 </header>
                 <content>
@@ -172,7 +172,7 @@ function do_render_admin_template()
                                 echo $baseDir;
                                 echo '<br>';
                                 echo '<br>';
-                                $processor = new BSC_PPU_Processor($baseDir);
+                                //$processor = new BSC_PPU_Processor($baseDir);
                                 //$processor->process();
                         
                                 echo '<p>Photos processed successfully.</p>';
