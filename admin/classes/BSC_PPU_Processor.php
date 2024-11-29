@@ -27,11 +27,16 @@ class BSC_PPU_Processor
         foreach ($subfolders as $folder) {
             $folderName = basename($folder);
 
-            echo '<br>';
-            echo '<br> before $this->fileManager->isFolderValid($folderName) :: <br>';
+            echo '<br> ';
+            echo '<br> ** before $this->fileManager :: <br>';
+            echo var_dump($this->fileManager);
+            echo '<br> ';
+            echo '<br> ';
+            echo '<br> ';
+            echo '<br>  before $this->fileManager->isFolderValid($folderName) :: <br>';
             echo var_dump($this->fileManager->isFolderValid($folderName));
-            echo '<br>';
-            echo '<br>';
+            echo '<br> ' ;
+            echo '<br> ';
 
             if (!$this->fileManager->isFolderValid($folderName)) {
                 echo "Invalid folder: $folderName<br>";
