@@ -181,7 +181,7 @@ function do_render_admin_template()
 
                                 echo '<br>';
                                 echo '<br>';
-                                echo '$$processor :: ';
+                                echo '$$processor ::  $processor->process() =l> ';
                                 var_dump($processor);
                                 echo '<br>';
                                 echo '<br>';
