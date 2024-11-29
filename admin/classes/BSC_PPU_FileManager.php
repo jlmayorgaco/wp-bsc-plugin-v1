@@ -42,7 +42,7 @@ class BSC_PPU_FileManager
 
     public function getUploadDirectory(): string
     {
-        return $this->baseDir . '/product_photos_zips/FOTOS_PAG_WEB_NOMENCLATURA';
+        return $this->baseDir . '/product_photos_zips';
     }
 
     public function cleanAndExtractZip(): void
