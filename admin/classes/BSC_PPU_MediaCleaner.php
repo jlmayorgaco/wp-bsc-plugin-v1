@@ -25,9 +25,9 @@ class BSC_PPU_MediaCleaner
             AND (guid LIKE %s OR guid LIKE %s OR guid LIKE %s)
         ";
         $likePatterns = [
-            '%SK_%', // Matches any part of the URL containing SK_
-            '%HC_%', // Matches any part of the URL containing HC_
-            '%MK_%', // Matches any part of the URL containing MK_
+            '%SK\_%\_PHOTO\_%', // Matches SK_<number>_PHOTO_<number>
+            '%HC\_%\_PHOTO\_%', // Matches HC_<number>_PHOTO_<number>
+            '%MK\_%\_PHOTO\_%', // Matches MK_<number>_PHOTO_<number>
         ];
 
         echo '<br>';
