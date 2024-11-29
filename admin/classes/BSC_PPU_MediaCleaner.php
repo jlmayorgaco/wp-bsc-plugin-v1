@@ -25,6 +25,7 @@ class BSC_PPU_MediaCleaner
               AND ($queryPlaceholders)
         ";
 
+        /*
         // Execute the query
         $results = $wpdb->get_results($wpdb->prepare($sql, ...$likeClauses));
 
@@ -38,6 +39,9 @@ class BSC_PPU_MediaCleaner
         } else {
             echo "No matching media found.<br>";
         }
+        */
+
+        return $sql;
     }
 }
 
