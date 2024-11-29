@@ -26,7 +26,7 @@ class BSC_PPU_Processor
         $subfolders = $this->fileManager->getSubfolders();
 
         echo '<br>';
-        echo '<br>';
+        echo '<br> $subfolders :: <br>';
         echo var_dump($subfolders);
         echo '<br>';
         echo '<br>';

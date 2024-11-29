@@ -11,6 +11,11 @@ class BSC_PPU_FileManager
 
     public function getSubfolders()
     {
+        echo '<br>';
+        echo '<br> $this->baseDir ';
+        echo '<br>'.$this->baseDir;
+        echo '<br>';
+        echo '<br>';
         return array_filter(glob($this->baseDir . '/*'), 'is_dir');
     }
 
