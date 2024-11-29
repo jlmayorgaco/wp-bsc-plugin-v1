@@ -37,10 +37,18 @@ class BSC_PPU_MediaCleaner
         echo '<br>';
         echo '<br>';
 
-        /*
+       
         // Execute the query
         $results = $wpdb->get_results($wpdb->prepare($sql, ...$likeClauses));
 
+        echo '<br>';
+        echo '<br>';
+        echo '<h1>cleanMediaLibrary :: $results </h1>';
+        echo '<br>';
+        var_dump($results);
+        echo '<br>';
+        echo '<br>';
+ /*
         if (!empty($results)) {
             foreach ($results as $attachment) {
                 // Delete the attachment and the associated file
