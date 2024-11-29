@@ -48,7 +48,7 @@ class BSC_PPU_FileManager
     public function cleanAndExtractZip(): void
     {
         $zipFilePath = $this->baseDir . '/product_photos_zips/FOTOS_PAG_WEB_NOMENCLATURA.zip';
-        $targetFolder = $this->getUploadDirectory();
+        $targetFolder = $this->baseDir . '/product_photos_zips/FOTOS_PAG_WEB_NOMENCLATURA';
 
         // Step 1: Delete existing folder
         if (file_exists($targetFolder) && is_dir($targetFolder)) {
