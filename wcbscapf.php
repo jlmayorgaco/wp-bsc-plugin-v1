@@ -54,6 +54,7 @@ class WC_BSC_Plugin {
         define('WC_BSC_PLUGIN_PATH', plugin_dir_path(__FILE__));
         define('WC_BSC_PLUGIN_URL', plugin_dir_url(__FILE__));
         define('WC_BSC_PLUGIN_VERSION', '9.1');
+		
     }
 
     private function include_files() {
