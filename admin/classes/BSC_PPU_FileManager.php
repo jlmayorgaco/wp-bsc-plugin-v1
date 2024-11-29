@@ -12,7 +12,7 @@ class BSC_PPU_FileManager
 
     public function getSubfolders()
     {
-        return array_filter(glob($this->baseDir . '/*'), 'is_dir');
+        return array_filter(glob($this->baseDir . '/product_photos_zips/FOTOS_PAG_WEB_NOMENCLATURA' . '/*'), 'is_dir');
     }
 
     public function getFilesInFolder($folder)
