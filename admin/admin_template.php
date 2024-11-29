@@ -166,13 +166,14 @@ function do_render_admin_template()
                         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['process_photos_products'])) {
                             try {
                                 $baseDir = BSC_PPU_Config::getUploadDirectory();
+                                $processor = new BSC_PPU_Processor($baseDir);
+
                                 echo '<br>';
                                 echo '<br>';
-                                echo '$baseDir :: ';
-                                echo $baseDir;
+                                echo '$$processor :: ';
+                                var_dump($processor);
                                 echo '<br>';
                                 echo '<br>';
-                                //$processor = new BSC_PPU_Processor($baseDir);
                                 //$processor->process();
                         
                                 echo '<p>Photos processed successfully.</p>';
