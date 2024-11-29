@@ -44,9 +44,9 @@ class BSC_PPU_MediaCleaner
         echo '<br>';
         echo '<br>';
         echo '<h1>cleanMediaLibrary :: $results </h1>';
-        echo '<br>';
+        echo '<br> ---- this is the results: ';
         var_dump($results);
-        echo '<br>';
+        echo '<br> ----';
         echo '<br>';
  /*
         if (!empty($results)) {
