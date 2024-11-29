@@ -5,7 +5,7 @@ class BSC_PPU_Config
     public static function getUploadDirectory()
     {
         $uploadDir = wp_upload_dir();
-        return $uploadDir['basedir'] . '/product_photos/';
+        return $uploadDir['basedir'] . '/product_photos_zip/FOTOS_PAG_WEB_NOMENCLATURA';
     }
 
     public static function getSupportedPrefixes()
