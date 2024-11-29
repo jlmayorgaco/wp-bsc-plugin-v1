@@ -58,7 +58,7 @@ function do_render_admin_template()
         <section class="bsc__section section__categories">
             <article class="categories__reset">
                 <header>
-                    <h1> CATEGORIAS v.1.0.0 CI CD WebHook </h1>
+                    <h1> CATEGORIAS v.1.0.1 CI CD WebHook </h1>
                     <hr>
                 </header>
                 <content>
@@ -165,8 +165,19 @@ function do_render_admin_template()
                     <?php
                         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['process_photos_products'])) {
                             try {
-                                $baseDir = BSC_PPU_Config::getUploadDirectory();
-                                $processor = new BSC_PPU_Processor($baseDir);
+                                //$baseDir = BSC_PPU_Config::getUploadDirectory();
+                                
+                                $ppuPath = BSC_PPU_Config::getUploadDirectory();
+                                $ppuFileManager = new BSC_PPU_FileManager($ppuPath);
+                                $ppuMediaManager = new BSC_PPU_MediaManager();
+                                $ppuProductManager = new BSC_PPU_ProductManager();
+
+                                $processor = new BSC_PPU_Processor(
+                                    fileManager: $ppuFileManager,
+                                    productManager: $ppuProductManager,
+                                    mediaManager: $ppuMediaManager,
+                                    batchSize: BSC_PPU_Config::getBatchSize()
+                                );
 
                                 echo '<br>';
                                 echo '<br>';

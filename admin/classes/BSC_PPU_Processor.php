@@ -4,15 +4,21 @@
 
 class BSC_PPU_Processor
 {
-    private $fileManager;
-    private $productManager;
-    private $mediaManager;
+    private BSC_PPU_FileManager $fileManager;
+    private BSC_PPU_ProductManager $productManager;
+    private BSC_PPU_MediaManager $mediaManager;
+    private int $batchSize;
 
-    public function __construct($baseDir)
-    {
-        $this->fileManager = new BSC_PPU_FileManager($baseDir);
-        $this->productManager = new BSC_PPU_ProductManager();
-        $this->mediaManager = new BSC_PPU_MediaManager();
+    public function __construct(
+        BSC_PPU_FileManager $fileManager,
+        BSC_PPU_ProductManager $productManager,
+        BSC_PPU_MediaManager $mediaManager,
+        int $batchSize
+    ) {
+        $this->fileManager = $fileManager;
+        $this->productManager = $productManager;
+        $this->mediaManager = $mediaManager;
+        $this->batchSize = $batchSize;
     }
 
     public function process()
