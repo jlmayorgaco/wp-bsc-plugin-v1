@@ -169,7 +169,7 @@ function do_render_admin_template()
                                 //$baseDir = BSC_PPU_Config::getUploadDirectory();
 
                                 $ppuPath = BSC_PPU_Config::getUploadDirectory();
-                                $ppuMediaCleaner = MediaCleaner::cleanMediaLibrary();
+                                $ppuMediaCleaner = BSC_PPU_MediaCleaner::cleanMediaLibrary();
                                 $ppuFileManager = new BSC_PPU_FileManager($ppuPath);
                                 $ppuFileManager->cleanAndExtractZip();
 
