@@ -23,8 +23,11 @@ class BSC_PPU_Processor
 
     public function process()
     {
+        $batchSize = $this->batchSize;
         $subfolders = $this->fileManager->getSubfolders();
-        foreach ($subfolders as $folder) {
+        $limitedSubfolders = array_slice($subfolders, 0, $batchSize);
+
+        foreach ($limitedSubfolders as $folder) {
             $folderName = basename($folder);
             if (!$this->fileManager->isFolderValid($folderName)) {
                 echo "Invalid folder: $folderName<br>";
