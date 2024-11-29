@@ -62,7 +62,7 @@ class BSC_PPU_Processor
             }
 
             $this->processFolder($folder, $product);
-            *
+            */
         }
     }
 
