@@ -27,9 +27,23 @@ class BSC_PPU_Processor
         $subfolders = $this->fileManager->getSubfolders();
         $limitedSubfolders = array_slice($subfolders, 0, $batchSize);
 
-        var_dump($limitedSubfolders);
+        foreach ($limitedSubfolders as $folder) {
+            $folderName = basename($folder);
+            if (!$this->fileManager->isFolderValid($folderName)) {
+                echo "Invalid folder: $folderName<br>";
+                continue;
+            }
+            $groupData = $this->fileManager->extractGroupAndProductId($folderName);
+            $product = $this->productManager->getProductBySku($groupData['sku']);
+          
+            if (!$product) {
+                echo "Product not found for SKU: {$groupData['sku']}<br>";
+                continue;
+            }
 
-      
+            $this->processFolder($folder, $product);
+       
+        }
     }
 
     private function processFolder($folder, $product)
@@ -37,11 +51,15 @@ class BSC_PPU_Processor
         $files = $this->fileManager->getFilesInFolder($folder);
         $attachmentIds = [];
 
+        var_dump( $files);
+
         foreach ($files as $file) {
+            /*
             $attachmentId = $this->mediaManager->uploadImage($file);
             if ($attachmentId) {
                 $attachmentIds[] = $attachmentId;
             }
+                */
         }
 
         echo '<br>';
