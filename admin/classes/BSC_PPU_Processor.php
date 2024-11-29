@@ -27,6 +27,9 @@ class BSC_PPU_Processor
         $subfolders = $this->fileManager->getSubfolders();
         $limitedSubfolders = array_slice($subfolders, 0, $batchSize);
 
+        var_dump($limitedSubfolders);
+
+
         foreach ($limitedSubfolders as $folder) {
             $folderName = basename($folder);
             if (!$this->fileManager->isFolderValid($folderName)) {
@@ -35,7 +38,9 @@ class BSC_PPU_Processor
             }
             $groupData = $this->fileManager->extractGroupAndProductId($folderName);
             $product = $this->productManager->getProductBySku($groupData['sku']);
-          
+
+            var_dump( $product);
+
             if (!$product) {
                 echo "Product not found for SKU: {$groupData['sku']}<br>";
                 continue;
@@ -51,7 +56,7 @@ class BSC_PPU_Processor
         $files = $this->fileManager->getFilesInFolder($folder);
         $attachmentIds = [];
 
-        var_dump( $files);
+        var_dump($files);
 
         foreach ($files as $file) {
             /*
