@@ -58,7 +58,7 @@ function do_render_admin_template()
         <section class="bsc__section section__categories">
             <article class="categories__reset">
                 <header>
-                    <h1> CATEGORIAS v.1.0.1 CI CD WebHook </h1>
+                    <h1> CATEGORIAS v.1.0.2 CI CD WebHook </h1>
                     <hr>
                 </header>
                 <content>
@@ -179,12 +179,7 @@ function do_render_admin_template()
                                     batchSize: BSC_PPU_Config::getBatchSize()
                                 );
 
-                                echo '<br>';
-                                echo '<br>';
-                                echo '$$processor ::  $processor->process() =l> ';
-                                var_dump($processor);
-                                echo '<br>';
-                                echo '<br>';
+                      
                                 $processor->process();
                         
                                 echo '<p>Photos processed successfully.</p>';

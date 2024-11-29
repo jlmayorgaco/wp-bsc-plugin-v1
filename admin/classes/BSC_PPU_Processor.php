@@ -25,6 +25,12 @@ class BSC_PPU_Processor
     {
         $subfolders = $this->fileManager->getSubfolders();
 
+        echo '<br>';
+        echo '<br>';
+        echo var_dump($subfolders);
+        echo '<br>';
+        echo '<br>';
+
         foreach ($subfolders as $folder) {
             $folderName = basename($folder);
 
