@@ -182,7 +182,7 @@ function do_render_admin_template()
                                 );
 
                       
-                                //$processor->process();
+                                $processor->process();
                         
                                 echo '<p>Photos processed successfully.</p>';
                             } catch (Exception $e) {
