@@ -57,6 +57,10 @@ class BSC_PPU_Processor
             }
         }
 
+        echo '<br>';
+        echo '<h5> $product->get_name() '.$product->get_name().'</h5>';
+        echo '<br> ';
+
         //$this->productManager->clearImages($product);
         //$this->productManager->attachImages($product, $attachmentIds);
 

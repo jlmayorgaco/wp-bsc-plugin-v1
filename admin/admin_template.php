@@ -166,7 +166,7 @@ function do_render_admin_template()
                         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['process_photos_products'])) {
                             try {
                                 //$baseDir = BSC_PPU_Config::getUploadDirectory();
-                                
+
                                 $ppuPath = BSC_PPU_Config::getUploadDirectory();
                                 $ppuFileManager = new BSC_PPU_FileManager($ppuPath);
                                 $ppuMediaManager = new BSC_PPU_MediaManager();
@@ -185,7 +185,7 @@ function do_render_admin_template()
                                 var_dump($processor);
                                 echo '<br>';
                                 echo '<br>';
-                                //$processor->process();
+                                $processor->process();
                         
                                 echo '<p>Photos processed successfully.</p>';
                             } catch (Exception $e) {
