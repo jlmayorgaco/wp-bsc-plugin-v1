@@ -22,7 +22,6 @@ class BSC_PPU_MediaCleaner
             SELECT ID, guid
             FROM {$wpdb->prefix}posts
             WHERE post_type = 'attachment'
-              AND (guid LIKE %s OR guid LIKE %s OR guid LIKE %s)
         ";
 
         $likePatterns = [
