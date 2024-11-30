@@ -65,21 +65,9 @@ class BSC_PPU_Processor
         $this->productManager->attachImages($product, $attachmentIds);
 
         $baseDir = BSC_PPU_Config::getUploadDirectory();
-
-        echo 'before logFile ';
-
         $logFile = $baseDir . '/FOTOS_PAG_WEB_NOMENCLATURA/process.log';
-
-        echo 'before  text ';
-
         $text = "Processed folder: $folder for product: {$product->get_name()} <br>";
-
-        echo 'before self in processFolder ';
         BSC_PPU_Init::log( $text, $logFile);
-
-    
-        echo 'after  logs in processFolder';
-
         echo "Processed folder: $folder for product: {$product->get_name()} <br>";
     }
 

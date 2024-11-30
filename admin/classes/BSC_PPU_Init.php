@@ -5,11 +5,11 @@ class BSC_PPU_Init
     public static function init()
     {
         $baseDir = BSC_PPU_Config::getUploadDirectory();
-        $logFile = $baseDir . '/FOTOS_PAG_WEB_NOMENCLATURA/process.log'; // Log file path
+        $logFile = $baseDir . '/product_photos_zips/process.log'; // Log file path
 
         // Ensure the directory exists
-        if (!file_exists($baseDir . '/FOTOS_PAG_WEB_NOMENCLATURA')) {
-            mkdir($baseDir . '/FOTOS_PAG_WEB_NOMENCLATURA', 0755, true);
+        if (!file_exists($baseDir . '/product_photos_zips')) {
+            mkdir($baseDir . '/product_photos_zips', 0755, true);
         }
 
         self::log("BSC_PPU_Init: Starting process.", $logFile);
