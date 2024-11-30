@@ -167,11 +167,9 @@ function do_render_admin_template()
                     <?php
                         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['process_photos_products'])) {
                             try {
-                                /*
+                              
                                 $command = "wp eval 'BSC_PPU_Init::init();' > /dev/null 2>&1 &";
                                 exec($command);
-                                */
-                                BSC_PPU_Init::init();
                                 echo "BSC_PPU_Init is running in the background.";
                                 echo '<p>Photos processed successfully.</p>';
                             } catch (Exception $e) {
