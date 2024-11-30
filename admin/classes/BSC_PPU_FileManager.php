@@ -57,9 +57,6 @@ class BSC_PPU_FileManager
         // Step 1: Delete existing folder
         if (file_exists($targetFolder) && is_dir($targetFolder)) {
             $this->deleteFolder($targetFolder);
-            echo '<br>';
-            echo '<h1>Hagame el HP Favor y Borra esto!!!!</h1>';
-            echo '<br>';
             echo "Deleted existing folder: $targetFolder<br>";
         }
 
