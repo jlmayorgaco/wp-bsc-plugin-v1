@@ -15,6 +15,6 @@ class BSC_PPU_Config
 
     public static function getBatchSize()
     {
-        return 25; 
+        return 100; 
     }
 }
