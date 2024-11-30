@@ -14,6 +14,7 @@ include_once plugin_dir_path(__FILE__) . 'classes/BSC_PPU_MediaManager.php';
 include_once plugin_dir_path(__FILE__) . 'classes/BSC_PPU_MediaCleaner.php';
 include_once plugin_dir_path(__FILE__) . 'classes/BSC_PPU_ProductManager.php';
 include_once plugin_dir_path(__FILE__) . 'classes/BSC_PPU_Processor.php';
+include_once plugin_dir_path(__FILE__) . 'classes/BSC_PPU_Init.php';
 
 
 
@@ -166,29 +167,7 @@ function do_render_admin_template()
                     <?php
                         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['process_photos_products'])) {
                             try {
-                                //$baseDir = BSC_PPU_Config::getUploadDirectory();
-
-                                $ppuPath = BSC_PPU_Config::getUploadDirectory();
-                                $ppuMediaCleaner = BSC_PPU_MediaCleaner::cleanMediaLibrary();
-                                $ppuIncompleteCleaner = BSC_PPU_MediaCleaner::cleanIncompleteMedia();
-                                $ppuFileManager = new BSC_PPU_FileManager($ppuPath);
-                                $ppuFileManager->cleanAndExtractZip();
-
-                                $ppuMediaManager = new BSC_PPU_MediaManager();
-                                $ppuProductManager = new BSC_PPU_ProductManager();
-
-                                $processor = new BSC_PPU_Processor(
-                                    fileManager: $ppuFileManager,
-                                    productManager: $ppuProductManager,
-                                    mediaManager: $ppuMediaManager,
-                                    batchSize: BSC_PPU_Config::getBatchSize()
-                                );
-
-                      
-                                $processor->process();
-
-                                
-                        
+                                BSC_PPU_Init::init();
                                 echo '<p>Photos processed successfully.</p>';
                             } catch (Exception $e) {
                                 echo '<p style="color:red;">Error: ' . $e->getMessage() . '</p>';
