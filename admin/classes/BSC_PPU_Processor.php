@@ -75,6 +75,8 @@ class BSC_PPU_Processor
 
         echo "Processed folder: $folder for product: {$product->get_name()}<br>";
     }
+
+    
 }
 
 

@@ -44,6 +44,40 @@ class BSC_PPU_MediaCleaner
   
         return $sql;
     }
+
+     /**
+     * Clean WordPress media library by deleting attachments without files.
+     */
+    public static function cleanIncompleteMedia()
+    {
+        global $wpdb;
+
+        // SQL query to find attachments without files
+        $sql = "
+            SELECT ID, guid
+            FROM {$wpdb->prefix}posts
+            WHERE post_type = 'attachment'
+              AND (guid LIKE %s OR post_title = '')
+        ";
+
+        // Pattern to match URLs that end with `/`
+        $likePattern = '%/%';
+
+        // Execute the query
+        $results = $wpdb->get_results($wpdb->prepare($sql, $likePattern));
+
+        if (!empty($results)) {
+            foreach ($results as $attachment) {
+                // Delete the attachment (doesn't delete any associated file since there isn't one)
+                wp_delete_attachment($attachment->ID, true);
+                echo "Deleted incomplete media: {$attachment->guid}<br>";
+            }
+        } else {
+            echo "No incomplete media found.<br>";
+        }
+
+        return $sql;
+    }
 }
 
 
