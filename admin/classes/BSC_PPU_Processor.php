@@ -65,15 +65,9 @@ class BSC_PPU_Processor
         }
 
         $this->productManager->clearImages($product);
-
-
-        echo '<br>';
-        echo '<h5> $product->get_name() '.$product->get_name().'</h5>';
-        echo '<br> ';
-
         $this->productManager->attachImages($product, $attachmentIds);
 
-        echo "Processed folder: $folder for product: {$product->get_name()}<br>";
+        echo "Processed folder: $folder for product: {$product->get_name()} <br>";
     }
 
     
