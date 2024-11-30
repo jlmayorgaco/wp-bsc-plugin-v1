@@ -27,6 +27,9 @@ class BSC_PPU_Processor
         $subfolders = $this->fileManager->getSubfolders();
         $limitedSubfolders = array_slice($subfolders, 0, $batchSize);
 
+        echo '$limitedSubfolders ';
+        var_dump($limitedSubfolders);
+
         foreach ($limitedSubfolders as $folder) {
             $folderName = basename($folder);
             if (!$this->fileManager->isFolderValid($folderName)) {
@@ -61,10 +64,14 @@ class BSC_PPU_Processor
         $this->productManager->clearImages($product);
         $this->productManager->attachImages($product, $attachmentIds);
 
+        echo 'before logs in processFolder ';
+
         $baseDir = BSC_PPU_Config::getUploadDirectory();
         $logFile = $baseDir . '/FOTOS_PAG_WEB_NOMENCLATURA/process.log';
         $text = "Processed folder: $folder for product: {$product->get_name()} <br>";
         self::log( $text, $logFile);
+
+        echo 'after  logs in processFolder';
 
         echo "Processed folder: $folder for product: {$product->get_name()} <br>";
     }
