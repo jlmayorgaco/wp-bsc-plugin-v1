@@ -72,7 +72,7 @@ class BSC_PPU_MediaCleaner
         if (!empty($results)) {
             foreach ($results as $attachment) {
                 // Delete the attachment (doesn't delete any associated file since there isn't one)
-                //wp_delete_attachment($attachment->ID, true);
+                wp_delete_attachment($attachment->ID, true);
                 echo "Deleted incomplete media: {$attachment->guid}<br>";
             }
         } else {
