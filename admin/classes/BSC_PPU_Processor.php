@@ -75,7 +75,7 @@ class BSC_PPU_Processor
         $text = "Processed folder: $folder for product: {$product->get_name()} <br>";
 
         echo 'before self in processFolder ';
-        self::log( $text, $logFile);
+        BSC_PPU_Init::log( $text, $logFile);
 
     
         echo 'after  logs in processFolder';
