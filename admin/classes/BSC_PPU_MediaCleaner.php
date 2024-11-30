@@ -66,10 +66,12 @@ class BSC_PPU_MediaCleaner
         // Execute the query
         $results = $wpdb->get_results($wpdb->prepare($sql, $likePattern));
 
+        var_dump($results);
+
         if (!empty($results)) {
             foreach ($results as $attachment) {
                 // Delete the attachment (doesn't delete any associated file since there isn't one)
-                wp_delete_attachment($attachment->ID, true);
+                //wp_delete_attachment($attachment->ID, true);
                 echo "Deleted incomplete media: {$attachment->guid}<br>";
             }
         } else {
