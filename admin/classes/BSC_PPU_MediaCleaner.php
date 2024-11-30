@@ -37,7 +37,6 @@ class BSC_PPU_MediaCleaner
             foreach ($results as $attachment) {
                 // Delete the attachment and the associated file
                 wp_delete_attachment($attachment->ID, true);
-                echo "Deleted media: {$attachment->guid}<br>";
             }
         } else {
             echo "No matching media found.<br>";

@@ -56,25 +56,21 @@ class BSC_PPU_Processor
         $files = $this->fileManager->getFilesInFolder($folder);
         $attachmentIds = [];
 
-        echo '<br>';
-        echo '<h5> $files </h5>';
-        echo '<br> ';
-        var_dump($files);
-
         foreach ($files as $file) {
-            /*
+            
             $attachmentId = $this->mediaManager->uploadImage($file);
             if ($attachmentId) {
                 $attachmentIds[] = $attachmentId;
             }
-            */
         }
+
+        $this->productManager->clearImages($product);
+
 
         echo '<br>';
         echo '<h5> $product->get_name() '.$product->get_name().'</h5>';
         echo '<br> ';
 
-        //$this->productManager->clearImages($product);
         //$this->productManager->attachImages($product, $attachmentIds);
 
         echo "Processed folder: $folder for product: {$product->get_name()}<br>";
