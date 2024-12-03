@@ -166,8 +166,6 @@ function upload_products_function($json)
 
     foreach ($categories_keys as $key) {
         $nodes = $json[$key];
-
-        
         foreach ($nodes as $node) {
             // Prepare product data
             $product_data = array(

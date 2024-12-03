@@ -60,7 +60,7 @@ function do_render_admin_template()
         <section class="bsc__section section__categories">
             <article class="categories__reset">
                 <header>
-                    <h1> CATEGORIAS v.1.0.4 CI CD WebHook </h1>
+                    <h1> CATEGORIAS v.1.0.5 CI CD WebHook </h1>
                     <hr>
                 </header>
                 <content>
@@ -167,9 +167,17 @@ function do_render_admin_template()
                     <?php
                         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['process_photos_products'])) {
                             try {
-                              
-                                $command = "wp eval 'BSC_PPU_Init::init();' > /dev/null 2>&1 &";
-                                exec($command);
+
+                                // Get the current domain
+                                $currentDomain = $_SERVER['HTTP_HOST'];
+                                // Check if the domain includes 'bsc.local'
+                                if (strpos($currentDomain, 'bsc.local') !== false) {
+                                    BSC_PPU_Init::init();
+                                } else {
+                                    $command = "wp eval 'BSC_PPU_Init::init();' > /dev/null 2>&1 &";
+                                    exec($command);
+                                }
+                               
                                 echo "BSC_PPU_Init is running in the background.";
                                 echo '<p>Photos processed successfully.</p>';
                             } catch (Exception $e) {

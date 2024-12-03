@@ -15,16 +15,74 @@ class CategoryUploader
 
             if ($this->categoryExists($node['SLUG'])) {
                 $prod =  term_exists($node['SLUG'], 'product_cat');
-                var_dump($prod);
                 $this->outputCategoryInfo($node);
+                $this->updateCategory($node);
                 continue;
+            } else {
+                $parentId = $this->getParentCategoryId($node['PARENT_SLUG'] ?? '');
+                $this->createCategory($node, $parentId);
             }
 
-            $parentId = $this->getParentCategoryId($node['PARENT_SLUG'] ?? '');
-            $this->createCategory($node, $parentId);
         }
 
         return $this->categoriesSeeded;
+    }
+
+    private function updateCategory($node){
+
+        // Retrieve the category by its slug
+        $category = get_term_by('slug', $node['SLUG'], 'product_cat');
+
+        if (!$category) {
+            $this->outputMessage("Category not found for update: " . $node['SLUG']);
+            return;
+        }
+
+        // Fetch parent ID if PARENT_SLUG exists
+        $parentId = 0;
+        if (!empty($node['PARENT_SLUG'])) {
+            $parentTerm = get_term_by('slug', $node['PARENT_SLUG'], 'product_cat');
+            $parentId = $parentTerm ? $parentTerm->term_id : 0;
+        }
+
+        // Update the category attributes
+        $args = [
+            'name'        => $node['LABEL'],
+            'description' => $node['DESCRIPTION'] ?? '',
+            'parent'      => $parentId,
+        ];
+
+        $result = wp_update_term($category->term_id, 'product_cat', $args);
+
+        if (is_wp_error($result)) {
+            $this->outputMessage("Error updating category: " . $result->get_error_message());
+        } else {
+            $this->outputMessage("Updated category: " . $node['LABEL']);
+        }
+
+        // Update additional meta fields
+        $this->updateCategoryMeta($category->term_id, $node);
+    }
+
+    private function updateCategoryMeta(int $categoryId, array $node): void
+    {
+        if (isset($node['BSC__HOW_TO_USE'])) {
+            update_term_meta($categoryId, 'bsc__how_to_use', $node['BSC__HOW_TO_USE']);
+        }
+    
+        if (isset($node['BSC__RUTINE_STEPS'])) {
+            update_term_meta($categoryId, 'bsc__rutine_steps', $node['BSC__RUTINE_STEPS']);
+        }
+    
+        if (isset($node['BSC__SKIN_TYPE'])) {
+            update_term_meta($categoryId, 'bsc__skin_type_root', $node['BSC__SKIN_TYPE']['root']);
+            update_term_meta($categoryId, 'bsc__skin_type_desc', $node['BSC__SKIN_TYPE']['desc']);
+        }
+    
+        // Handle the PICTURE custom field
+        if (isset($node['PICTURE'])) {
+            update_term_meta($categoryId, 'picture', $node['PICTURE']);
+        }
     }
 
     private function categoryExists(string $slug): bool
