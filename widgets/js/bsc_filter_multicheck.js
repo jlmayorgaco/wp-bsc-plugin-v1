@@ -107,6 +107,22 @@ const debounce = (callback, wait) => {
             ].filter(item => item)
         }
 
+
+        console.log(' ');
+				console.log(' PRE AJAX ajaxPayload ');
+				console.log({
+                   
+                        url: window.location.origin + '/wp-admin/admin-ajax.php', // WordPress AJAX URL
+                        type: 'POST',
+                        dataType: 'json',
+                        data: {
+                            action: 'my_ajax_function', // Action to trigger the AJAX handler,
+                            payload: ajaxPayload
+                        },
+                });
+				console.log(' ');
+
+
         // Make AJAX request when the document is ready
         jQuery.ajax({
             url: window.location.origin + '/wp-admin/admin-ajax.php', // WordPress AJAX URL
