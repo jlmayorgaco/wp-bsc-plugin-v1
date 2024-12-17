@@ -1,15 +1,19 @@
 <?php
 
 function load_my_scripts_once() {
-    // Get the URL to the plugin directory
-    $plugin_url = plugins_url('/', __FILE__);
+    // Check if the current URL includes '/product-category/'
+    if (strpos($_SERVER['REQUEST_URI'], '/product-category/') !== false) {
+        // Get the URL to the plugin directory
+        $plugin_url = plugins_url('/', __FILE__);
 
-    // Load JavaScript
-    wp_enqueue_script('bsc-filter-slider-script', $plugin_url . '../js/bsc_filter_slider.js' , array(), '1.0', true);
+        // Load JavaScript
+        wp_enqueue_script('bsc-filter-slider-script', $plugin_url . '../js/bsc_filter_slider.js', array(), '1.0', true);
 
-    // Load CSS
-    wp_enqueue_style('bsc-filter-slider-style', $plugin_url . '../css/bsc_filter_slider.css', array(), '1.0');
+        // Load CSS
+        wp_enqueue_style('bsc-filter-slider-style', $plugin_url . '../css/bsc_filter_slider.css', array(), '1.0');
+    }
 }
+add_action('wp_enqueue_scripts', 'load_my_scripts_once');
 
 // Hook into wp_enqueue_scripts or admin_enqueue_scripts depending on where you want to load the scripts
 add_action('wp_enqueue_scripts', 'load_my_scripts_once');
