@@ -9,82 +9,82 @@ const debounce = (callback, wait) => {
   }
 
   const doRenderProductCardHTML = (doc) => {
+    const { id, title, permalink, image, image_hover, price, categories_objects, categories, rating, rating_count } = doc;
 
- 
-    const marca = doc.categories_objects.find(obj => obj.slug.includes('marca'));
-
-    const id = doc.id;
-    const title = doc.title;
-    const priceStr = Number(doc.price).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    const price = `$ ${priceStr}`;
-    const permalink = doc.permalink;
-    const image = doc.image;
-    const categories = doc.categories;
-
-    // Generate HTML for category badges
+    const brand = categories_objects.find(obj => obj.slug.includes('marca'))?.name || "_";
+    const formattedPrice = `$ ${Number(price).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
     const categoryBadges = categories.map(category => `<span class="category-badge">${category}</span>`).join('');
-    const categoryKoreanRutine = doc.categories_objects.find(item => item['bsc__rutine_steps']);
-    const step = categoryKoreanRutine?.bsc__rutine_steps;
-    let stepHTML = ` `;
-    let marcaHTML = `<h1 class="product__brand"> _ </h1>`;
-    if(marca && marca.name){
-        marcaHTML = `<h1 class="product__brand"> ${marca.name} </h1>`
-    }
-    /*
-    if(step){
-        stepHTML = `<h2 class="product__subtitle"> ${step}</h2>`;
-    } else {
-        stepHTML = '<h2 class="product__subtitle"> </div>';
-    }*/
 
-    return `<li class="bsc__product product">
-                <a class="product__container" href="${permalink}">
+    // Generate star rating HTML
+    const ratingHTML = generateStarRating(rating);
 
-                     <div class="product__thumb">
-                        <div class="thumb__content">
-                            <img src="${image}" alt="">
-                        </div>
-                        <div class="thumb__hover">
-                                <div class="hover__row1 product-item__description--actions"> 
-                                  <a href="https://bubblesskincare.com/lista-de-deseos/" 
-                                    data-product-id="${id}" 
-                                    data-product-type="simple" 
-                                    data-wishlist-url="https://bubblesskincare.com/lista-de-deseos/" 
-                                    data-browse-wishlist-text="Ver tu lista de deseos" 
-                                    class="nova_product_wishlist_btn" rel="nofollow" 
-                                    style="opacity: 1; zoom: 1;">
-                                        <i class="inova ic-favorite"></i>
-                                </a>
-                                <a href="${permalink}" class="nova_product_quick_view_btn2" >
-                                        <i class="inova ic-zoom"></i>
-                                    </a>
-                                </div>
-                                <div class="hover__row2"> 
-                                
-                                    <div class="product-item__description--button">
-                                            <a href="?add-to-cart=${id}" data-quantity="1" data-product_id="${id}" data-product_sku=""
-                                            class="button product_type_simple add_to_cart_button ajax_add_to_cart" 
-                                            aria-label="Añadir al carrito: “${title}”" 
-                                            aria-describedby="" rel="nofollow"
-                                            >
-                                            ¡ Lo Quiero !
-                                            </a>
-                                    </div>
+    return `
+        <li class="bsc__product product">
+            <a class="product__container" href="${permalink}">
 
-                                </div>
-                        </div>
+                <div class="product__thumb">
+                    <div class="thumb__content">
+                        <img src="${image}" alt="${title}" class="product-img" data-hover="${image_hover}">
                     </div>
-                        
-                    <h1 class="product__title"> ${title} </h1>
-                    ${marcaHTML}
-                    ${stepHTML}
-                    <h3 class="product__price"> ${price}  </h3>
-                    <div class="category-badges">${categoryBadges}</div>
-                </a>
+                </div>
 
-            
-            </li>`
-  }
+                <div class="product__rating">
+                    ${ratingHTML}
+                    <span class="rating-count">(${rating_count || 0})</span>
+                </div>
+
+                <h1 class="product__title">${title}</h1>
+                <h1 class="product__brand">${brand}</h1>
+                <h3 class="product__price">${formattedPrice}</h3>
+                <div class="category-badges" style="display:none">${categoryBadges}</div>
+
+                <div class="product-item__description--button">
+                    <button data-product-id="${id}" class="add_to_cart_button--bsc">
+                        agregar al carrito
+                    </button>
+                    <span class="cart-loading-spinner" style="display:none;"></span>
+                    <span class="cart-success-message" style="display:none;">¡Añadido!</span>
+                </div>
+            </a>
+        </li>`;
+};
+
+/**
+ * Generates star rating HTML based on the rating value.
+ * Supports half stars if the rating is a decimal.
+ * @param {number} rating - The rating value (0 to 5).
+ * @returns {string} - HTML string for the star rating.
+ */
+const generateStarRating = (rating, ratingCount) => {
+    if (!rating) {
+        return `<div class="star-rating placeholder"></div>`; // Keeps spacing consistent
+    }
+
+    const fullStars = Math.floor(rating);
+    const halfStar = rating % 1 !== 0;
+    const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
+
+    let starsHTML = '';
+
+    // Full stars ⭐
+    for (let i = 0; i < fullStars; i++) {
+        starsHTML += `<i class="star full-star">★</i>`;
+    }
+
+    // Half star ⭐½
+    if (halfStar) {
+        starsHTML += `<i class="star half-star">☆</i>`;
+    }
+
+    // Empty stars ☆
+    for (let i = 0; i < emptyStars; i++) {
+        starsHTML += `<i class="star empty-star">☆</i>`;
+    }
+
+    return `<div class="star-rating">${starsHTML} <span class="rating-count">(${ratingCount})</span></div>`;
+};
+
+
 
   const handleDoAjax = debounce((filterBSC) => {
 
@@ -376,3 +376,10 @@ jQuery('.multicheck__option input[type="radio"]').change(function($event) {
     filtersBSC.doSetFilterStatusById($event.target.id, payload);
 
 })
+
+
+
+
+
+
+
