@@ -19,7 +19,9 @@
 
 defined( 'ABSPATH' ) || exit;
 ?>
-
+<br>
+<br>
+<br>
 <div class="woocommerce-order">
 
 	<?php
@@ -46,12 +48,12 @@ defined( 'ABSPATH' ) || exit;
 			<ul class="woocommerce-order-overview woocommerce-thankyou-order-details order_details">
 
 				<li class="woocommerce-order-overview__order order">
-					<?php esc_html_e( 'Order number:', 'woocommerce' ); ?>
+					<?php esc_html_e( 'Número de orden:', 'woocommerce' ); ?>
 					<strong><?php echo $order->get_order_number(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></strong>
 				</li>
 
 				<li class="woocommerce-order-overview__date date">
-					<?php esc_html_e( 'Date:', 'woocommerce' ); ?>
+					<?php esc_html_e( 'Fecha:', 'woocommerce' ); ?>
 					<strong><?php echo wc_format_datetime( $order->get_date_created() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></strong>
 				</li>
 
@@ -69,7 +71,7 @@ defined( 'ABSPATH' ) || exit;
 
 				<?php if ( $order->get_payment_method_title() ) : ?>
 					<li class="woocommerce-order-overview__payment-method method">
-						<?php esc_html_e( 'Payment method:', 'woocommerce' ); ?>
+						<?php esc_html_e( 'Metodo de Pago:', 'woocommerce' ); ?>
 						<strong><?php echo wp_kses_post( $order->get_payment_method_title() ); ?></strong>
 					</li>
 				<?php endif; ?>
