@@ -98,7 +98,7 @@ function my_ajax_function()
                 'price' => $product->get_price(),
                 'categories' => $product_categories, // Product categories
                 'categories_objects' => $products_categories_objs,
-                'image' => !empty($product_images) ? $product_images[0] : plugins_url( '/../../assets/images/product-placeholder-wp.jpg', __FILE__ ), // Product image URL
+                'image' => !empty($product_images) ? $product_images[0] : plugins_url( '/../../assets/images/bsc__product_placeholder.jpeg', __FILE__ ), // Product image URL
                 // Add more product data fields as needed
             );
 
