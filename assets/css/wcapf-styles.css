@@ -262,17 +262,50 @@ ul.products{
 	align-items: center;
 	justify-content: center;
 
+
+
+}
+
+
+.bsc__heart-icon-rating{
+	width: 16px !important;
+}
+
+.star-rating{
+	width: 10em !important;
 }
 
 .product-item__description--button{
 	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .product-item__description--button button{
-	width: 100%;
+	width: fit-content;
+	font-family: "Helvetica", sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #FFFFFF;
+    background-color: #333333;
+    border-color: #02010100;
+	padding-top: 12px !important;
+	padding-bottom: 12px !important;
+	padding-right: 24px;
+	padding-left: 24px;
 }
-
-
+.woocommerce .star-rating:before, .woocommerce .wc-block-grid__product-rating__stars:before {
+    content: "" !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: var(--site-border-color);
+}
+.wc-block-grid__product-rating__stars{
+	width: 7em;
+}
 
 .star-rating {
     display: flex;
@@ -327,14 +360,19 @@ ul.products{
 	padding-left: 1px;
     padding-right: 1px;
 
-	text-align: left;
+	text-align: center;
 
 	text-overflow: ellipsis; /* enables ellipsis */
 	white-space: nowrap; /* keeps the text in a single line */
 	overflow: hidden; /* keeps the element from overflowing its parent */
 
 }
-
+.product__rating{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 12px 0px;
+}
 .product__brand{
 	font-weight: 900;
 }
@@ -365,15 +403,20 @@ ul.products{
 	margin: 0px;
 	margin-top: 10px;
 	margin-bottom: 5px;
-	padding: 0px;
+	padding: 12px 0px;
 	font-family: 'Helvetica';
 	font-size: 20px;
 	font-weight: 900;
 	letter-spacing: 1px;
 	line-height: 100%;
 	color: #333333;
-	text-align: left;
+	text-align: center;
 
+}
+
+.add_to_cart_button--bsc button:hover, .product-item__description--button button:hover {
+	background-color: white !important;
+	color: black !important;
 }
 .bsc__product-detail-category{
 	padding-top: 12px;
