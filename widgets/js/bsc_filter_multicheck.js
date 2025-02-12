@@ -16,7 +16,8 @@ const debounce = (callback, wait) => {
     const categoryBadges = categories.map(category => `<span class="category-badge">${category}</span>`).join('');
 
     // Generate star rating HTML
-    const ratingHTML = generateStarRating(rating);
+   //const ratingHTML = generateStarRating(rating);
+   const ratingHTML = generateStarRating(3);
 
     return `
         <li class="bsc__product product">
@@ -30,7 +31,7 @@ const debounce = (callback, wait) => {
 
                 <div class="product__rating">
                     ${ratingHTML}
-                    <span class="rating-count">(${rating_count || 0})</span>
+                    <!-- <span class="rating-count">(${rating_count || 0})</span> -->
                 </div>
 
                 <h1 class="product__title">${title}</h1>
@@ -40,7 +41,7 @@ const debounce = (callback, wait) => {
 
                 <div class="product-item__description--button">
                     <button data-product-id="${id}" class="add_to_cart_button--bsc">
-                        agregar al carrito
+                        ¡ agregar al carrito !
                     </button>
                     <span class="cart-loading-spinner" style="display:none;"></span>
                     <span class="cart-success-message" style="display:none;">¡Añadido!</span>
@@ -62,26 +63,34 @@ const generateStarRating = (rating, ratingCount) => {
 
     const fullStars = Math.floor(rating);
     const halfStar = rating % 1 !== 0;
-    const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
+    //const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
+    const emptyStars = 5 - fullStars;
 
-    let starsHTML = '';
+    let starsHTML = ''; //http://bsc.local/wp-content/plugins/wp-bsc-plugin-v1/assets/images/bsc__product_placeholder.jpeg
 
     // Full stars ⭐
     for (let i = 0; i < fullStars; i++) {
-        starsHTML += `<i class="star full-star">★</i>`;
+        starsHTML += `<i class="star full-star">
+            <img class="bsc__heart-icon-rating" src="http://bsc.local/wp-content/plugins/wp-bsc-plugin-v1/assets/images/2.png">
+        </i>`;
     }
 
     // Half star ⭐½
     if (halfStar) {
-        starsHTML += `<i class="star half-star">☆</i>`;
+        starsHTML += `<i class="star half-star">
+            <img class="bsc__heart-icon-rating" src="http://bsc.local/wp-content/plugins/wp-bsc-plugin-v1/assets/images/1.png">
+        </i>`;
     }
 
     // Empty stars ☆
-    for (let i = 0; i < emptyStars; i++) {
-        starsHTML += `<i class="star empty-star">☆</i>`;
+    for (let ik = 0; ik < emptyStars; ik++) {
+        starsHTML += `<i class="star empty-star">
+             <img class="bsc__heart-icon-rating" 
+                   src="http://bsc.local/wp-content/plugins/wp-bsc-plugin-v1/assets/images/1.png">
+        </i>`;
     }
 
-    return `<div class="star-rating">${starsHTML} <span class="rating-count">(${ratingCount})</span></div>`;
+    return `<div class="star-rating"> ${starsHTML} </div>`;
 };
 
 
@@ -296,6 +305,7 @@ filtersBSC.doInit();
 
 
 jQuery(document).ready(function() {
+
     const container = document.querySelector('ul.products');
     if(container){
         const group = document.querySelector('[bsc-wcfp-group]').getAttribute('bsc-wcfp-group')
@@ -313,6 +323,8 @@ jQuery(document).ready(function() {
 
         filtersBSC.doAjax();
     } 
+
+    setTimeout(() => {  onLoadSetupOnHoverCards() }, 2000);
 
 });
 
@@ -377,6 +389,32 @@ jQuery('.multicheck__option input[type="radio"]').change(function($event) {
 
 })
 
+
+
+
+function onLoadSetupOnHoverCards() {
+    const thumbContents = document.querySelectorAll(".bsc__product .thumb__content");
+    thumbContents.forEach((thumbContent) => {
+        const img = thumbContent.querySelector(".product-img");
+        console.log(' img => ', img)
+        // Attach hover event only if data-hover exists
+        if (img && img.dataset.hover) {
+            thumbContent.addEventListener("mouseover", () => {
+                console.log("Image hover start:", img.src);
+                img.dataset.original = img.src;  // Store the original src
+                img.src = img.dataset.hover;     // Change src to the hover image
+                console.log("Image changed to:", img.src);
+            });
+
+            thumbContent.addEventListener("mouseout", () => {
+                console.log("Image hover end:", img.src);
+                img.src = img.dataset.original;  // Restore the original src
+                console.log("Image reverted to:", img.src);
+            });
+        }
+    });
+
+}
 
 
 
