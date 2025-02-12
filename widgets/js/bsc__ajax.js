@@ -1,5 +1,9 @@
 
 document.addEventListener("DOMContentLoaded", () => {
+
+
+
+
     document.body.addEventListener("click", function (event) {
         const addToCartBtn = event.target.closest(".add_to_cart_button--bsc");
 
@@ -78,4 +82,5 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 });
+
 
