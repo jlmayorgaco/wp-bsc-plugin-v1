@@ -1,0 +1,243 @@
+.bsc__tabs {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.bsc__tabs-nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 10px;
+    list-style: none;
+    padding: 0;
+}
+
+.bsc__tab {
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.bsc__tab img {
+    width: 60px;
+    height: auto;
+    transition: all 0.3s ease-in-out;
+}
+
+.bsc__tab:hover img {
+    content: attr(data-hover);
+}
+
+.bsc__tab.active img {
+    content: attr(data-active);
+}
+
+.bsc__tab-content {
+    display: none;
+}
+
+.bsc__tab-content.active {
+    display: block;
+}
+
+.bsc__product-slider {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    padding: 10px 0;
+    scrollbar-width: thin;
+    scrollbar-color: #ddd transparent;
+}
+
+.bsc__product-slider::-webkit-scrollbar {
+    height: 6px;
+}
+
+.bsc__product-slider--simple .bsc__product {
+    display: block;
+    width: calc(33.33333% - 2em);
+    min-width: 202px !important;
+    margin-right: 1em;
+}
+
+
+
+.bsc__section--product-slider-tabs .bsc__product {
+    display: block;
+    width: calc(33.33333% - 2em);
+    min-width: 202px !important;
+    margin-right: 1em;
+}
+
+.bsc__section--product-slider-tabs .bsc__product {
+    --bsc--product-w: 100%;
+    --bsc--product-h: 225px;
+}
+
+.bsc__tabs-nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px 0;
+}
+
+.bsc__tab {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.bsc__tab:hover {
+    /*transform: scale(1.1);*/
+}
+
+.bsc__tab-icon {
+    width: 90px;
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bsc__tab-svg {
+    transition: filter 0.3s ease-in-out;
+}
+
+/* Hover Effect - Change SVG Color */
+.bsc__tab:hover .bsc__tab-svg {
+    filter: invert(36%) sepia(79%) saturate(500%) hue-rotate(180deg);
+}
+
+/* Active Tab Effect */
+.bsc__tab.active .bsc__tab-svg {
+    filter: invert(55%) sepia(99%) saturate(800%) hue-rotate(220deg);
+}
+
+
+.bsc__slider-tab--icon{ 
+    width: 90px !important;
+    height: 90px  !important;
+}
+.bsc__slider-tab--title {
+    box-sizing: border-box;
+    color: rgb(51, 51, 51);
+    cursor: pointer;
+    display: block;
+    flex-basis: 100%;
+    flex-grow: 1;
+    flex-shrink: 1;
+    font-family: Helvetica, sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    height: 27.625px;
+    line-height: 27.625px;
+    list-style-position: outside;
+    list-style-type: none;
+    margin: 0; /* margin-top, margin-right, margin-bottom, margin-left all set to 0 */
+    overflow-wrap: break-word;
+    text-align: center;
+    text-size-adjust: 100%;
+    width: 130.445px;
+    -webkit-box-flex: 1;
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+
+
+.bsc__slider-tab--icon {
+    -webkit-mask-image: url('http://bsc.local/wp-content/plugins/wp-bsc-plugin-v1/assets/svg/tab_category_icon__piel_seca.svg');
+    mask-image: url('http://bsc.local/wp-content/plugins/wp-bsc-plugin-v1/assets/svg/tab_category_icon__piel_seca.svg');
+    background-color: white; /* Change this to the desired color */
+    width: 100px;
+    height: 100px;
+}
+
+.bsc__slider-tab--icon:hover {
+    background-color: blue; /* Change color on hover */
+}
+
+
+
+.bsc__tab-icon .cls-1 {
+    fill: #ffffff; /* Default color for main icon */
+    transition: fill 0.3s ease-in-out; /* Smooth transition */
+}
+
+.bsc__tab-icon .cls-2 {
+    fill: #333333; /* Default color for borders */
+    transition: fill 0.3s ease-in-out;
+}
+
+/* Piel Seca */
+.bsc__tab[data-tab="piel_seca"] .cls-1 { fill: white; }
+.bsc__tab[data-tab="piel_seca"] .cls-2 { fill: #333333; }
+.bsc__tab[data-tab="piel_seca"]:hover .cls-1,
+.bsc__tab[data-tab="piel_seca"].active .cls-1 { fill: #BAE5F1; } /* Light Blue */
+
+/* Piel Normal */
+.bsc__tab[data-tab="piel_normal"] .cls-1 { fill: white; }
+.bsc__tab[data-tab="piel_normal"] .cls-2 { fill: #333333; }
+.bsc__tab[data-tab="piel_normal"]:hover .cls-1,
+.bsc__tab[data-tab="piel_normal"].active .cls-1 { fill: #F7C0CD; } /* Pink */
+
+/* Piel Mixta */
+.bsc__tab[data-tab="piel_mixta"] .cls-1 { fill: white; }
+.bsc__tab[data-tab="piel_mixta"] .cls-2 { fill: #333333; }
+.bsc__tab[data-tab="piel_mixta"]:hover .cls-1,
+.bsc__tab[data-tab="piel_mixta"].active .cls-1 { fill: #FFF3C2; } /* Yellow */
+
+/* Piel Grasa */
+.bsc__tab[data-tab="piel_grasa"] .cls-1 { fill: white; }
+.bsc__tab[data-tab="piel_grasa"] .cls-2 { fill: #333333; }
+.bsc__tab[data-tab="piel_grasa"]:hover .cls-1,
+.bsc__tab[data-tab="piel_grasa"].active .cls-1 { fill: #C9EEE7; } /* Light Teal */
+
+/* Hair Care */
+.bsc__tab[data-tab="hair_care"] .cls-1 { fill: white; }
+.bsc__tab[data-tab="hair_care"] .cls-2 { fill: #333333; }
+.bsc__tab[data-tab="hair_care"]:hover .cls-1,
+.bsc__tab[data-tab="hair_care"].active .cls-1 { fill: #FFCA96; } /* Orange */
+
+/* Maquillaje */
+.bsc__tab[data-tab="maquillaje"] .cls-1 { fill: white; }
+.bsc__tab[data-tab="maquillaje"] .cls-2 { fill: #333333; }
+.bsc__tab[data-tab="maquillaje"]:hover .cls-1,
+.bsc__tab[data-tab="maquillaje"].active .cls-1 { fill: #BAE5F1; } /* Light Blue */
+
+
+.bsc__tab .cls-1 {
+    transition: fill 0.3s ease-in-out;
+}
+
+
+
+/* Hide inactive tab content */
+.bsc__tab-content {
+    display: none;
+}
+
+/* Active tab content is visible */
+.bsc__tab-content.active {
+    display: block;
+}
+
+/* Default inactive tab */
+.bsc__tab {
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+/* Hover effect */
+.bsc__tab:hover {
+    opacity: 0.8;
+}
+
+/* Active tab style */
+.bsc__tab.active {
+    opacity: 1;
+    font-weight: bold;
+}
