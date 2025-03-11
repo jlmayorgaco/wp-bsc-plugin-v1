@@ -1,0 +1,79 @@
+.bsc__product-slider {
+    display: flex;
+    overflow-x: auto;  /* Enable horizontal scrolling if needed */
+    gap: 15px; /* Space between products */
+    padding: 10px 0;
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: #ddd transparent;
+}
+
+/* Hide scrollbar for Webkit browsers */
+.bsc__product-slider::-webkit-scrollbar {
+    height: 6px;
+}
+
+.bsc__product-slider::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.bsc__product-slider::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 3px;
+}
+
+.bsc__product-slider--simple .bsc__product {
+    --bsc--product-w: 100%;
+    --bsc--product-h: 225px;
+}
+.bsc__product-slider--simple .bsc__product {
+    display: block;
+    width: calc(33.33333% - 2em);
+    min-width: 202px !important;
+    margin-right: 1em;
+}
+
+.bsc__product:hover {
+    /*transform: scale(1.05);*/ /* Subtle zoom effect */
+}
+
+/* Ensure product images are contained properly */
+.bsc__product img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Add smooth scrolling */
+.bsc__product-slider {
+     /* scroll-behavior: smooth; */
+}
+
+/* Optional: Make products snap into place when scrolling */
+.bsc__product-slider {
+    /* scroll-snap-type: x mandatory; */
+}
+
+.bsc__product {
+    /* scroll-snap-align: start; */
+}
+
+
+.bsc__section-title.section-title h1{
+    font-family: "Helvetica", sans-serif;
+    font-size: 23px;
+    font-weight: 400;
+    letter-spacing: 2.5px;
+}
+
+.bsc__section-title.section-title{
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+
+    margin-top: 20px;
+}
+
+.bsc__section-title.section-title img{
+    display: block;
+    margin: 0 auto;
+}
