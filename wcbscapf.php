@@ -76,6 +76,7 @@ class WC_BSC_Plugin {
 	private function init_widgets(){
 		//include_once WC_BSC_PLUGIN_PATH . 'widgets/_widgets.php';
 		include_once WC_BSC_PLUGIN_PATH . 'widgets/widget-bsc-wc-shop-product-filters/_index.php';
+		include_once WC_BSC_PLUGIN_PATH . 'widgets/widget-bsc-wc-shop-products-slider/_index.php';
 	}
 
     private function init_hooks() {
