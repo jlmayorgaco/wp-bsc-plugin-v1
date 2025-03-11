@@ -89,17 +89,21 @@ function my_ajax_function()
 
             // Get product images
             $product_images = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()), 'single-post-thumbnail');
+            $product_images_2 = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()), 'single-post-thumbnail');
+            //FIX THIS, AND RATING
 
             // Collect product data
             $product_data = array(
                 'id' => $id,
                 'title' => get_the_title(),
+                'rating' => 2,
                 'permalink' => get_permalink(),
                 'price' => $product->get_price(),
                 'categories' => $product_categories, // Product categories
                 'categories_objects' => $products_categories_objs,
                 'image' => !empty($product_images) ? $product_images[0] : plugins_url( '/../../assets/images/bsc__product_placeholder.jpeg?query_photo_index=0', __FILE__ ), // Product image URL
-                'image_hover' => !empty($product_images) ? $product_images[1] : plugins_url( '/../../assets/images/bsc__product_placeholder.jpeg?query_photo_index=1', __FILE__ ), // Product image URL
+                'image_hover' => !empty($product_images_2) ? $product_images_2[0] : plugins_url( '/../../assets/images/bsc__product_placeholder.jpeg?query_photo_index=0', __FILE__ ), // Product image URL // Product image URL
+                //'image_hover' => !empty($product_images) ? $product_images[1] : plugins_url( '/../../assets/images/bsc__product_placeholder.jpeg?query_photo_index=1', __FILE__ ), // Product image URL
                 // Add more product data fields as needed
             );
 
