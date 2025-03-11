@@ -17,7 +17,7 @@ const debounce = (callback, wait) => {
 
     // Generate star rating HTML
    //const ratingHTML = generateStarRating(rating);
-   const ratingHTML = generateStarRating(3);
+   const ratingHTML = generateStarRating(rating);
 
     return `
         <li class="bsc__product product">
@@ -71,14 +71,14 @@ const generateStarRating = (rating, ratingCount) => {
     // Full stars ⭐
     for (let i = 0; i < fullStars; i++) {
         starsHTML += `<i class="star full-star">
-            <img class="bsc__heart-icon-rating" src="http://bsc.local/wp-content/plugins/wp-bsc-plugin-v1/assets/images/2.png">
+            <img class="bsc__heart-icon-rating" src="/wp-content/plugins/wp-bsc-plugin-v1/assets/images/2.png">
         </i>`;
     }
 
     // Half star ⭐½
     if (halfStar) {
         starsHTML += `<i class="star half-star">
-            <img class="bsc__heart-icon-rating" src="http://bsc.local/wp-content/plugins/wp-bsc-plugin-v1/assets/images/1.png">
+            <img class="bsc__heart-icon-rating" src="/wp-content/plugins/wp-bsc-plugin-v1/assets/images/1.png">
         </i>`;
     }
 
